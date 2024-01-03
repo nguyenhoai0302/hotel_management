@@ -33,4 +33,5 @@ class UserModel extends ConnectDB
         return mysqli_query($this->connect(),$sql);
     }
 }
+
 ?>

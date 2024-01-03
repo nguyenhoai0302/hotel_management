@@ -1,0 +1,80 @@
+<?php
+ include 'models/UserModel.php';
+ include 'utils/helpers.php';
+class UserController
+{
+    private $model;
+    private $libs;
+    public function __construct()
+    {
+        $this->model = new UserModel();
+        $this->libs = new LibCommon();
+    }
+
+    function handleRequest()
+    {
+
+        $action = isset($_GET['action']) ? $_GET['action'] : 'list';
+
+        switch ($action) {
+            case 'list':
+               $this->getListUser();
+                break;
+            case 'create':
+                $this->createUser();
+                break;
+            case 'edit':
+                $this->editUser($_GET['id']);
+                break;
+            case 'delete':
+                $this->deleteUser($_GET['id']);
+                break;
+            default:
+                # code...
+                break;
+        }
+    }
+
+    private function getListUser()
+    {
+        $users = $this->model->getList(); // Lấy toàn bộ user từ database.
+        include 'views/admin/users/list.view.php'; // views đã có giá trị users
+    }
+
+    private function createUser()
+    {
+        if (isset($_POST['create'])) {
+            $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+            $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
+            $gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
+            $birthday = filter_input(INPUT_POST, 'birthday', FILTER_SANITIZE_STRING);
+            $role = filter_input(INPUT_POST, 'role', FILTER_SANITIZE_STRING);
+            $status = filter_input(INPUT_POST, 'status', FILTER_SANITIZE_STRING);
+            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+            $passwordAgain = filter_input(INPUT_POST, 'passwordAgain', FILTER_SANITIZE_STRING);
+            $avatar = $_FILES['avatar']['name'];
+
+            if ($name != '' && $email != '' && $gender != '' && $birthday != '' && $role != '' && $status != '' && $password != '' && $passwordAgain != '' && $phone != '') {
+                $createUser = $this->model->register($name,$email,$avatar,$phone,$gender,$birthday,$role,$status,$password);
+                if ($createUser) {
+                    move_uploaded_file($_FILES['avatar']['tmp_name'], 'assets/uploads/users/'.$avatar);
+                    $this->libs->redirectPage('admin.php?controller=users&action=list');
+                }
+            }
+        }
+        include 'views/admin/users/create.view.php';
+    }
+
+    private function editUser($id)
+    {
+        $user = $this->model->getUser($id);
+    }
+
+    private function deleteUser($id)
+    {
+        $this->model->deleteUser($id);
+        $this->libs->redirectPage('admin.php?controller=users&action=list');
+    }
+}
+
