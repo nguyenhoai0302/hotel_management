@@ -35,14 +35,12 @@ class UserController
         }
     }
 
-    private function getListUser()
-    {
+    private function getListUser() {
         $users = $this->model->getList(); // Lấy toàn bộ user từ database.
         include 'views/admin/users/list.view.php'; // views đã có giá trị users
     }
 
-    private function createUser()
-    {
+    private function createUser() {
         if (isset($_POST['create'])) {
             $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
             $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
@@ -94,8 +92,7 @@ class UserController
         include 'views/admin/users/edit.view.php';
     }
 
-    private function deleteUser($id)
-    {
+    private function deleteUser($id) {
         $this->model->deleteUser($id);
         $this->libs->redirectPage('admin.php?controller=users&action=list');
     }

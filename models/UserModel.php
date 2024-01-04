@@ -45,6 +45,8 @@ class UserModel extends ConnectDB
         $sql = "DELETE FROM users WHERE id = $id";
         return mysqli_query($this->connect(),$sql);
     }
+
+
 }
 
 ?>
