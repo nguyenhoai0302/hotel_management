@@ -18,6 +18,18 @@ class UserModel extends ConnectDB
         return mysqli_query($this->connect(),$sql);
     }
 
+    //lấy ra user
+    function getUserById($id) {
+        $sql = "SELECT * FROM users WHERE id = $id";
+        return mysqli_query($this->connect(), $sql);
+    }
+
+    //edit user
+    function editUser($id,$name,$email,$phone,$role,$gender,$birthday,$avatar,$password,$updated_at) {
+        $sql = "UPDATE users SET name = '$name', email = '$email', phone = '$phone', role = '$role', gender ='$gender', birthday = '$birthday', avatar = '$avatar', password = '$password', updated_at = '$updated_at' WHERE id = $id";
+        return mysqli_query($this->connect(),$sql);
+    }
+
     function getList() {
         $sql = "SELECT * FROM users";
         return mysqli_query($this->connect(),$sql);
@@ -27,7 +39,8 @@ class UserModel extends ConnectDB
         $sql = "SELECT * FROM users WHERE id = $id";
         return mysqli_query($this->connect(),$sql);
     }
-
+    
+    //deleta user
     function deleteUser($id) {
         $sql = "DELETE FROM users WHERE id = $id";
         return mysqli_query($this->connect(),$sql);

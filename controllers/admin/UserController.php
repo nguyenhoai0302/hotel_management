@@ -66,9 +66,32 @@ class UserController
         include 'views/admin/users/create.view.php';
     }
 
-    private function editUser($id)
-    {
-        $user = $this->model->getUser($id);
+    private function editUser($id) {
+        $userById = $this->model->getUserById($id);
+        $oldUser = $userById->fetch_assoc();
+    
+        if (isset($_POST['edit'])) {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $role = $_POST['role'];
+            $gender = $_POST['gender'];
+            $birthday = $_POST['birthday'];
+            $password = $_POST['password'];
+            $avatar = $oldUser['avatar'];
+            $update_at = date('Y-m-d h:i:s');
+    
+            if($name != '' && $email != '' && $phone != '' && $role != '' && $gender != '' && $birthday != '' && $password != '') {
+                $avatar = $_FILES['avatar']['name'];
+                move_uploaded_file($_FILES['avatar']['tmp_name'], 'uploads/'.$avatar);
+                $checkAdd = $this->model->editUser($id,$name,$email,$phone,$role,$gender,$birthday,$avatar,$password,$update_at);
+                if($checkAdd === TRUE) {
+                    $this->libs->redirectPage('admin.php?controller=users&action=list');
+                }					
+            }
+        }
+    
+        include 'views/admin/users/edit.view.php';
     }
 
     private function deleteUser($id)
