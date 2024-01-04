@@ -4,7 +4,7 @@ class ConnectDB {
     private $server = 'localhost';
     private $username = 'root';
     private $password = '';
-    private $database = 'hoteldb';
+    private $database = 'hotel_management';
     protected function connect() {
         $connect = mysqli_connect($this->server,
             $this->username,
