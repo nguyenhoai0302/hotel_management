@@ -1,3 +1,4 @@
 <?php
-require 'utils/url.php';
-require 'routes/web.route.php';
+// require 'utils/url.php';
+// require 'routes/web.route.php';
+echo "hello";
