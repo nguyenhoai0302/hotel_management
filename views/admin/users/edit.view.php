@@ -22,7 +22,7 @@ require 'views/admin/partials/header.view.php'
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
-                        <input name="name" class="form-control" placeholder="Tên đăng nhập" type="text" value="<?php echo $oldUser['name'];?>">
+                        <input name="name" class="form-control" placeholder="User Name" type="text" value="<?php echo $oldUser['name'];?>">
                     </div>
 
                     <!-- Email -->
@@ -68,7 +68,7 @@ require 'views/admin/partials/header.view.php'
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
                         </div>
-                        <input class="form-control" name="birthday" placeholder="Ngày sinh" type="date" value="<?php echo $oldUser['birthday'];?>">
+                        <input class="form-control" name="birthday" placeholder="Birthday" type="date" value="<?php echo $oldUser['birthday'];?>">
                     </div>
 
                     <!-- Avatar -->
@@ -85,7 +85,7 @@ require 'views/admin/partials/header.view.php'
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-lock"></i></span>
                         </div>
-                        <input class="form-control" name="password" placeholder="Nhập mật khẩu" type="password" value="<?php echo $oldUser['password'];?>">
+                        <input class="form-control" name="password" placeholder="Password" type="password" value="<?php echo $oldUser['password'];?>">
                     </div>
 
                     <!-- Save Button -->
