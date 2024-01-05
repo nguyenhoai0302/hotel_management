@@ -19,9 +19,9 @@
                     case 'list':
                         $this->getListBooking();
                         break;
-                    case 'create':
-                        $this->createBooking();
-                        break;
+                    // case 'create':
+                    //     $this->createBooking();
+                    //     break;
                     case 'edit':
                         $this->editBooking($_GET['id']);
                         break;
@@ -40,27 +40,27 @@
                 include 'views/admin/bookings/list.view.php'; // views đã có giá trị users
             }
 
-            private function createBooking()
-            {
-                if (isset($_POST['create'])) {
-                    $userId = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_STRING);
-                    $roomId = filter_input(INPUT_POST, 'roomid', FILTER_SANITIZE_STRING);
-                    $dateIn = filter_input(INPUT_POST, 'dateIn', FILTER_SANITIZE_STRING);
-                    $dateOut = filter_input(INPUT_POST, 'dateOut', FILTER_SANITIZE_STRING);
-                    $status = filter_input(INPUT_POST, 'status', FILTER_SANITIZE_STRING);
-                    $totalPrice = filter_input(INPUT_POST, 'totalPrice', FILTER_SANITIZE_STRING);
-                    $note = filter_input(INPUT_POST, 'note', FILTER_SANITIZE_STRING);
+            // private function createBooking()
+            // {
+            //     if (isset($_POST['create'])) {
+            //         $userId = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_STRING);
+            //         $roomId = filter_input(INPUT_POST, 'roomid', FILTER_SANITIZE_STRING);
+            //         $dateIn = filter_input(INPUT_POST, 'dateIn', FILTER_SANITIZE_STRING);
+            //         $dateOut = filter_input(INPUT_POST, 'dateOut', FILTER_SANITIZE_STRING);
+            //         $status = filter_input(INPUT_POST, 'status', FILTER_SANITIZE_STRING);
+            //         $totalPrice = filter_input(INPUT_POST, 'totalPrice', FILTER_SANITIZE_STRING);
+            //         $note = filter_input(INPUT_POST, 'note', FILTER_SANITIZE_STRING);
 
-                    if ($userId != '' && $roomId != '' && $dateIn != '' && $dateOut != '' && $status != '' && $totalPrice != '') {
-                        // Thực hiện tạo đặt phòng mới
-                        $createBooking = $this->model->createBooking($userId, $roomId, $dateIn, $dateOut, $status, $totalPrice, $note);
-                        if ($createBooking) {
-                            $this->libs->redirectPage('admin.php?controller=bookings&action=list');
-                        }
-                    }
-                }
-                include 'views/admin/rooms/create.booking.view.php';
-            }
+            //         if ($userId != '' && $roomId != '' && $dateIn != '' && $dateOut != '' && $status != '' && $totalPrice != '') {
+            //             // Thực hiện tạo đặt phòng mới
+            //             $createBooking = $this->model->createBooking($userId, $roomId, $dateIn, $dateOut, $status, $totalPrice, $note);
+            //             if ($createBooking) {
+            //                 $this->libs->redirectPage('admin.php?controller=bookings&action=list');
+            //             }
+            //         }
+            //     }
+            //     include 'views/admin/rooms/create.booking.view.php';
+            // }
 
             private function editBooking($id)
             {
@@ -87,7 +87,7 @@
                     }
                 }
 
-                include 'views/admin/rooms/update.booking.model.php';
+                include 'views/admin/bookings/edit.%20view.php';
             }
 
             private function deleteBooking($id)
@@ -97,3 +97,4 @@
                 $this->libs->redirectPage('admin.php?controller=bookings&action=list');
             }
         }
+

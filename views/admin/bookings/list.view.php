@@ -41,7 +41,7 @@ require 'views/admin/partials/header.view.php'
                                         <li class="breadcrumb-item active">List</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">List Users</h4>
+                                <h4 class="page-title">List Bookings</h4>
                             </div>
                         </div>
                     </div>
@@ -50,20 +50,25 @@ require 'views/admin/partials/header.view.php'
                         <div class="col-lg-12">
                             <div class="card-box">
                                 <p class="sub-header">
-                                    <a href="admin.php?controller=users&action=create" class="float-right font-weight-bold mb-2"><i class="mdi mdi-plus"></i>Add User
+                                    <a href="admin.php?controller=users&action=create" class="float-right font-weight-bold mb-2"><i class="mdi mdi-plus"></i>Add Booking
                                     </a>
                                 </p>
                                 <div class="table-responsive">
                                     <table class="table table-striped mb-0 text-center">
                                         <thead>
+
+
                                             <tr>
                                                 <th>#</th>
-                                                <th>Avatar</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Role</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
+                                                <th>userId</th>
+                                                <th>roomId</th>
+                                                <th>checkIndate</th>
+                                                <th>checkOutdate</th>
+                                                <th>total_price</th>
+                                                <th>status</th>
+                                                <th>note</th>
+                                                <th>updated_at</th>
+                                                <th>created_at</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -73,43 +78,24 @@ require 'views/admin/partials/header.view.php'
                                             ?>
                                                 <tr>
                                                     <th scope="row"><?php echo $id ?></th>
+                                                    <td><?php echo $row['userId'] ?></td>
+                                                    <td><?php echo $row['roomId'] ?></td>
+                                                    <td><?php echo $row['checkIndate'] ?></td>
+                                                    <td><?php echo $row['checkOutdate'] ?></td>
+                                                    <td><?php echo $row['total_price'] ?></td>
+                                                    <td><?php echo $row['status'] ?></td>
+                                                    <td><?php echo $row['note'] ?></td>
+                                                    <td><?php echo $row['updated_at'] ?></td>
+                                                    <td><?php echo $row['created_at'] ?></td>
+
+
+                                                    <!-- icon -->
                                                     <td>
-                                                        <img src="assets/uploads/users/<?php echo $row['avatar']; ?>" alt="avatar" width="50" height="50">
-                                                    </td>
-                                                    <td><?php echo $row['name'] ?></td>
-                                                    <td><?php echo $row['email'] ?></td>
-                                                    <td>
-                                                        <?php
-                                                        if ($row['role'] == 1) {
-                                                        ?>
-                                                            <span class="badge badge-warning mr-1"> Admin</span>
-                                                        <?php
-                                                        } else {
-                                                        ?>
-                                                            <span class="badge badge-success mr-1"> Member</span>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php
-                                                        if ($row['status'] == 1) {
-                                                        ?>
-                                                            <span class="badge badge-success mr-1"> Active</span>
-                                                        <?php
-                                                        } else {
-                                                        ?>
-                                                            <span class="badge badge-dark mr-1"> Disable</span>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </td>
-                                                    <td>
-                                                        <a href="admin.php?controller=users&action=view&id=<?php echo $id ?>" class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
+                                                        <a href="admin.php?controller=bookings&action=view&id=<?php echo $id ?>" class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
                                                         </a>
-                                                        <a href="admin.php?controller=users&action=edit&id=<?php echo $id ?>" class="btn btn-success waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i>
+                                                        <a href="admin.php?controller=bookings&action=edit&id=<?php echo $id ?>" class="btn btn-success waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i>
                                                         </a>
-                                                        <a href="admin.php?controller=users&action=delete&id=<?php echo $id ?>" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can"></i>
+                                                        <a href="admin.php?controller=bookings&action=delete&id=<?php echo $id ?>" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can"></i>
                                                         </a>
                                                     </td>
                                                 </tr>

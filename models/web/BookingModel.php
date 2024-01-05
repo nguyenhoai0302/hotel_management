@@ -26,6 +26,12 @@ class BookingModel extends ConnectDB
         $sql = "UPDATE bookings SET userid = '$userid', roomid = '$roomid', datein = '$dateIn', dateout = '$dateOut', status = '$status', totalPrice = '$totalPrice', note = '$note' WHERE id = $id";
         return mysqli_query($this->connect(), $sql);
     }
+    
+    function getBooking($id)
+    {
+        $sql = "SELECT * FROM bookings WHERE id = $id";
+        return mysqli_query($this->connect(), $sql);
+    }
 
     function deleteBooking($id)
     {
@@ -33,3 +39,5 @@ class BookingModel extends ConnectDB
         return mysqli_query($this->connect(), $sql);
     }
 }
+
+
