@@ -3,10 +3,8 @@ require 'views/admin/partials/header.view.php'
 ?>
 
 <body class="left-side-menu-dark topbar-light">
-
     <!-- Begin page -->
     <div id="wrapper">
-
 
         <!-- Topbar Start -->
         <?php
@@ -27,7 +25,6 @@ require 'views/admin/partials/header.view.php'
 
         <div class="content-page">
             <div class="content">
-
                 <div class="container-fluid">
 
                     <!-- start page title -->

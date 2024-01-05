@@ -39,7 +39,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="../bookings/list.view.php">List</a></li>
+                        <li><a href="admin.php?controller=bookings&action=list">List</a></li>
                     </ul>
                 </li>
                 <li>

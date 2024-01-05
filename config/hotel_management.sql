@@ -114,7 +114,7 @@ INSERT INTO `bookings` (`userId`, `roomId`, `checkIndate`, `checkOutdate`, `tota
     (3, 3, '2024-03-20', '2024-03-25', 225, 1, 'Reservation for Bob Smith', NOW(), NOW());
 
 
-CREATE TABLE `payment`
+CREATE TABLE `payments`
 (
     `id`  INT PRIMARY KEY,
     `bookingId` int,
@@ -126,7 +126,7 @@ CREATE TABLE `payment`
     FOREIGN KEY (bookingId) REFERENCES bookings(id)
 );
 -- Inserting sample data into the `payment` table
-INSERT INTO `payment` (`bookingId`, `paymentDate`, `Amount`, `PaymentMethod`, `updated_at`, `created_at`) VALUES
+INSERT INTO `payments` (`bookingId`, `paymentDate`, `Amount`, `PaymentMethod`, `updated_at`, `created_at`) VALUES
     (1, '2024-01-12', 250.00, 'Credit Card', NOW(), NOW()),
     (2, '2024-02-08', 375.00, 'PayPal', NOW(), NOW()),
     (3, '2024-03-22', 225.00, 'Cash', NOW(), NOW());
