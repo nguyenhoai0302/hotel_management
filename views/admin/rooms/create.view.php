@@ -22,7 +22,7 @@ require 'views/admin/partials/header.view.php'
                                     <li class="breadcrumb-item active">List</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Add Users</h4>
+                            <h4 class="page-title">Add Room</h4>
                         </div>
                     </div>
                 </div>
@@ -41,56 +41,64 @@ require 'views/admin/partials/header.view.php'
                                                        placeholder="Enter name" class="form-control" id="name">
                                             </div>
                                             <div class="form-group">
-                                                <label for="email">Email<span class="text-danger">*</span></label>
-                                                <input type="email" name="email" parsley-trigger="change" required=""
-                                                       placeholder="Enter email" class="form-control" id="email">
+                                              <label for="name">Name:</label>
+                                              <input type="text" class="form-control" id="name" name="name" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="gender">Gender<span class="text-danger">*</span></label>
-                                                <select class="form-control" id="gender" name="gender">
-                                                    <option value="1">Male</option>
-                                                    <option value="2">Female</option>
-                                                </select>
+                                              <label for="bedroom">Bedroom:</label>
+                                              <input type="number" class="form-control" id="bedroom" name="bedroom" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="phone">Phone<span class="text-danger">*</span></label>
-                                                <input type="text" name="phone" parsley-trigger="change" required=""
-                                                       placeholder="Enter email" class="form-control" id="phone">
+                                              <label for="bathroom">Bathroom:</label>
+                                              <input type="number" class="form-control" id="bathroom" name="bathroom" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="example-date-input">BirthDay<span class="text-danger">*</span></label>
-                                                <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="birthday">
+                                              <label for="livingroom">Living Room:</label>
+                                              <input type="number" class="form-control" id="livingroom" name="livingroom" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="role">Role<span class="text-danger">*</span></label>
-                                                <select class="form-control" id="role" name="role">
-                                                    <option value="1">Admin</option>
-                                                    <option value="2">Member</option>
-                                                </select>
+                                              <label for="type">Type:</label>
+                                              <input type="text" class="form-control" id="type" name="type" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleSelect1">Status<span class="text-danger">*</span></label>
-                                                <select class="form-control" id="status" name="status">
-                                                    <option value="1">Active</option>
-                                                    <option value="2">Disable</option>
-                                                </select>
+                                              <label for="price">Price:</label>
+                                              <input type="number" step="0.01" class="form-control" id="price" name="price" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="pass1">Password<span class="text-danger">*</span></label>
-                                                <input id="pass1" type="password" placeholder="Password" required="" class="form-control" name ="password">
+                                              <label for="tax">Tax:</label>
+                                              <input type="number" step="0.01" class="form-control" id="tax" name="tax" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="passWord2">Confirm Password <span class="text-danger">*</span></label>
-                                                <input data-parsley-equalto="#pass1" type="password" required="" placeholder="Password" class="form-control" id="passWord2" name="passwordAgain">
+                                              <label for="cleaning_fee">Cleaning Fee:</label>
+                                              <input type="number" step="0.01" class="form-control" id="cleaning_fee" name="cleaning_fee" required>
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="description">Description:</label>
+                                              <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="status">Status:</label>
+                                              <select class="form-control" id="status" name="status">
+                                                <option value="1">Active</option>
+                                                <option value="0">Inactive</option>
+                                              </select>
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="updated_at">Updated At:</label>
+                                              <input type="datetime-local" class="form-control" id="updated_at" name="updated_at">
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="created_at">Created At:</label>
+                                              <input type="datetime-local" class="form-control" id="created_at" name="created_at">
                                             </div>
 
                                             <div class="form-group text-right mb-0">
-                                                <button class="btn btn-primary waves-effect waves-light mr-1" type="submit" name="create">
-                                                    Save
-                                                </button>
-                                                <button type="reset" class="btn btn-secondary waves-effect">
-                                                    Cancel
-                                                </button>
+                                              <button class="btn btn-primary waves-effect waves-light mr-1" type="submit" name="create">
+                                                  Save
+                                              </button>
+                                              <button type="reset" class="btn btn-secondary waves-effect">
+                                                  Cancel
+                                              </button>
                                             </div>
 
                                         </form>
@@ -103,17 +111,8 @@ require 'views/admin/partials/header.view.php'
             </div>
         </div>
         <?php include 'views/admin/partials/footer.view.php'; ?>
-
+     
     </div>
-</div>
-<!-- Vendor js -->
-<script src="assets/admin/js/vendor.min.js"></script>
-<!-- App js -->
-<script src="assets/admin/js/app.min.js"></script>
-
-<!-- Plugins js -->
-<script src="assets/admin/libs/dropify/dropify.min.js"></script>
-<!-- Init js-->
-<script src="assets/admin/js/pages/form-fileuploads.init.js"></script>
+  </div>
 </body>
-</html>
+
