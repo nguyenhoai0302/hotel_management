@@ -10,58 +10,69 @@ require 'views/admin/partials/header.view.php'
         <?php
         include 'views/admin/partials/sidebar.view.php';
         ?>
-        <div class="container">
-            <h1>Update Booking</h1>
-            <form action="" method="">
-                <div class="form-group">
-                    <label for="id">ID:</label>
-                    <input type="text" class="form-control" id="id" name="id" placeholder="id" value="<?php echo $id['id']; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="userId">User ID:</label>
-                    <input type="text" class="form-control" id="userId" name="userId" placeholder="userId" value="<?php echo $userId['userId']; ?>">
+        <div class="content-page">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Room</a></li>
+                                        <li class="breadcrumb-item active">Edit</li>
+                                    </ol>
+                                </div>
+                                <h4 class="page-title">Edit Booking</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card-box">
 
-                </div>
-                <div class="form-group">
-                    <label for="roomId">Room ID:</label>
-                    <input type="text" class="form-control" id="roomId" name="roomId" placeholder="roomId" value="<?php echo $roomId['roomId']; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="checkIndate">Date In:</label>
-                    <input type="date" class="form-control" id="checkIndate" name="checkIndate" placeholder="checkIndate " value="<?php echo $dateIn['checkIndate']; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="checkOutdate">Date Out:</label>
-                    <input type="date" class="form-control" id="checkOutdate" name="checkOutdate" placeholder="checkOutdate " value="<?php echo $dateOut['checkOutdate']; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="status">Status:</label>
-                    <input type="text" class="form-control" id="status" name="status" placeholder="status " value="<?php echo $status['status']; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="total_rice">Total Price:</label>
-                    <input type="text" class="form-control" id="total_rice" name="total_rice" placeholder="total_rice " value="<?php echo $totalPrice['total_rice']; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="note">Note:</label>
-                    <textarea class="form-control" id="note" name="note" placeholder="note" value="<?php echo $note['note']; ?>"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="created_at">Note:</label>
-                    <textarea class="form-control" id="created_at" name="created_at" placeholder="created_at" value="<?php echo $createdAt['created_at']; ?>"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="updated_at">Note:</label>
-                    <textarea class="form-control" id="updated_at" name="updated_at" placeholder="updated_at" value="<?php echo $updatedAt['updated_at']; ?>"></textarea>
-                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div>
+                                            <form method="POST" action="#" class="parsley-examples" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
+                                                <div class="form-group">
+                                                    <label for="exampleSelect1">Status<span class="text-danger">*</span></label>
+                                                    <select class="form-control" id="status" name="status">
+                                                        <option value="1" <?php if (isset($booking['status']) && $booking['status'] == 1) {
+                                                                                echo 'selected';
+                                                                            } ?>>Pendding</option>
+                                                        <option value="2" <?php if (isset($booking['status']) && $booking['status'] == 2) {
+                                                                                echo 'selected';
+                                                                            } ?>>Approved</option>
+                                                        <option value="3" <?php if (isset($booking['status']) && $booking['status'] == 3) {
+                                                                                echo 'selected';
+                                                                            } ?>>Rejected</option>
 
+                                                    </select>
+                                                </div>
 
-                <button type="submit" class="btn btn-primary">Update</button>
-            </form>
+                                                <div class="form-group text-right mb-0">
+                                                    <button class="btn btn-primary waves-effect waves-light mr-1" type="submit" name="update">
+                                                        Save
+                                                    </button>
+                                                    <button type="reset" class="btn btn-secondary waves-effect">
+                                                        Cancel
+                                                    </button>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php include 'views/admin/partials/footer.view.php'; ?>
+
         </div>
-
     </div>
-
     <!-- Vendor js -->
     <script src="assets/admin/js/vendor.min.js"></script>
     <!-- App js -->
@@ -71,3 +82,6 @@ require 'views/admin/partials/header.view.php'
     <script src="assets/admin/libs/dropify/dropify.min.js"></script>
     <!-- Init js-->
     <script src="assets/admin/js/pages/form-fileuploads.init.js"></script>
+</body>
+
+</html>
