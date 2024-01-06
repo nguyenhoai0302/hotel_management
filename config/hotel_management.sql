@@ -95,10 +95,10 @@ INSERT INTO `rooms` (`id`, `name`, `bedroom`, `bathroom`, `livingroom`, `type`, 
 CREATE TABLE `bookings`
 (
     `id` int(11) AUTO_INCREMENT PRIMARY KEY,
-    `userId` int(10) NOT NULL,
-    `roomId` int(10) NOT NULL,
-    `checkIndate` varchar(100) DEFAULT NULL,
-    `checkOutdate` varchar(100) NOT NULL,
+    `user_id` int(10) NOT NULL,
+    `room_id` int(10) NOT NULL,
+    `check_indate` varchar(100) DEFAULT NULL,
+    `check_iutdate` varchar(100) NOT NULL,
     `total_price` int(10) NOT NULL,
     `status` int(10) NOT NULL,
     `note` TEXT, 
@@ -114,7 +114,7 @@ INSERT INTO `bookings` (`userId`, `roomId`, `checkIndate`, `checkOutdate`, `tota
     (3, 3, '2024-03-20', '2024-03-25', 225, 1, 'Reservation for Bob Smith', NOW(), NOW());
 
 
-CREATE TABLE `payment`
+CREATE TABLE `payments`
 (
     `id`  INT PRIMARY KEY,
     `bookingId` int,
@@ -126,7 +126,7 @@ CREATE TABLE `payment`
     FOREIGN KEY (bookingId) REFERENCES bookings(id)
 );
 -- Inserting sample data into the `payment` table
-INSERT INTO `payment` (`bookingId`, `paymentDate`, `Amount`, `PaymentMethod`, `updated_at`, `created_at`) VALUES
+INSERT INTO `payments` (`bookingId`, `paymentDate`, `Amount`, `PaymentMethod`, `updated_at`, `created_at`) VALUES
     (1, '2024-01-12', 250.00, 'Credit Card', NOW(), NOW()),
     (2, '2024-02-08', 375.00, 'PayPal', NOW(), NOW()),
     (3, '2024-03-22', 225.00, 'Cash', NOW(), NOW());

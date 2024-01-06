@@ -28,7 +28,7 @@
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="pages-starter.html">Add</a></li>
-                        <li><a href="pages-login.html">List</a></li>
+                        <li><a href="admin.php?controller=rooms&action=list">List</a></li>
                     </ul>
                 </li>
 
@@ -39,17 +39,17 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="pages-login.html">List</a></li>
+                        <li><a href="admin.php?controller=bookings&action=list">List</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript: void(0);">
+                    <a href=" javascript: void(0);">
                         <i class="mdi mdi-paypal"></i>
                         <span> Payments </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="pages-login.html">List</a></li>
+                        <li><a href="admin.php?controller=payments&action=list">List</a></li>
                     </ul>
                 </li>
 
