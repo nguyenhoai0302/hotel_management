@@ -1,6 +1,6 @@
 <?php
-include 'models/RoomModel.php';
-include 'utils/helpers.php';
+include_once 'models/RoomModel.php';
+include_once 'utils/helpers.php';
 
 class RoomController
 {
@@ -9,7 +9,7 @@ class RoomController
 
     public function __construct()
     {
-        $this->model = new roomModel();
+        $this->model = new RoomModel();
         $this->libs = new LibCommon();
     }
 
@@ -38,8 +38,8 @@ class RoomController
 
     private function getListRoom()
     {
-        $users = $this->model->getList();
-        include 'views/admin/users/list.view.php';
+        $rooms = $this->model->getList();
+        include 'views/admin/rooms/list.view.php';
     }
 
     private function createRoom()
@@ -101,17 +101,12 @@ class RoomController
             }
         }
 
-        include 'views/admin/users/edit.view.php';
+        include 'views/admin/rooms/edit.view.php';
     }
 
     private function deleteRoom($id)
     {
-        $deleteUser = $this->model->deleteRoom($id);
-        if ($deleteUser) {
-            $this->libs->redirectPage('admin.php?controller=users&action=list');
-        }
+        $this->model->delete($id);
+        $this->libs->redirectPage('admin.php?controller=rooms&action=list');
     }
 }
-
-$roomController = new RoomController();
-$userController->handleRequest();
