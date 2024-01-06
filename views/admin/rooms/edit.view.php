@@ -37,54 +37,53 @@ require 'views/admin/partials/header.view.php'
                     <form method="POST" action="#" class="parsley-examples" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
                         <div class="form-group">
                           <label for="name">Name:</label>
-                          <input type="text" class="form-control" id="name" name="name" required>
+                          <input type="text" class="form-control" id="name" name="name"  value="<?php echo $oldRoom['name'];?>">
                         </div>
                         <div class="form-group">
                           <label for="bedroom">Bedroom:</label>
-                          <input type="number" class="form-control" id="bedroom" name="bedroom" required>
+                          <input type="number" class="form-control" id="bedroom" name="bedroom"  value="<?php echo $oldRoom['bedroom'];?>">
                         </div>
                         <div class="form-group">
                           <label for="bathroom">Bathroom:</label>
-                          <input type="number" class="form-control" id="bathroom" name="bathroom" required>
+                          <input type="number" class="form-control" id="bathroom" name="bathroom"  value="<?php echo $oldRoom['bathroom'];?>">
                         </div>
                         <div class="form-group">
                           <label for="livingroom">Living Room:</label>
-                          <input type="number" class="form-control" id="livingroom" name="livingroom" required>
+                          <input type="number" class="form-control" id="livingroom" name="livingroom"  value="<?php echo $oldRoom['livingroom'];?>">
                         </div>
                         <div class="form-group">
                           <label for="type">Type:</label>
-                          <input type="text" class="form-control" id="type" name="type" required>
+                          <input type="text" class="form-control" id="type" name="type"  value="<?php echo $oldRoom['type'];?>">
                         </div>
                         <div class="form-group">
                           <label for="price">Price:</label>
-                          <input type="number" step="0.01" class="form-control" id="price" name="price" required>
+                          <input type="number" step="0.01" class="form-control" id="price" name="price"  value="<?php echo $oldRoom['price'];?>">
                         </div>
                         <div class="form-group">
                           <label for="tax">Tax:</label>
-                          <input type="number" step="0.01" class="form-control" id="tax" name="tax" required>
+                          <input type="number" step="0.01" class="form-control" id="tax" name="tax"  value="<?php echo $oldRoom['tax'];?>">
                         </div>
                         <div class="form-group">
                           <label for="cleaning_fee">Cleaning Fee:</label>
-                          <input type="number" step="0.01" class="form-control" id="cleaning_fee" name="cleaning_fee" required>
+                          <input type="number" step="0.01" class="form-control" id="cleaning_fee" name="cleaning_fee"  value="<?php echo $oldRoom['cleaning_fee'];?>">
                         </div>
                         <div class="form-group">
                           <label for="description">Description:</label>
-                          <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+                          <textarea class="form-control" id="description" name="description" rows="4"  value="<?php echo $oldRoom['description'];?>"></textarea>
                         </div>
-                        <div class="form-group">
-                          <label for="status">Status:</label>
-                          <select class="form-control" id="status" name="status">
-                            <option value="1">Avaliable</option>
-                            <option value="0">Unavaliable</option>
-                          </select>
+                        <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-building"></i></span>
                         </div>
-                        <div class="form-group">
-                          <label for="updated_at">Updated At:</label>
-                          <input type="datetime-local" class="form-control" id="updated_at" name="updated_at">
+                        <select class="form-control" name="status">
+                            <option value="Availiable" <?php if(isset($oldRoom['status']) && $oldRoom['status'] == '1'){ echo 'selected';}?>>Availiable</option>
+                            <option value="Unavailiable" <?php if(isset($oldRoom['status']) && $oldRoom['status'] == '2'){ echo 'selected';}?>>Unavailiable</option>
+                        </select>
                         </div>
+                       
                         <div class="form-group">
                           <label for="created_at">Created At:</label>
-                          <input type="datetime-local" class="form-control" id="created_at" name="created_at">
+                          <input type="datetime-local" class="form-control" id="created_at" name="created_at" value="<?php echo $oldRoom['created_at'];?>">
                         </div>
 
                         <div class="form-group text-right mb-0">

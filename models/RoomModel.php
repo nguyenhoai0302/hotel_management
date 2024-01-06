@@ -33,21 +33,25 @@ class RoomModel extends ConnectDB
         return mysqli_query($this->connect(),$sql);
     }
 
-    function create($id,$name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $created_at)
+    function create($id, $name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $created_at)
     {
         $checkRoomExist = $this->checkRoomExist($id);
         if($checkRoomExist->num_rows == 0) {
-            $sql = "INSERT INTO rooms($name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $created_at)VALUES('$name', '$bedroom', '$bathroom', '$livingroom', '$type', '$price', '$tax', '$cleaning_fee', '$description', '$status', '$created_at')";
+            $sql = "INSERT INTO rooms( $id,$name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $created_at)VALUES('$id','$name', '$bedroom', '$bathroom', '$livingroom', '$type', '$price', '$tax', '$cleaning_fee', '$description', '$status', '$created_at')";
             return mysqli_query($this->connect(),$sql);
         }
         return false;
     }
     function checkRoomExist($id) {
-        $sql = "SELECT * FROM rooms WHERE id = $id";
-
+        $sql = "SELECT * FROM rooms WHERE id = '$id' ";
+        return mysqli_query($this->connect(),$sql);
+    function totalRoom()
+    {
+        $sql = "SELECT COUNT(id) AS total room FROM rooms";
         return mysqli_query($this->connect(),$sql);
     }
 
+    }
 }
 
 ?>

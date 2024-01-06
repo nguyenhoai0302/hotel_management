@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2021 at 10:41 AM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Generation Time: Jan 06, 2024 at 02:22 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,151 +18,322 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
---
 -- Database: `hotel_management`
 --
 
 -- --------------------------------------------------------
 
+--
+-- Table structure for table `bookings`
+--
+
+CREATE TABLE `bookings` (
+  `id` int(11) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `room_id` int(10) NOT NULL,
+  `checkin_date` timestamp NULL DEFAULT NULL,
+  `checkout_date` timestamp NULL DEFAULT NULL,
+  `total_price` int(10) NOT NULL,
+  `status` int(10) NOT NULL,
+  `note` text DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`id`, `user_id`, `room_id`, `checkin_date`, `checkout_date`, `total_price`, `status`, `note`, `updated_at`, `created_at`) VALUES
+(1, 1, 1, '2024-01-09 17:00:00', '2024-01-14 17:00:00', 250, 1, 'Reservation for John Doe', '2023-12-31 20:19:02', '2023-12-31 20:19:02'),
+(2, 2, 2, '2024-02-04 17:00:00', '2024-02-09 17:00:00', 375, 1, 'Reservation for Jane Doe', '2023-12-31 20:19:02', '2023-12-31 20:19:02'),
+(3, 3, 3, '2024-03-19 17:00:00', '2024-03-24 17:00:00', 225, 1, 'Reservation for Bob Smith', '2023-12-31 20:19:02', '2023-12-31 20:19:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `favorites`
+--
+
+CREATE TABLE `favorites` (
+  `user_id` int(10) NOT NULL,
+  `room_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `login`
 --
-CREATE TABLE `login`
-(
-    `id` INT AUTO_INCREMENT PRIMARY KEY,
-    `userId` INT NOT NULL,
-    `username` VARCHAR(50) NOT NULL,
-    `password` VARCHAR(255) NOT NULL,
-    `last_login` TIMESTAMP,
-    FOREIGN KEY (userId) REFERENCES users(id)
-);
--- Inserting sample data into the `users` table
-INSERT INTO `login` (`userId`, `username`, `password`, `last_login`)
-VALUES (1, 'A Tan', '12345', CURRENT_TIMESTAMP),
-        (2, 'Nguyen Hoai', '11111', CURRENT_TIMESTAMP),
-        (3, 'Xuom', '2222', CURRENT_TIMESTAMP);
 
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `last_login` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `user_id`, `last_login`) VALUES
+(1, 1, '2024-01-02 08:51:00'),
+(2, 2, '2024-01-02 08:51:00'),
+(3, 2, '2024-01-02 08:51:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL,
+  `booking_id` int(11) DEFAULT NULL,
+  `payment_date` datetime DEFAULT current_timestamp(),
+  `amount` decimal(10,2) DEFAULT NULL,
+  `payment_method` int(10) DEFAULT NULL,
+  `status` int(10) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ratings`
+--
+
+CREATE TABLE `ratings` (
+  `id` bigint(20) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `room_id` int(10) NOT NULL,
+  `rating` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `user_id` int(11) NOT NULL,
+  `id` bigint(20) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `status` int(11) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`user_id`, `id`, `room_id`, `content`, `status`, `updated_at`, `created_at`) VALUES
+(1, 1, 1, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 ...', 1, '2024-01-06 11:23:59', '2024-01-06 11:23:59'),
+(2, 2, 2, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 ...Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 ...', 2, '2024-01-06 11:23:59', '2024-01-06 11:23:59'),
+(3, 4, 2, 'This page allows you to generate random text strings using true randomness, which for many purposes is better than the pseudo-random number algorithms ...', 2, '2024-01-06 11:39:22', '2024-01-06 11:39:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rooms`
+--
+
+CREATE TABLE `rooms` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `bedroom` int(50) DEFAULT NULL,
+  `bathroom` int(50) DEFAULT NULL,
+  `livingroom` int(50) DEFAULT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
+  `tax` decimal(10,2) DEFAULT NULL,
+  `cleaning_fee` decimal(10,2) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `name`, `bedroom`, `bathroom`, `livingroom`, `type`, `price`, `tax`, `cleaning_fee`, `description`, `status`, `updated_at`, `created_at`) VALUES
+(1, 'Room A', 2, 1, 1, 'Standard', 100.00, 5.00, 10.00, 'A cozy standard room.', 1, '2023-12-31 20:19:02', '2023-12-31 20:19:02'),
+(2, 'Room B', 3, 2, 1, 'Deluxe', 150.00, 7.50, 15.00, 'A luxurious deluxe room with a view.', 1, '2023-12-31 20:19:02', '2023-12-31 20:19:02'),
+(3, 'Room C', 1, 1, 1, 'Economy', 75.00, 3.75, 7.50, 'An affordable economy room.', 1, '2023-12-31 20:19:02', '2023-12-31 20:19:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `room_images`
+--
+
+CREATE TABLE `room_images` (
+  `id` bigint(20) NOT NULL,
+  `room_id` int(10) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
 --
-CREATE TABLE `users`
-(
-    `id` INT AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(50) NOT NULL,
-    `avatar` varchar(255),
-    `email` VARCHAR(100) NOT NULL,
-    `birthday` DATE NOT NULL,
-    `phone` VARCHAR(20) NOT NULL,
-    `password` VARCHAR(255) NOT NULL,
-    `role` int(11) NOT NULL,
-    `status` int(11) NOT NULL,
-    `gender` varchar(50),
-    `updated_at` timestamp,
-    `created_at` timestamp
 
-);
--- Inserting sample data into the `users` table
-INSERT INTO `users` (`name`, `avatar`, `email`, `birthday`, `phone`, `password`, `role`, `status`, `gender`, `updated_at`, `created_at`) VALUES
-    ('A Tan', 'https://vcdn-vnexpress.vnecdn.net/2023/02/01/327930130-1584629158642723-553-6981-4746-1675237738.jpg', 'tan@gmail.com', '2001-01-05', '123456789', '12345', 1, 1, 'Male', NOW(), NOW()),
-    ('Nguyen Hoai', 'https://lmhoptacxatthue.com.vn/wp-content/uploads/2023/05/anh-con-cho-ngao-17.jpg', 'hoai@gmail.com', '2004-02-03', '987654321', '11111', 0, 1, 'Female', NOW(), NOW()),
-    ('Ho Xuom', 'https://lmhoptacxatthue.com.vn/wp-content/uploads/2023/05/anh-con-cho-ngao-9.jpg', 'xuom@gmail.com', '2004-04-01', '555555555', '22222', 0, 1, 'Male', NOW(), NOW());
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `birthday` date NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `gender` varchar(50) DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `users`
+--
 
-CREATE TABLE `rooms`
-(
-    `id` int PRIMARY KEY,
-    `name` varchar(50) UNIQUE,
-    `bedroom` int(50),
-    `bathroom` int(50),
-    `livingroom` int(50),
-    `type` varchar(50),
-    `price` decimal(10,2),
-    `tax` decimal(10,2),
-    `cleaning_fee` decimal(10,2),
-    `description` text,
-    `status` tinyint(1) DEFAULT NULL,
-    `updated_at` timestamp,
-    `created_at` timestamp
-);
--- Inserting sample data into the `rooms` table
-INSERT INTO `rooms` (`id`, `name`, `bedroom`, `bathroom`, `livingroom`, `type`, `price`, `tax`, `cleaning_fee`, `description`, `status`, `updated_at`, `created_at`) VALUES
-    (1, 'Room A', 2, 1, 1, 'Standard', 100.00, 5.00, 10.00, 'A cozy standard room.', 1, NOW(), NOW()),
-    (2, 'Room B', 3, 2, 1, 'Deluxe', 150.00, 7.50, 15.00, 'A luxurious deluxe room with a view.', 1, NOW(), NOW()),
-    (3, 'Room C', 1, 1, 1, 'Economy', 75.00, 3.75, 7.50, 'An affordable economy room.', 1, NOW(), NOW());
+INSERT INTO `users` (`id`, `name`, `avatar`, `email`, `birthday`, `phone`, `password`, `role`, `status`, `gender`, `updated_at`, `created_at`) VALUES
+(1, 'A Tan', 'https://vcdn-vnexpress.vnecdn.net/2023/02/01/327930130-1584629158642723-553-6981-4746-1675237738.jpg', 'tan@gmail.com', '2001-01-05', '123456789', '12345', 0, 1, 'Male', '2024-01-03 02:46:45', '2023-12-31 20:19:02'),
+(2, 'Nguyen Hoai', 'https://lmhoptacxatthue.com.vn/wp-content/uploads/2023/05/anh-con-cho-ngao-17.jpg', 'hoai@gmail.com', '2004-02-03', '987654321', '11111', 1, 1, 'Female', '2024-01-03 02:47:13', '2023-12-31 20:19:02'),
+(3, 'Ho Xuom', 'admin2.png', 'xuom@gmail.com', '2004-04-01', '555555555', '22222', 0, 1, 'male', '2024-01-04 19:29:29', '2023-12-31 20:19:02'),
+(10, 'Duyen', '5.jpg', 'duyen@gmail.com', '2011-08-19', '0987654321', '123123', 2, 1, '1', '2024-01-06 10:25:17', '0000-00-00 00:00:00'),
+(12, 'Nhan ', '4.jpg', 'eunwoo565@gmail.com', '2024-01-01', '0378233910', '0987654321', 2, 2, '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
+--
+-- Indexes for dumped tables
+--
 
-CREATE TABLE `bookings`
-(
-    `id` int(11) AUTO_INCREMENT PRIMARY KEY,
-    `user_id` int(10) NOT NULL,
-    `room_id` int(10) NOT NULL,
-    `check_indate` varchar(100) DEFAULT NULL,
-    `check_iutdate` varchar(100) NOT NULL,
-    `total_price` int(10) NOT NULL,
-    `status` int(10) NOT NULL,
-    `note` TEXT, 
-    `updated_at` timestamp,
-    `created_at` timestamp,
-    FOREIGN KEY (userId) REFERENCES users(id),
-    FOREIGN KEY (roomId) REFERENCES rooms(id)
-);
--- Inserting sample data into the `bookings` table
-INSERT INTO `bookings` (`userId`, `roomId`, `checkIndate`, `checkOutdate`, `total_price`, `status`, `note`, `updated_at`, `created_at`) VALUES
-    (1, 1, '2024-01-10', '2024-01-15', 250, 1, 'Reservation for John Doe', NOW(), NOW()),
-    (2, 2, '2024-02-05', '2024-02-10', 375, 1, 'Reservation for Jane Doe', NOW(), NOW()),
-    (3, 3, '2024-03-20', '2024-03-25', 225, 1, 'Reservation for Bob Smith', NOW(), NOW());
+--
+-- Indexes for table `bookings`
+--
+ALTER TABLE `bookings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userId` (`user_id`),
+  ADD KEY `roomId` (`room_id`);
 
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userId` (`user_id`);
 
-CREATE TABLE `payments`
-(
-    `id`  INT PRIMARY KEY,
-    `bookingId` int,
-    `paymentDate` DATE,
-    `Amount` DECIMAL(10, 2),
-    `PaymentMethod` VARCHAR(50),
-    `updated_at` timestamp,
-    `created_at` timestamp,
-    FOREIGN KEY (bookingId) REFERENCES bookings(id)
-);
--- Inserting sample data into the `payment` table
-INSERT INTO `payments` (`bookingId`, `paymentDate`, `Amount`, `PaymentMethod`, `updated_at`, `created_at`) VALUES
-    (1, '2024-01-12', 250.00, 'Credit Card', NOW(), NOW()),
-    (2, '2024-02-08', 375.00, 'PayPal', NOW(), NOW()),
-    (3, '2024-03-22', 225.00, 'Cash', NOW(), NOW());
+--
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `bookingId` (`booking_id`);
 
-CREATE TABLE user_like_room (
-`userId` INT,
-`roomId` INT,
-FOREIGN KEY (userId) REFERENCES users(id),
-FOREIGN KEY (roomId) REFERENCES rooms(id)
-);
+--
+-- Indexes for table `ratings`
+--
+ALTER TABLE `ratings`
+  ADD PRIMARY KEY (`id`);
 
-CREATE TABLE user_rating_room (
-`userId` INT,
-`roomId` INT,
-`rating` INT,
-FOREIGN KEY (userId) REFERENCES users(id),
-FOREIGN KEY (roomId) REFERENCES rooms(id)
-);
+--
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
 
-CREATE TABLE reviews (
-`userId` INT,
-`roomId` INT,
-`content` TEXT,
-`status` INT,
-`updated_at` TIMESTAMP,
-`created_at` TIMESTAMP,
-FOREIGN KEY (userId) REFERENCES users(id),
-FOREIGN KEY (roomId) REFERENCES rooms(id)
-);
+--
+-- Indexes for table `rooms`
+--
+ALTER TABLE `rooms`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
 
-CREATE TABLE room_images (
-id INT,
-roomId INT,
-image VARCHAR(255),
-`updated_at` timestamp,
-`created_at` timestamp,
-FOREIGN KEY (roomId) REFERENCES rooms(id)
-);
+--
+-- Indexes for table `room_images`
+--
+ALTER TABLE `room_images`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `bookings`
+--
+ALTER TABLE `bookings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `ratings`
+--
+ALTER TABLE `ratings`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `room_images`
+--
+ALTER TABLE `room_images`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `bookings`
+--
+ALTER TABLE `bookings`
+  ADD CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `bookings_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`);
+
+--
+-- Constraints for table `login`
+--
+ALTER TABLE `login`
+  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `payments`
+--
+ALTER TABLE `payments`
+  ADD CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`booking_id`) REFERENCES `bookings` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

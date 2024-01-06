@@ -1,5 +1,5 @@
 <?php
- include 'models/UserModel.php';
+ include_once 'models/UserModel.php';
  include 'utils/helpers.php';
 class UserController
 {
@@ -89,7 +89,8 @@ class UserController
             }
         }
     
-        include 'views/admin/users/edit.view.php';
+        // include 'views/admin/users/edit.view.php';
+        include 'views/admin/users/update.view.php';
     }
 
     private function deleteUser($id) {
