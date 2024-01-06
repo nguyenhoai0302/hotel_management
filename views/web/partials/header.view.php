@@ -16,8 +16,6 @@
     <?php include("./assets/web/css/about.css.php")?>
     <?php include("./assets/web/css/room.css.php")?>
 
-    
-   
 </head>
 <body>
     <div class="nav">
