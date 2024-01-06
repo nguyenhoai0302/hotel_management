@@ -71,7 +71,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="pages-login.html">List</a></li>
+                    <li><a href="admin.php?controller=favorite&action=list">List</a></li>
                     </ul>
                 </li>
 
@@ -82,7 +82,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="pages-login.html">List</a></li>
+                    <li><a href="admin.php?controller=contact&action=list">List</a></li>
                     </ul>
                 </li>
             </ul>

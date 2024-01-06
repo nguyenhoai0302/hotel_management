@@ -4,6 +4,7 @@ include 'controllers/admin/UserController.php';
 include 'controllers/admin/RoomController.php';
 include 'controllers/admin/AuthController.php';
 include 'controllers/admin/ReviewController.php';
+include 'controllers/admin/BookingController.php';
 
 
 //$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
