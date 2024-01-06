@@ -4,9 +4,9 @@ body {
     background: white;
 }
 
-.container {
-    height: 100vh;
-}
+/* .container {
+    padding: 50px;
+} */
 
 .form {
     width: 320px;
