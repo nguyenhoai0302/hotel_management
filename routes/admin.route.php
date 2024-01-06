@@ -2,7 +2,9 @@
 include 'controllers/admin/DashboardController.php';
 include 'controllers/admin/UserController.php';
 include 'controllers/admin/RoomController.php';
-include 'controllers/admin/AuthController.php';
+// include 'controllers/admin/AuthController.php';
+include 'controllers/admin/BookingController.php';
+include 'controllers/admin/PaymentController.php';
 
 
 //$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
@@ -13,9 +15,10 @@ $controller = isset($_GET['controller']) ? $_GET['controller'] : 'dashboard';
 $routes = [
     'dashboard' => 'DashboardController',
     'users' => 'UserController',
-    'auth' => 'AuthController',
+    // 'auth' => 'AuthController',
     'rooms' => 'RoomController',
     'bookings' => 'BookingController',
+    'payments' => 'PaymentController',
 ];
 
 if (array_key_exists($controller, $routes)) {
@@ -26,5 +29,3 @@ if (array_key_exists($controller, $routes)) {
     require 'views/errors/404.php';
     die();
 }
-
-
