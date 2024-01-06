@@ -35,10 +35,10 @@ require 'utils/utils.php';
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="admin.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Room</li>
+                                        <li class="breadcrumb-item active">Payments</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">List Bookings</h4>
+                                <h4 class="page-title">List Payments</h4>
                             </div>
                         </div>
                     </div>
@@ -51,12 +51,11 @@ require 'utils/utils.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Booking</th>
+                                                <th>Booking ID</th>
                                                 <th>Payment Date</th>
-                                                <th>Status</th>
                                                 <th>Amount</th>
                                                 <th>Payment Method</th>
-                                                <th>Update At</th>
+                                                <th>Status</th>
                                                 <th>Created At</th>
                                                 <th>Action</th>
                                             </tr>
@@ -69,7 +68,7 @@ require 'utils/utils.php';
                                             ?>
                                                 <tr>
                                                     <th scope="row"><?php echo $count ?></th>
-                                                    <td><?php echo $row['booking'] ?></td>
+                                                    <td><?php echo $row['booking_id'] ?></td>
                                                     <td><?php echo $row['payment_date'] ?></td>
                                                     <td><?php echo $row['amount'] ?></td>
                                                     <td><?php echo $row['payment_method'] ?></td>
@@ -90,8 +89,6 @@ require 'utils/utils.php';
                                                     <!-- icon -->
                                                     <td>
                                                         <a href="admin.php?controller=payments&action=view&id=<?php echo $row['id'] ?>" class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
-                                                        </a>
-                                                        <a href="admin.php?controller=payments&action=edit&id=<?php echo $row['id'] ?>" class="btn btn-success waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i>
                                                         </a>
                                                         <a href="admin.php?controller=payments&action=delete&id=<?php echo $row['id'] ?>" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can"></i>
                                                         </a>
