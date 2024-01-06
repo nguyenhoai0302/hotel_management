@@ -41,24 +41,17 @@ class BookingController
     private function editBooking($id)
     {
         // Lấy thông tin đặt phòng dựa trên ID
-        $bookings = $this->model->getBookingById($id);
-        if (!$bookings) {
+        $data = $this->model->getBookingEditById($id);
+        $booking = $data->fetch_assoc();
+        if (!$booking) {
             // Xử lý khi không tìm thấy đặt phòng
+            $this->libs->redirectPage('admin.php?controller=bookings&action=list');
         }
 
         if (isset($_POST['update'])) {
-            $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_STRING);
-            $roomId = filter_input(INPUT_POST, 'roomId', FILTER_SANITIZE_STRING);
-            $dateIn = filter_input(INPUT_POST, 'checkIndate', FILTER_SANITIZE_STRING);
-            $dateOut = filter_input(INPUT_POST, 'checkOutdate', FILTER_SANITIZE_STRING);
             $status = filter_input(INPUT_POST, 'status', FILTER_SANITIZE_STRING);
-            $totalPrice = filter_input(INPUT_POST, 'total_rice', FILTER_SANITIZE_STRING);
-            $note = filter_input(INPUT_POST, 'note', FILTER_SANITIZE_STRING);
-            $createdAt = filter_input(INPUT_POST, 'created_at', FILTER_SANITIZE_STRING);
-            $updatedAt = filter_input(INPUT_POST, 'updated_at', FILTER_SANITIZE_STRING);
-
             // Thực hiện cập nhật thông tin đặt phòng
-            $updateBooking = $this->model->updateBooking($id, $userId, $roomId, $dateIn, $dateOut, $status, $totalPrice, $note, $createdAt, $updatedAt);
+            $updateBooking = $this->model->updateBooking($id, $status);
 
             if ($updateBooking) {
                 $this->libs->redirectPage('admin.php?controller=bookings&action=list');
