@@ -1,4 +1,4 @@
-<?php include"./views/web/partials/header.view.php"
+<?php include "./views/web/partials/header.view.php"
 ?>
 <body> 
     <div class="container d-flex  justify-content-center ml-5 p-5 ">
@@ -10,7 +10,7 @@
                     </div>
 
                     <!-- Login Form -->
-                    <form action="../../../controllers/home/auth.controller.php?action=login" method="post" class="form-container sign-in-container active">
+                    <form action="/controllers/web/logincontroller.php?action=login" method="post" class="form-container sign-in-container active">
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder="Email or phone number" name="email" value="" required>
                         </div>
@@ -39,6 +39,6 @@
     </div>
 </body>
 
-<?php include"./views/web/partials/footer.view.php"
+<?php include "./views/web/partials/footer.view.php"
 ?>
 

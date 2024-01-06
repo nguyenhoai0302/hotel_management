@@ -1,4 +1,4 @@
-<?php include"./views/web/partials/header.view.php"
+<?php include "./views/web/partials/header.view.php"
 ?>
 <body> 
     <div class="container d-flex  justify-content-center ml-5 p-5 ">
@@ -10,7 +10,7 @@
                     </div>
 
                     <!-- Register Form -->
-                    <form action="../../../controllers/home/auth.controller.php?action=login" method="post" class="form-container sign-in-container active">
+                    <form action="/controllers/web/registercontroller.php?action=register" method="post" class="form-container sign-in-container active">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Name" name="name" value="" required>
                         </div>
@@ -70,5 +70,5 @@
         </div>
     </div>
 </body>
-<?php include"./views/web/partials/footer.view.php"
+<?php include "./views/web/partials/footer.view.php"
 ?>
