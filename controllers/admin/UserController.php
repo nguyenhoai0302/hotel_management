@@ -7,7 +7,7 @@ class UserController
     private $libs;
     public function __construct()
     {
-        $this->model = new UserModel();
+        $this->model = new UserModel(); 
         $this->libs = new LibCommon();
     }
 
