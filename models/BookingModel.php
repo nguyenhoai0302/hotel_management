@@ -47,4 +47,11 @@ class BookingModel extends ConnectDB
 
         return mysqli_query($this->connect(), $sql);
     }
+
+    function totalBooking()
+    {
+        $sql = "SELECT COUNT(id) AS total_booking FROM bookings";
+
+        return mysqli_query($this->connect(),$sql);
+    }
 }
