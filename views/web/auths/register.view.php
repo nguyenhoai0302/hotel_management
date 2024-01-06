@@ -1,96 +1,79 @@
-<body class="left-side-menu-dark topbar-light">
-<div id="wrapper">
-    <?php
-        ob_start();
-        if(!isset($_SESSION)) {
-            session_start();
-        }
-    ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Authentication</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <?php include "../../../assets/web/css/auth.css.php" ?>
+</head> 
+<body> 
     <div class="container">
-		<div class="card bg-light">
-		<article class="card-body mx-auto" style="max-width: 400px;">				
-			<h4 class="card-title mt-3 text-center">Đăng ký tài khoản</h4>
-			<?php
-                if(isset($_SESSION['reg-error'])) {
-            ?>
-            <div class="text-danger text-center my-2"><?php echo $_SESSION['reg-error'];?></div>
-            <?php
-                }
-			?>
-			<form method="post" action="#" enctype="multipart/form-data">
-			<div class="form-group input-group">
-				<div class="input-group-prepend">
-				    <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
-				 </div>
-		        <input name="fname" class="form-control" placeholder="Tên của bạn" type="text">
-		    </div>
-			<div class="form-group input-group">
-				<div class="input-group-prepend">
-				    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-				 </div>
-		        <input name="username" class="form-control" placeholder="Tên đăng nhập" type="text">
-		    </div> <!-- form-group// -->
-		    <div class="form-group input-group">
-		    	<div class="input-group-prepend">
-				    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-				 </div>
-		        <input name="email" class="form-control" placeholder="Địa chỉ email" type="email">
-		    </div> <!-- form-group// -->
-		    <div class="form-group input-group">
-		    	<div class="input-group-prepend">
-				    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-				</div>
-		    	<input name="phone" class="form-control" placeholder="Số điện thoại" type="text">
-		    </div> <!-- form-group// -->
-		    <div class="form-group input-group">
-		    	<div class="input-group-prepend">
-				    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-				</div>
-				<select class="form-control" name="role">
-					<option selected="">Chọn loại tài khoản</option>
-					<option value="customer">Khách hàng</option>
-					<option value="admin">Quản trị viên</option>
-				</select>
-			</div>
-		    <div class="form-group input-group">
-		    	<div class="input-group-prepend">
-				    <span class="input-group-text"><i class="fas fa-calendar-alt"></i> </span>
-				</div>
-		        <input class="form-control" name ="birthday" placeholder="Ngày sinh" type="date">
-		    </div>
-		    <div class="form-group input-group">
-		    	<div class="input-group-prepend">
-				    <span class="input-group-text"><i class="fas fa-camera"></i></span>
-				</div>
-		        <input class="form-control" name ="avatar" placeholder="Ảnh đại diện" type="file">
-		    </div>
-		    <div class="form-group input-group">
-		    	<div class="input-group-prepend">
-				    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-				</div>
-		        <input class="form-control" name ="password" placeholder="Nhập mật khẩu" type="password">
-		    </div>
-		    <div class="form-group input-group">
-		    	<div class="input-group-prepend">
-				    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-				</div>
-		        <input class="form-control" name="passwordAgain"placeholder="Nhập lại mật khẩu" type="password">
-		    </div> <!-- form-group// -->                                      
-		    <div class="form-group">
-		        <button type="submit" name="register" class="btn btn-primary btn-block register">Đăng ký</button>
-		    </div> <!-- form-group// -->      
-		    <p class="text-center">Bạn đã có tài khoản? <a href="">Đăng nhập</a></p>                                                                 
-		</form>
-		</article>
-		</div> <!-- card.// -->
-  </div>
+        <div class="row justify-content-center align-items-center vh-100">
+            <div class="col-md-6">
+                <div class="form">
+                    <div class="title">
+                        <p class="tab active" id="tab">Register</p>
+                    </div>
 
-  <!-- Vendor js -->
-<script src="assets/admin/js/vendor.min.js"></script>
-<!-- App js -->
-<script src="assets/admin/js/app.min.js"></script>
-
-<!-- Plugins js -->
-<script src="assets/admin/libs/dropify/dropify.min.js"></script>
-<!-- Init js-->
-<script src="assets/admin/js/pages/form-fileuploads.init.js"></script>
+                    <!-- Register Form -->
+                    <form action="../../../controllers/home/auth.controller.php?action=login" method="post" class="form-container sign-in-container active">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Name" name="name" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email" name="email" value="" required>
+                        </div>
+                        <div class="form-group input-group">
+                            <select class="form-control" name="role">
+                                <option selected="">Role</option>
+                                <option value="admin">Admin</option>
+                                <option value="user">User</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input id="date" type="date" class="form-control" placeholder="Date of birthday" name="birthday" value="" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <select id="gender" class="form-control" name="gender">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="phone" class="form-control" placeholder="Phone number" name="phone" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="password" class="form-control" placeholder="Password" name="password" value="" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="password" class="form-control" placeholder="Confirm Password" name="password" value="" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-group-append mt-3 d-flex justify-content-between">
+                            <input class="btn back" type="submit" name="submit" value="Back">
+                            <input class="btn login" type="submit" name="submit" value="Register">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
