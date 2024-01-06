@@ -1,5 +1,6 @@
 <?php
-require 'views/admin/partials/header.view.php'
+require 'views/admin/partials/header.view.php';
+require 'utils/utils.php';
 ?>
 
 <body class="left-side-menu-dark topbar-light">
@@ -59,24 +60,25 @@ require 'views/admin/partials/header.view.php'
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>User_ID</th>
-                                        <th>Room_ID</th>
+                                        <th>User</th>
+                                        <th>Room</th>
                                         <th>Content</th>
                                         <th>Status</th>
-                                        <th>Updated_at</th>
-                                        <th>Created_at</th>
+                                        <th>Created At</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
+                                    $count = 0;
                                     while ($row = $reviews->fetch_assoc()) {
-                                    $id = $row['id'];
+                                    $count += 1;
                                     ?>
                                     <tr>
-                                        <th scope="row"><?php echo $id ?></th>
-                                        <td><?php echo $row['userId']?></td>
-                                        <td><?php echo $row['roomId']?></td>
-                                        <td><?php echo $row['content']?></td>
+                                        <th scope="row"><?php echo $count ?></th>
+                                        <td><?php echo $row['user_name']?></td>
+                                        <td><?php echo $row['room_name']?></td>
+                                        <td><?php echo strLimit($row['content'], 60) ?></td>
                                         <td>
                                             <?php
                                             if ($row['status'] == 1) {
@@ -90,16 +92,15 @@ require 'views/admin/partials/header.view.php'
                                             }
                                             ?>
                                         </td>
-                                        <td><?php echo $row['update_at']?></td>
-                                        <td><?php echo $row['created_at']?></td>
+                                        <td><?php echo formatDate($row['created_at']) ?></td>
                                         <td>
-                                            <a href="admin.php?controller=users&action=view&id=<?php echo $id?>"
+                                            <a href="admin.php?controller=users&action=view&id=<?php echo $row['id']?>"
                                                class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
                                             </a>
-                                            <a href="admin.php?controller=users&action=edit&id=<?php echo $id?>"
+                                            <a href="admin.php?controller=users&action=edit&id=<?php echo $row['id']?>"
                                                class="btn btn-success waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i>
                                             </a>
-                                            <a href="admin.php?controller=users&action=delete&id=<?php echo $id?>"
+                                            <a href="admin.php?controller=users&action=delete&id=<?php echo $row['id']?>"
                                                class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can"></i>
                                             </a>
                                         </td>

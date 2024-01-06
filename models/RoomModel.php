@@ -33,6 +33,13 @@ class RoomModel extends ConnectDB
         return mysqli_query($this->connect(),$sql);
     }
 
+    function totalRoom()
+    {
+        $sql = "SELECT COUNT(id) AS total_room FROM rooms";
+
+        return mysqli_query($this->connect(),$sql);
+    }
+
 }
 
 ?>

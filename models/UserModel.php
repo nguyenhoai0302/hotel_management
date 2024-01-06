@@ -1,5 +1,5 @@
 <?php
-include 'config/database.php';
+include_once 'config/database.php';
 
 class UserModel extends ConnectDB
 {
@@ -46,7 +46,14 @@ class UserModel extends ConnectDB
         return mysqli_query($this->connect(),$sql);
     }
 
+    // count total user
 
+    function totalUser()
+    {
+        $sql = "SELECT COUNT(id) AS total_users FROM users";
+
+        return mysqli_query($this->connect(),$sql);
+    }
 }
 
 ?>

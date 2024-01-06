@@ -3,23 +3,6 @@ include_once 'config/database.php';
 
 class ReviewModel extends ConnectDB
 {
-    function register($name, $email, $avatar, $phone, $gender, $birthday, $role, $status, $password)
-    {
-        $checkUserExist = $this->checkUserExist($email);
-        if ($checkUserExist->num_rows == 0) {
-            $sql = "INSERT INTO users(name,email,avatar,phone,gender,birthday,role,status,password)VALUES('$name','$email','$avatar','$phone','$gender','$birthday','$role','$status','$password')";
-            return mysqli_query($this->connect(), $sql);
-        }
-        return false;
-    }
-
-    function checkUserExist($email)
-    {
-        $sql = "SELECT * FROM users WHERE email = '$email'";
-
-        return mysqli_query($this->connect(), $sql);
-    }
-
     //edit review 
     function editReview($id, $userId, $roomId, $content, $updated_at, $created_at)
     {
@@ -29,7 +12,13 @@ class ReviewModel extends ConnectDB
 
     function getList()
     {
-        $sql = "SELECT * FROM reviews";
+        $sql = "SELECT users.name AS user_name, rooms.name AS room_name, reviews.id, reviews.content, reviews.status, reviews.created_at 
+        FROM reviews
+        JOIN users
+        ON reviews.user_id = users.id
+        JOIN rooms
+        ON reviews.room_id = rooms.id";
+
         return mysqli_query($this->connect(), $sql);
     }
 
@@ -44,5 +33,12 @@ class ReviewModel extends ConnectDB
     {
         $sql = "DELETE FROM reviews WHERE id = $id";
         return mysqli_query($this->connect(), $sql);
+    }
+
+    function totalReview()
+    {
+        $sql = "SELECT COUNT(id) AS total_review FROM reviews";
+
+        return mysqli_query($this->connect(),$sql);
     }
 }
