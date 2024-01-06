@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>User Authentication</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <?php include "../../../assets/web/css/auth.css.php" ?>
-</head> 
+<?php include"./views/web/partials/header.view.php"
+?>
 <body> 
-    <div class="container">
+    <div class="container d-flex  justify-content-center ml-5 p-5 ">
         <div class="row justify-content-center align-items-center vh-100">
             <div class="col-md-6">
                 <div class="form">
@@ -76,4 +70,5 @@
         </div>
     </div>
 </body>
-</html>
+<?php include"./views/web/partials/footer.view.php"
+?>

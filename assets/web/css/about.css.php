@@ -12,7 +12,7 @@
         margin-left: 100px;
     }
     .fast{
-        margin-left:250px;
+        margin-left:100px;
     }
     #about_us{
         color: #ffe53f;
