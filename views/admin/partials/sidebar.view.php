@@ -27,7 +27,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="pages-starter.html">Add</a></li>
+                        <li><a href="admin.php?controller=rooms&action=create">Add</a></li>
                         <li><a href="admin.php?controller=rooms&action=list">List</a></li>
                     </ul>
                 </li>

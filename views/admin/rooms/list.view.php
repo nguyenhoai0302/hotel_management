@@ -37,12 +37,12 @@ require 'utils/utils.php';
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Users</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Rooms</a></li>
                                     <li class="breadcrumb-item active">List</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">List Users</h4>
+                            <h4 class="page-title">List Rooms</h4>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@ require 'utils/utils.php';
                         <div class="card-box">
                             <p class="sub-header">
                                 <a href="admin.php?controller=users&action=create"
-                                   class="float-right font-weight-bold mb-2"><i class="mdi mdi-plus"></i>Add room
+                                   class="float-right font-weight-bold mb-2"><i class="mdi mdi-plus"></i>Add Room
                                 </a>
                             </p>
                             <table class="table table-striped mb-0 text-center">

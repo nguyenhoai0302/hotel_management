@@ -6,13 +6,13 @@ class RoomModel extends ConnectDB
 
     //lấy ra room
     function getRoomById($id) {
-        $sql = "SELECT * FROM room WHERE id = $id";
+        $sql = "SELECT * FROM rooms WHERE id = $id";
         return mysqli_query($this->connect(), $sql);
     }
 
     //edit room
-    function editRoom($id, $name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $update_at, $created_at) {
-        $sql = "UPDATE room SET id = '$id', name = '$name', bedroom = '$bedroom', bathroom = '$bathroom', livingroom ='$livingroom', type = '$type', price = '$price', tax = '$tax', cleaning_fee = '$cleaning_fee',description = '$description',status = '$status',update_at = '$update_at',created_at = '$created_at' WHERE id = $id";
+    function editRoom($id, $name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $created_at) {
+        $sql = "UPDATE rooms SET id = '$id', name = '$name', bedroom = '$bedroom', bathroom = '$bathroom', livingroom ='$livingroom', type = '$type', price = '$price', tax = '$tax', cleaning_fee = '$cleaning_fee',description = '$description',status = '$status',created_at = '$created_at' WHERE id = $id";
         return mysqli_query($this->connect(),$sql);
     }
 
@@ -29,8 +29,22 @@ class RoomModel extends ConnectDB
     //deleta user
     function delete($id) {
         $sml = "DELETE FROM bookings WHERE room_id = $id";
-        return mysqli_query($this->connect(),$sml);
         $sql = "DELETE FROM rooms WHERE id = $id";
+        return mysqli_query($this->connect(),$sql);
+    }
+
+    function create($id,$name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $created_at)
+    {
+        $checkRoomExist = $this->checkRoomExist($id);
+        if($checkRoomExist->num_rows == 0) {
+            $sql = "INSERT INTO rooms($name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $created_at)VALUES('$name', '$bedroom', '$bathroom', '$livingroom', '$type', '$price', '$tax', '$cleaning_fee', '$description', '$status', '$created_at')";
+            return mysqli_query($this->connect(),$sql);
+        }
+        return false;
+    }
+    function checkRoomExist($id) {
+        $sql = "SELECT * FROM rooms WHERE id = $id";
+
         return mysqli_query($this->connect(),$sql);
     }
 

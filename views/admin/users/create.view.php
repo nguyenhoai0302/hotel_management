@@ -126,4 +126,4 @@ require 'views/admin/partials/header.view.php'
 <!-- Init js-->
 <script src="assets/admin/js/pages/form-fileuploads.init.js"></script>
 </body>
-</html>
+
