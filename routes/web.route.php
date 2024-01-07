@@ -32,30 +32,25 @@ $routes = [
     'admin/user' => 'UserController',
 ];
 
-    
-    if($controller == "admin"){
-        if (array_key_exists($controller, $routes)) {
-            require 'controllers/admin/'.$routes[$controller].'.php';   
-            $admin = new $routes[$controller];
-            $admin->handleRequest();
-        
-        } else {
-            http_response_code(404);
-            require 'views/errors/404.php';
-            die();
-        }
-    }else{
-        if (array_key_exists($controller, $routes)) {
-            require 'controllers/web/'.$routes[$controller].'.php';   
-            $admin = new $routes[$controller];
-            $admin->handleRequest();
-        
-        } else {
-            http_response_code(404);
-            require 'views/errors/404.php';
-            die();
-        }
+
+if ($controller == "admin") {
+    if (array_key_exists($controller, $routes)) {
+        require 'controllers/admin/' . $routes[$controller] . '.php';
+        $admin = new $routes[$controller];
+        $admin->handleRequest();
+    } else {
+        http_response_code(404);
+        require 'views/errors/404.php';
+        die();
     }
->>>>>>> f7448dd7e254aeaa1a807719d702865a3bd7e2f6
-
-
+} else {
+    if (array_key_exists($controller, $routes)) {
+        require 'controllers/web/' . $routes[$controller] . '.php';
+        $admin = new $routes[$controller];
+        $admin->handleRequest();
+    } else {
+        http_response_code(404);
+        require 'views/errors/404.php';
+        die();
+    }
+}
