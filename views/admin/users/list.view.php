@@ -36,12 +36,12 @@ require 'views/admin/partials/header.view.php'
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Users</a></li>
+                                    <li class="breadcrumb-item"><a href="admin.php">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="admin.php?controller=users&action=list">Users</a></li>
                                     <li class="breadcrumb-item active">List</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">List Users</h4>
+                            <h4 class="page-title">List User</h4>
                         </div>
                     </div>
                 </div>
@@ -69,11 +69,12 @@ require 'views/admin/partials/header.view.php'
                                     </thead>
                                     <tbody>
                                     <?php
+                                    $count = 0;
                                     while ($row = $users->fetch_assoc()) {
-                                    $id = $row['id'];
+                                    $count += 1;
                                     ?>
                                     <tr>
-                                        <th scope="row"><?php echo $id ?></th>
+                                        <th scope="row"><?php echo $count ?></th>
                                         <td>
                                             <img src="assets/uploads/users/<?php echo $row['avatar'];?>" alt="avatar" width="50" height="50">
                                         </td>
@@ -106,13 +107,13 @@ require 'views/admin/partials/header.view.php'
                                             ?>
                                         </td>
                                         <td>
-                                            <a href="admin.php?controller=users&action=view&id=<?php echo $id?>"
+                                            <a href="admin.php?controller=users&action=view&id=<?php echo $row['id']?>"
                                                class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
                                             </a>
-                                            <a href="admin.php?controller=users&action=edit&id=<?php echo $id?>"
+                                            <a href="admin.php?controller=users&action=edit&id=<?php echo $row['id']?>"
                                                class="btn btn-success waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i>
                                             </a>
-                                            <a href="admin.php?controller=users&action=delete&id=<?php echo $id?>"
+                                            <a href="admin.php?controller=users&action=delete&id=<?php echo $row['id']?>"
                                                class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can"></i>
                                             </a>
                                         </td>

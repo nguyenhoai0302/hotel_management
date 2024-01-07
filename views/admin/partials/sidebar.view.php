@@ -11,7 +11,7 @@
                 <li>
                     <a href="javascript: void(0);">
                         <i class="mdi mdi-account-multiple"></i>
-                        <span> User</span>
+                        <span> Users </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
@@ -60,6 +60,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="admin.php?controller=reviews&action=create">Create</a></li>
                         <li><a href="admin.php?controller=reviews&action=list">List</a></li>
                     </ul>
                 </li>
@@ -71,7 +72,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                    <li><a href="admin.php?controller=favorite&action=list">List</a></li>
+                        <li><a href="admin.php?controller=favorite&action=create">Create</a></li>
+                        <li><a href="admin.php?controller=favorite&action=list">List</a></li>
                     </ul>
                 </li>
 
