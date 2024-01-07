@@ -75,22 +75,22 @@ class UserController
             $role = $_POST['role'];
             $gender = $_POST['gender'];
             $birthday = $_POST['birthday'];
+            $status = $_POST['status'];
             $password = $_POST['password'];
             $avatar = $oldUser['avatar'];
             $update_at = date('Y-m-d h:i:s');
     
-            if($name != '' && $email != '' && $phone != '' && $role != '' && $gender != '' && $birthday != '' && $password != '') {
+            if($name != '' && $email != '' && $phone != '' && $role != '' && $gender != '' && $birthday != '' && $password != '' && $avatar !='' && $status != '') {
                 $avatar = $_FILES['avatar']['name'];
                 move_uploaded_file($_FILES['avatar']['tmp_name'], 'uploads/'.$avatar);
-                $checkAdd = $this->model->editUser($id,$name,$email,$phone,$role,$gender,$birthday,$avatar,$password,$update_at);
+                $checkAdd = $this->model->editUser($id,$name,$email,$phone,$role,$gender,$birthday,$status,$avatar,$password,$update_at);
                 if($checkAdd === TRUE) {
                     $this->libs->redirectPage('admin.php?controller=users&action=list');
                 }					
             }
         }
     
-        // include 'views/admin/users/edit.view.php';
-        include 'views/admin/users/update.view.php';
+        include 'views/admin/users/edit.view.php';
     }
 
     private function deleteUser($id) {
