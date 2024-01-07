@@ -97,7 +97,7 @@ require 'utils/utils.php';
                                     <hr>
                                     <div class="">
                                         <div class="float-right">
-                                            <a href="#" class="btn btn-danger waves-effect waves-light">Delete</a>
+                                            <a href="admin.php?controller=payments&action=list" class="btn btn-danger waves-effect waves-light">Delete</a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
