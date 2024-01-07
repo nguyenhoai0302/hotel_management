@@ -1,19 +1,5 @@
 <div class="navbar-custom">
     <ul class="list-unstyled topnav-menu float-right mb-0">
-
-        <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
-            <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <img src="assets/admin/images/flags/vietnam.png" alt="lang-image" height="20">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <img src="assets/admin/images/flags/vietnam.png" alt="lang-image" class="mr-1" height="12"> <span class="align-middle">Viet Nam</span>
-                </a>
-
-            </div>
-        </li>
-
         <li class="dropdown notification-list">
             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 <img src="assets/uploads/users/5.jpg" alt="user-image" class="rounded-circle">
@@ -58,21 +44,21 @@
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="index.html" class="logo text-center logo-dark">
+        <a href="/home" class="logo text-center logo-dark">
             <span class="logo-lg">
                 <img src="assets/admin/images/logo.png" alt="" height="100">
             </span>
             <span class="logo-sm">
-                <img src="assets/admin/images/logo.png" alt="" height="100">
+                <img src="assets/admin/images/logo.png" alt="" height="50">
             </span>
         </a>
 
-        <a href="index.html" class="logo text-center logo-light">
+        <a href="/home" class="logo text-center logo-light">
             <span class="logo-lg">
                 <img src="assets/admin/images/logo.png" alt="" height="100">
             </span>
             <span class="logo-sm">
-                <img src="assets/admin/images/logo.png" alt="" height="100">
+                <img src="assets/admin/images/logo.png" alt="" height="50">
             </span>
         </a>
     </div>
