@@ -43,14 +43,4 @@ if ($controller == "admin") {
         require 'views/errors/404.php';
         die();
     }
-} else {
-    if (array_key_exists($controller, $routes)) {
-        require 'controllers/web/' . $routes[$controller] . '.php';
-        $admin = new $routes[$controller];
-        $admin->handleRequest();
-    } else {
-        http_response_code(404);
-        require 'views/errors/404.php';
-        die();
-    }
 }

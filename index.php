@@ -1,2 +1,3 @@
-<?php 
-echo "Home page";
+<?php
+require 'utils/url.php';
+require 'routes/web.route.php';
