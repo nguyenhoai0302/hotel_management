@@ -47,6 +47,9 @@ class PaymentController
 
     private function getDetailPayment($id)
     {
+        $query = $this->model->getPaymentById($id);
+        $payment = $query->fetch_assoc();
+
         include 'views/admin/payments/detail.view.php';
     }
 }

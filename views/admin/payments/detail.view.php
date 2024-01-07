@@ -56,8 +56,7 @@ require 'utils/utils.php';
                                             <h4 class="text-uppercase mt-0">payment</h4>
                                         </div>
                                         <div class="float-sm-right mt-4 mt-sm-0">
-                                            <h5>Payment ID # <br>
-                                                <small>123456</small>
+                                            <h5>Payment ID # <?php echo $payment['id'] ?><br>
                                             </h5>
                                         </div>
                                     </div>
