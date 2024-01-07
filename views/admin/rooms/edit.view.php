@@ -34,7 +34,8 @@ require 'views/admin/partials/header.view.php'
                 <div class="row">
                   <div class="col-lg-12">
                     <div>
-                    <form method="POST" action="#" class="parsley-examples" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
+                    <form method="POST" action="" class="parsley-examples" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
+                      <input type="hidden" value="<?=$oldRoom['id'];?>" name="id" id="id" >
                         <div class="form-group">
                           <label for="name">Name:</label>
                           <input type="text" class="form-control" id="name" name="name"  value="<?php echo $oldRoom['name'];?>">
@@ -69,15 +70,16 @@ require 'views/admin/partials/header.view.php'
                         </div>
                         <div class="form-group">
                           <label for="description">Description:</label>
-                          <textarea class="form-control" id="description" name="description" rows="4"  value="<?php echo $oldRoom['description'];?>"></textarea>
+                          <textarea class="form-control" id="description" name="description" rows="4"  ><?php echo $oldRoom['description'];?></textarea>
                         </div>
                         <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-building"></i></span>
                         </div>
-                        <select class="form-control" name="status">
-                            <option value="Availiable" <?php if(isset($oldRoom['status']) && $oldRoom['status'] == '1'){ echo 'selected';}?>>Availiable</option>
-                            <option value="Unavailiable" <?php if(isset($oldRoom['status']) && $oldRoom['status'] == '2'){ echo 'selected';}?>>Unavailiable</option>
+                        <select class="form-control" name="status"  >
+                            <option value="<?=$oldRoom['status'];?>" ><?=$oldRoom['status']==1?'Available':'Unavailable';?></option>
+                            <option value="1" >Available</option>
+                            <option value="0" >Unavailable</option>
                         </select>
                         </div>
                        
@@ -85,9 +87,13 @@ require 'views/admin/partials/header.view.php'
                           <label for="created_at">Created At:</label>
                           <input type="datetime-local" class="form-control" id="created_at" name="created_at" value="<?php echo $oldRoom['created_at'];?>">
                         </div>
+                        <div class="form-group">
+                          <label for="updated_at">Updated At:</label>
+                          <input type="datetime-local" class="form-control" id="updated_at" name="updated_at" value="<?php echo $oldRoom['updated_at'];?>">
+                        </div>
 
                         <div class="form-group text-right mb-0">
-                          <button class="btn btn-primary waves-effect waves-light mr-1" type="submit" name="create">
+                          <button class="btn btn-primary waves-effect waves-light mr-1" type="submit" name="edit">
                             Save
                           </button>
                           <button type="reset" class="btn btn-secondary waves-effect">

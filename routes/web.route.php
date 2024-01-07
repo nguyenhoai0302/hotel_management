@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 <?php
 // include 'controllers/web/about.controller.php';
 // include 'controllers/web/auth.controller.php';
@@ -57,6 +56,6 @@ $routes = [
             die();
         }
     }
->>>>>>> f7448dd7e254aeaa1a807719d702865a3bd7e2f6
+
 
 

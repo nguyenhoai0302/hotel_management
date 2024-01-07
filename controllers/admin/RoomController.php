@@ -45,7 +45,7 @@ class RoomController
     private function createRoom()
     {
         if (isset($_POST['create'])) {
-            $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
+            // $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
             $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
             $bedroom = filter_input(INPUT_POST, 'bedroom', FILTER_SANITIZE_STRING);
             $bathroom = filter_input(INPUT_POST, 'bathroom', FILTER_SANITIZE_STRING);
@@ -60,7 +60,7 @@ class RoomController
             $created_at = date('Y-m-d H:i:s');
 
             
-            if ($id !== '' && $name !== '' && $bedroom !== '' && $bathroom !== '' && $livingroom !== '' && $type !== '' && $price !== '' && $tax !== '' && $cleaning_fee !== '' && $description !== '' && $status !== '' && $update_at !== '' && $created_at !== '') {
+            if ( $name !== '' && $bedroom !== '' && $bathroom !== '' && $livingroom !== '' && $type !== '' && $price !== '' && $tax !== '' && $cleaning_fee !== '' && $description !== '' && $status !== '' && $update_at !== '' && $created_at !== '') {
                 $createRoom = $this->model->create( $name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $update_at, $created_at);
                 if ($createRoom) {
                    $this->libs->redirectPage('admin.php?controller=rooms&action=list');
@@ -78,28 +78,29 @@ class RoomController
         $oldRoom = $roomById->fetch_assoc();
     
         if (isset($_POST['edit'])) {
-            $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-            $bedroom = filter_input(INPUT_POST, 'bedroom', FILTER_SANITIZE_STRING);
-            $bathroom = filter_input(INPUT_POST, 'bathroom', FILTER_SANITIZE_STRING);
-            $livingroom = filter_input(INPUT_POST, 'livingroom', FILTER_SANITIZE_STRING);
-            $type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_STRING);
-            $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING);
-            $tax = filter_input(INPUT_POST, 'tax', FILTER_SANITIZE_STRING);
-            $cleaning_fee = filter_input(INPUT_POST, 'cleaning_fee', FILTER_SANITIZE_STRING);
-            $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
-            $status = filter_input(INPUT_POST, 'status', FILTER_SANITIZE_STRING);
-            $update_at = date('Y-m-d H:i:s');
-            $created_at = date('Y-m-d H:i:s');
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $bedroom = $_POST['bedroom'];
+            $bathroom = $_POST['bathroom'];
+            $livingroom = $_POST['livingroom'];
+            $type = $_POST['type'];
+            $price = $_POST['price'];
+            $tax = $_POST['tax'];
+            $cleaning_fee = $_POST['cleaning'];
+            $description = $_POST['description'];
+            $status = $_POST['status'];
+            $update_at = $_POST['updated_at'];
+            $created_at = $_POST['created_at'];
         
-            if($name !== '' && $type !== '' && $price !== '' && $description !== '' && $status !== '' && $created_at !== '') {
-                $checkAdd = $this->model->editRoom($id, $name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $created_at);
+            if($name !== '' && $type !== ''&& $bedroom !== '' && $bathroom !== '' && $livingroom !== '' && $price !== '' && $tax !== '' && $cleaning_fee !== '' && $description !== ''  && $status !== '' && $update_at !== '' && $created_at !== '') {
+                $checkAdd = $this->model->editRoom($id, $name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $created_at,$update_at);
                 if($checkAdd === TRUE) {
                     $this->libs->redirectPage('admin.php?controller=rooms&action=list');
                 }					
             }
         }
     
-        include 'views/admin/rooms/create.view.php';
+        include 'views/admin/rooms/edit.view.php';
     }
 
     private function deleteRoom($id)

@@ -58,7 +58,7 @@ require 'utils/utils.php';
                             <table class="table table-striped mb-0 text-center">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th>#</th>
                                         <th>Name</th>
                                         <th>Type</th>
                                         <th>Price</th>

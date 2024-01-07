@@ -74,8 +74,8 @@ require 'views/admin/partials/header.view.php'
                         <div class="form-group">
                           <label for="status">Status:</label>
                           <select class="form-control" id="status" name="status">
-                            <option value="1">Avaliable</option>
-                            <option value="0">Unavaliable</option>
+                            <option value="1">Availiable</option>
+                            <option value="0">Unavailiable</option>
                           </select>
                         </div>
                         <div class="form-group">
