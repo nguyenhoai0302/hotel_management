@@ -58,7 +58,7 @@ require 'views/admin/partials/header.view.php'
                                                     <label for="exampleSelect1">Status<span class="text-danger">*</span></label>
                                                     <select class="form-control" id="status" name="status">
                                                         <option value="1" <?php if(isset($oldUser['status']) && $oldUser['status'] == '1'){ echo 'selected';}?>>Active</option>
-                                                        <option value="2" <?php if(isset($oldUser['status']) && $oldUser['status'] == '2'){ echo 'selected';}?>>Disable</option>
+                                                        <option value="2" <?php if(isset($oldUser['status']) && $oldUser['status'] == '2'){ echo 'selected';}?>>Disabled</option>
                                                     </select>
                                                 </div>
 
