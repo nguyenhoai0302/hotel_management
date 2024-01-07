@@ -26,7 +26,8 @@ class UserModel extends ConnectDB
 
     //edit user
     function editUser($id,$name,$email,$phone,$role,$gender,$status,$birthday,$avatar,$password,$updated_at) {
-        $sql = "UPDATE users SET name = '$name', email = '$email', phone = '$phone', role = '$role', gender ='$gender', birthday = '$birthday', avatar = '$avatar', status = '$status', password = '$password', updated_at = '$updated_at' WHERE id = $id";
+        $sql = "UPDATE users SET name = '$name', email = '$email', phone = '$phone', role = '$role', gender ='$gender', birthday = '$birthday', avatar = '$avatar', `status` = '$status', `password` = '$password', updated_at = '$updated_at' 
+        WHERE id = $id";
         return mysqli_query($this->connect(),$sql);
     }
 

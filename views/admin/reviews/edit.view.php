@@ -37,37 +37,38 @@ require 'views/admin/partials/header.view.php'
                                             <form method="POST" action="#" class="parsley-examples" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
                                                 <!-- User Name -->
                                                 <div class="form-group">
-                                                    <label for="user_name">User<span class="text-danger">*</span></label>
-                                                    <input type="text" name="user_name" parsley-trigger="change" required="" placeholder="Enter name" class="form-control" id="user_name" value="<?php echo $oldReview['user_name'];?>">
+                                                    <label for="user_name">User</label>
+                                                    <input type="text" name="user_name" parsley-trigger="change" required="" placeholder="Enter name" class="form-control" id="user_name" value="<?php echo $oldReview['user_name'];?>" disabled>
                                                 </div>
                                                 
                                                 <!-- Room Name -->
                                                 <div class="form-group">
-                                                    <label for="room_name">Room<span class="text-danger">*</span></label>
-                                                    <input type="text" name="room_name" parsley-trigger="change" required="" placeholder="Enter name" class="form-control" id="room_name" value="<?php echo $oldReview['room_name'];?>">
+                                                    <label for="room_name">Room</label>
+                                                    <input type="text" name="room_name" parsley-trigger="change" required="" placeholder="Enter name" class="form-control" id="room_name" value="<?php echo $oldReview['room_name'];?>" disabled>
                                                 </div>
 
                                                 <!-- Content -->
                                                 <div class="form-group">
-                                                    <label for="content">Content<span class="text-danger">*</span></label>
-                                                    <input type="textarea" name="content" parsley-trigger="change" required="" placeholder="Enter content" class="form-control" id="content" value="<?php echo $oldReview['content'];?>">
+                                                    <label for="content">Content</label>
+                                                    <!-- <input type="textarea" name="content" parsley-trigger="change" required="" placeholder="Enter content" class="form-control" id="content" value="<?php echo $oldReview['content'];?>"> -->
+                                                    <textarea class="form-control" id="exampleTextarea" rows="6" name="content" id="content"><?php echo $oldReview['content'];?></textarea>
                                                 </div>
 
                                                 <!-- Status -->
                                                 <div class="form-group">
-                                                    <label for="exampleSelect1">Status<span class="text-danger">*</span></label>
+                                                    <label for="exampleSelect1">Status</label>
                                                     <select class="form-control" id="status" name="status">
-                                                        <option value="1" <?php if(isset($oldUser['status']) && $oldUser['status'] == '1'){ echo 'selected';}?>>Active</option>
-                                                        <option value="2" <?php if(isset($oldUser['status']) && $oldUser['status'] == '2'){ echo 'selected';}?>>Disabled</option>
+                                                        <option value="1" <?php if(isset($oldReview['status']) && $oldReview['status'] == '1'){ echo 'selected';}?>>Active</option>
+                                                        <option value="2" <?php if(isset($oldReview['status']) && $oldReview['status'] == '2'){ echo 'selected';}?>>Disabled</option>
                                                     </select>
                                                 </div>
 
                                                 <!-- Save/Cancel -->
                                                 <div class="form-group text-right mb-0">
-                                                    <button class="btn btn-primary waves-effect waves-light mr-1" type="submit" name="create">Save</button>
-                                                    <button type="reset" class="btn btn-secondary waves-effect">Cancel</button>
+                                                    <button class="btn btn-primary waves-effect waves-light mr-1" type="submit" name="update">Save</button>
+                                                    <a href="admin.php?controller=reviews&action=list"
+                                                    class="btn btn-secondary waves-effect waves-light">Cancel</a>
                                                 </div>
-
                                             </form>
                                         </div>
                                     </div>

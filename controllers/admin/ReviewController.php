@@ -62,15 +62,13 @@ class ReviewController
         $reviewById = $this->model->getReviewById($id);
         $oldReview = $reviewById->fetch_assoc();
     
-        if (isset($_POST['edit'])) {
-            $user_id = $_POST['user_id'];
-            $room_id = $_POST['room_id'];
+        if (isset($_POST['update'])) {
             $content = $_POST['content'];
             $status = $_POST['status'];
             $updated_at = date('Y-m-d h:i:s');
     
-            if($user_id != '' && $room_id != '' && $content != '' && $status != '' && $updated_at) {
-                $checkAdd = $this->model->editReview($id, $user_id, $room_id, $content, $status, $updated_at);
+            if($content != '' && $status != '' && $updated_at) {
+                $checkAdd = $this->model->editReview($id, $content, $status, $updated_at);
                 if($checkAdd === TRUE) {
                     $this->libs->redirectPage('admin.php?controller=reviews&action=list');
                 }					
