@@ -1,4 +1,4 @@
-
+<?php include_once('../../web/partials/header.view.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <?php include_once("") ?>
 </head>
+
 <body>
     <div class="container">
         <form action="" method="">
@@ -151,4 +152,6 @@
         </form>
     </div>
 </body>
+
 </html>
+<?php include_once('../../web/partials/footer.view.php') ?>
