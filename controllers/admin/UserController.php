@@ -77,13 +77,18 @@ class UserController
             $birthday = $_POST['birthday'];
             $status = $_POST['status'];
             $password = $_POST['password'];
-            $avatar = $oldUser['avatar'];
-            $update_at = date('Y-m-d h:i:s');
-    
-            if($name != '' && $email != '' && $phone != '' && $role != '' && $gender != '' && $birthday != '' && $password != '' && $avatar !='' && $status != '') {
+            $updated_at = date('Y-m-d h:i:s');
+
+            //Nếu không thay đổi avatar thi sẽ dùng avatar cũ
+            if ($_FILES['avatar']['name'] == '') {
+                $avatar = $oldUser['avatar'];
+            } else {
                 $avatar = $_FILES['avatar']['name'];
-                move_uploaded_file($_FILES['avatar']['tmp_name'], 'uploads/'.$avatar);
-                $checkAdd = $this->model->editUser($id,$name,$email,$phone,$role,$gender,$birthday,$status,$avatar,$password,$update_at);
+            }
+
+            if($name != '' && $email != '' && $phone != '' && $role != '' && $gender != '' && $birthday != '' && $password != '' && $avatar !='' && $status != '') {
+                move_uploaded_file($_FILES['avatar']['tmp_name'], 'assets/uploads/users/'.$avatar);
+                $checkAdd = $this->model->editUser($id,$name,$email,$phone,$role,$gender,$status,$birthday,$avatar,$password,$updated_at);
                 if($checkAdd === TRUE) {
                     $this->libs->redirectPage('admin.php?controller=users&action=list');
                 }					

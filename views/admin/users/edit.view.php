@@ -63,12 +63,8 @@ require 'views/admin/partials/header.view.php'
                                                 <div class="form-group">
                                                     <label for="gender">Gender<span class="text-danger">*</span></label>
                                                     <select class="form-control" id="gender" name="gender">
-                                                        <option value="1" <?php if (isset($oldUser['gender']) && $oldUser['gender'] == '1') {
-                                                                                echo 'selected';
-                                                                            } ?>>Male</option>
-                                                        <option value="2" <?php if (isset($oldUser['gender']) && $oldUser['gender'] == '1') {
-                                                                                echo 'selected';
-                                                                            } ?>>Female</option>
+                                                        <option value="1" <?php if (isset($oldUser['gender']) && $oldUser['gender'] == '1') {echo 'selected';} ?>>Male</option>
+                                                        <option value="2" <?php if (isset($oldUser['gender']) && $oldUser['gender'] == '1') {echo 'selected';} ?>>Female</option>
                                                     </select>
                                                 </div>
 
@@ -88,12 +84,8 @@ require 'views/admin/partials/header.view.php'
                                                 <div class="form-group">
                                                     <label for="role">Role<span class="text-danger">*</span></label>
                                                     <select class="form-control" id="role" name="role">
-                                                        <option value="1" <?php if (isset($oldUser['role']) && $oldUser['role'] == '1') {
-                                                                                echo 'selected';
-                                                                            } ?>>Admin</option>
-                                                        <option value="2" <?php if (isset($oldUser['role']) && $oldUser['role'] == '1') {
-                                                                                echo 'selected';
-                                                                            } ?>>Member</option>
+                                                        <option value="1" <?php if (isset($oldUser['role']) && $oldUser['role'] == '1') {echo 'selected';} ?>>Admin</option>
+                                                        <option value="2" <?php if (isset($oldUser['role']) && $oldUser['role'] == '2') {echo 'selected';} ?>>Member</option>
                                                     </select>
                                                 </div>
 
@@ -101,8 +93,8 @@ require 'views/admin/partials/header.view.php'
                                                 <div class="form-group">
                                                     <label for="exampleSelect1">Status<span class="text-danger">*</span></label>
                                                     <select class="form-control" id="status" name="status">
-                                                        <option value="1">Active</option>
-                                                        <option value="2">Disable</option>
+                                                        <option value="1" <?php if (isset($oldUser['status']) && $oldUser['status'] == '1') {echo 'selected';} ?>>Active</option>
+                                                        <option value="2" <?php if (isset($oldUser['status']) && $oldUser['status'] == '2') {echo 'selected';} ?>>Disable</option>
                                                     </select>
                                                 </div>
 
@@ -115,7 +107,7 @@ require 'views/admin/partials/header.view.php'
                                                 <!-- Save/Cancel Button -->
                                                 <div class="form-group text-right mb-0">
                                                     <button class="btn btn-primary waves-effect waves-light mr-1" type="submit" name="edit">Save</button>
-                                                    <button type="reset" class="btn btn-secondary waves-effect">Cancel</button>
+                                                    <a href="admin.php?controller=users&action=list" class="btn btn-secondary waves-effect waves-light">Cancel</a>
                                                 </div>
 
                                             </form>

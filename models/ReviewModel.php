@@ -49,10 +49,9 @@ class ReviewModel extends ConnectDB
     }
 
     //edit review 
-    function editReview($id, $user_id, $room_id, $content, $status, $updated_at)
+    function editReview($id, $content, $status, $updated_at)
     {
-        
-        $sql = "UPDATE reviews SET user_id = '$user_id', room_id = '$room_id', status = '$status', content = '$content', updated_at ='$updated_at' WHERE id = $id";
+        $sql = "UPDATE reviews SET `status` = '$status', content = '$content', updated_at ='$updated_at' WHERE id = $id";
         return mysqli_query($this->connect(), $sql);
     }
 
