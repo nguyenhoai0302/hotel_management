@@ -1,5 +1,4 @@
 <style>
-
     h4 {
         text-align: center;
     }
@@ -17,7 +16,7 @@
 
     }
 
-    h5 {
+    SSSS h5 {
         padding-left: 10px;
     }
 
@@ -51,7 +50,7 @@
         gap: 10px;
         justify-content: center;
         align-items: center;
-        background-color: #fef618;
+        background-color: #fffc3f;
         border-radius: 10px;
     }
 
@@ -81,6 +80,7 @@
     .content_profile-username-email-password {
         display: grid;
     }
+
     .form-input-profile {
         max-height: 50px;
         border-radius: 5px;
@@ -107,10 +107,9 @@
     }
 
     #profile-edit {
-        background-color: #fef618;
+        background-color: #fffc3f;
         padding: 4px;
         padding-top: 7px;
-
     }
 
     /* Modal-edit */
@@ -146,7 +145,7 @@
 
     #footer {
         /* padding: 50px; */
-        background-color: #0F172B
+        background-color: #fffc3f
     }
 
     .section-title {
