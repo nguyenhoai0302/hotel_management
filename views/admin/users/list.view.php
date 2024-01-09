@@ -62,7 +62,9 @@ require 'views/admin/partials/header.view.php'
                                         <th>Avatar</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Phone</th>
                                         <th>Role</th>
+                                        <th>Birthday</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -80,6 +82,8 @@ require 'views/admin/partials/header.view.php'
                                         </td>
                                         <td><?php echo $row['name']?></td>
                                         <td><?php echo $row['email']?></td>
+                                        <td><?php echo $row['phone']?></td>
+                                        <td><?php echo $row['birthday']?></td>
                                         <td>
                                             <?php
                                             if ($row['role'] == 1) {
@@ -107,9 +111,9 @@ require 'views/admin/partials/header.view.php'
                                             ?>
                                         </td>
                                         <td>
-                                            <a href="admin.php?controller=users&action=view&id=<?php echo $row['id']?>"
+                                            <!-- <a href="admin.php?controller=users&action=view&id=<?php echo $row['id']?>"
                                                class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
-                                            </a>
+                                            </a> -->
                                             <a href="admin.php?controller=users&action=edit&id=<?php echo $row['id']?>"
                                                class="btn btn-success waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i>
                                             </a>
