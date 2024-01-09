@@ -111,9 +111,9 @@ require 'views/admin/partials/header.view.php'
                                             ?>
                                         </td>
                                         <td>
-                                            <a href="admin.php?controller=users&action=view&id=<?php echo $row['id']?>"
+                                            <!-- <a href="admin.php?controller=users&action=view&id=<?php echo $row['id']?>"
                                                class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
-                                            </a>
+                                            </a> -->
                                             <a href="admin.php?controller=users&action=edit&id=<?php echo $row['id']?>"
                                                class="btn btn-success waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i>
                                             </a>
