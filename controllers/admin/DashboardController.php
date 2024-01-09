@@ -1,4 +1,5 @@
 <?php
+
 include_once 'models/UserModel.php';
 include_once 'models/ReviewModel.php';
 include_once 'models/RoomModel.php';
@@ -33,7 +34,7 @@ class DashboardController
     }
 
     function getInfoDashboard()
-    {
+    {        
         $queryUser = $this->userModel->totalUser();
         $totalUser = $queryUser->fetch_assoc();
 
@@ -41,6 +42,7 @@ class DashboardController
         $totalRoom = $queryRoom->fetch_assoc();
 
         $queryReview = $this->reviewModel->totalReview();
+        if($queryReview)
         $totalReview = $queryReview->fetch_assoc();
 
         $queryBooking = $this->bookingModel->totalBooking();

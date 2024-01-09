@@ -1,3 +1,4 @@
+
 <?php
 // include 'controllers/web/about.controller.php';
 // include 'controllers/web/auth.controller.php';
@@ -43,4 +44,5 @@ if ($controller == "admin") {
         require 'views/errors/404.php';
         die();
     }
-}
+
+
