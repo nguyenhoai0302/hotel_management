@@ -37,8 +37,8 @@ require 'utils/utils.php';
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Users</a></li>
+                                    <li class="breadcrumb-item"><a href="admin.php">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="admin.php?controller=reviews&action=list">Reviews</a></li>
                                     <li class="breadcrumb-item active">List</li>
                                 </ol>
                             </div>
@@ -51,7 +51,7 @@ require 'utils/utils.php';
                     <div class="col-lg-12">
                         <div class="card-box">
                             <p class="sub-header">
-                                <a href="admin.php?controller=users&action=create"
+                                <a href="admin.php?controller=reviews&action=create"
                                    class="float-right font-weight-bold mb-2"><i class="mdi mdi-plus"></i>Add Review
                                 </a>
                             </p>
@@ -64,7 +64,6 @@ require 'utils/utils.php';
                                         <th>Room</th>
                                         <th>Content</th>
                                         <th>Status</th>
-                                        <th>Created At</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -92,15 +91,14 @@ require 'utils/utils.php';
                                             }
                                             ?>
                                         </td>
-                                        <td><?php echo formatDate($row['created_at']) ?></td>
                                         <td>
-                                            <a href="admin.php?controller=users&action=view&id=<?php echo $row['id']?>"
+                                            <a href="admin.php?controller=reviews&action=view&id=<?php echo $row['id']?>"
                                                class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
                                             </a>
-                                            <a href="admin.php?controller=users&action=edit&id=<?php echo $row['id']?>"
+                                            <a href="admin.php?controller=reviews&action=edit&id=<?php echo $row['id']?>"
                                                class="btn btn-success waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i>
                                             </a>
-                                            <a href="admin.php?controller=users&action=delete&id=<?php echo $row['id']?>"
+                                            <a href="admin.php?controller=reviews&action=delete&id=<?php echo $row['id']?>"
                                                class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can"></i>
                                             </a>
                                         </td>

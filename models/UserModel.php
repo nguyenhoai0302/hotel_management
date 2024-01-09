@@ -25,8 +25,9 @@ class UserModel extends ConnectDB
     }
 
     //edit user
-    function editUser($id,$name,$email,$phone,$role,$gender,$birthday,$avatar,$password,$updated_at) {
-        $sql = "UPDATE users SET name = '$name', email = '$email', phone = '$phone', role = '$role', gender ='$gender', birthday = '$birthday', avatar = '$avatar', password = '$password', updated_at = '$updated_at' WHERE id = $id";
+    function editUser($id,$name,$email,$phone,$role,$gender,$status,$birthday,$avatar,$password,$updated_at) {
+        $sql = "UPDATE users SET name = '$name', email = '$email', phone = '$phone', role = '$role', gender ='$gender', birthday = '$birthday', avatar = '$avatar', `status` = '$status', `password` = '$password', updated_at = '$updated_at' 
+        WHERE id = $id";
         return mysqli_query($this->connect(),$sql);
     }
 
@@ -47,7 +48,6 @@ class UserModel extends ConnectDB
     }
 
     // count total user
-
     function totalUser()
     {
         $sql = "SELECT COUNT(id) AS total_users FROM users";
