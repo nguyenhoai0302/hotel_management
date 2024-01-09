@@ -33,24 +33,11 @@
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);">
-                        <i class="mdi mdi-pencil-box-multiple"></i>
-                        <span> Bookings </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="admin.php?controller=bookings&action=list">List</a></li>
-                    </ul>
+                    <a href="admin.php?controller=bookings&action=list"><i class="mdi mdi-pencil-box-multiple"></i>Bookings</a>
                 </li>
+
                 <li>
-                    <a href=" javascript: void(0);">
-                        <i class="mdi mdi-paypal"></i>
-                        <span> Payments </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="admin.php?controller=payments&action=list">List</a></li>
-                    </ul>
+                    <a href="admin.php?controller=payments&action=list"><i class="mdi mdi-paypal"></i>Payments</a>
                 </li>
 
                 <li>
@@ -66,15 +53,7 @@
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);">
-                        <i class="mdi mdi-heart"></i>
-                        <span> Favorites </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="admin.php?controller=favorite&action=create">Create</a></li>
-                        <li><a href="admin.php?controller=favorite&action=list">List</a></li>
-                    </ul>
+                    <a href="admin.php?controller=favorites&action=list"><i class="mdi mdi-heart"></i>Favorites</a>
                 </li>
 
                 <li>

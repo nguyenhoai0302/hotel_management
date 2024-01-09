@@ -53,7 +53,7 @@ class UserController
             $passwordAgain = filter_input(INPUT_POST, 'passwordAgain', FILTER_SANITIZE_STRING);
             $avatar = $_FILES['avatar']['name'];
 
-            if ($name != '' && $email != '' && $gender != '' && $birthday != '' && $role != '' && $status != '' && $password != '' && $passwordAgain != '' && $phone != '') {
+            if (!empty($name) && !empty($email) && !empty($gender) && !empty($birthday) && !empty($role) && !empty($status) && !empty($password) && !empty($passwordAgain) && !empty($phone)) {
                 $createUser = $this->model->register($name,$email,$avatar,$phone,$gender,$birthday,$role,$status,$password);
                 if ($createUser) {
                     move_uploaded_file($_FILES['avatar']['tmp_name'], 'assets/uploads/users/'.$avatar);

@@ -6,6 +6,7 @@ include 'controllers/admin/AuthController.php';
 include 'controllers/admin/ReviewController.php';
 include 'controllers/admin/BookingController.php';
 include 'controllers/admin/PaymentController.php';
+include 'controllers/admin/FavoriteController.php';
 
 
 //$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
@@ -21,6 +22,7 @@ $routes = [
     'rooms' => 'RoomController',
     'bookings' => 'BookingController',
     'payments' => 'PaymentController',
+    'favorites' => 'FavoriteController',
 ];
 
 if (array_key_exists($controller, $routes)) {

@@ -56,8 +56,7 @@ class ReviewController
             $room_id = filter_input(INPUT_POST, 'room_name', FILTER_SANITIZE_EMAIL);
             $content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING);
             $status = filter_input(INPUT_POST, 'status', FILTER_SANITIZE_STRING);
-
-            if ($user_id != '' && $room_id != '' && $content != '' && $status != '') {
+            if (!empty($user_id) && !empty($room_id) && !empty($content) && !empty($status)) {
                 $createReview = $this->reviewModel->create($user_id, $room_id,$status, $content);
                 if ($createReview) {
                     $this->libs->redirectPage('admin.php?controller=reviews&action=list');
