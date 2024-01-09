@@ -1,15 +1,18 @@
-<?php 
+<?php
 include_once 'models/RoomModel.php';
+include_once 'models/RoomImageModel.php';
 include_once 'utils/helpers.php';
 
 class RoomController
 {
-    private $model;
+    private $roomModel;
+    private $roomImageModel;
     private $libs;
 
     public function __construct()
     {
-        $this->model = new RoomModel();
+        $this->roomModel = new RoomModel();
+        $this->roomImageModel = new RoomImageModel();
         $this->libs = new LibCommon();
     }
 
@@ -31,22 +34,21 @@ class RoomController
                 $this->deleteRoom($_GET['id']);
                 break;
             default:
-                # code...
+                // Handle unknown action
                 break;
         }
     }
 
     private function getListRoom()
     {
-        $rooms = $this->model->getList();
+        $rooms = $this->roomModel->getList();
         include 'views/admin/rooms/list.view.php';
     }
 
     private function createRoom()
     {
         if (isset($_POST['create'])) {
-            // $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
-            $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+            $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_EMAIL);
             $bedroom = filter_input(INPUT_POST, 'bedroom', FILTER_SANITIZE_STRING);
             $bathroom = filter_input(INPUT_POST, 'bathroom', FILTER_SANITIZE_STRING);
             $livingroom = filter_input(INPUT_POST, 'livingroom', FILTER_SANITIZE_STRING);
@@ -56,27 +58,34 @@ class RoomController
             $cleaning_fee = filter_input(INPUT_POST, 'cleaning_fee', FILTER_SANITIZE_STRING);
             $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
             $status = filter_input(INPUT_POST, 'status', FILTER_SANITIZE_STRING);
-            $update_at = date('Y-m-d H:i:s');
-            $created_at = date('Y-m-d H:i:s');
+            $images = $_FILES['images']['name'];
 
-            
-            if ( $name !== '' && $bedroom !== '' && $bathroom !== '' && $livingroom !== '' && $type !== '' && $price !== '' && $tax !== '' && $cleaning_fee !== '' && $description !== '' && $status !== '' && $update_at !== '' && $created_at !== '') {
-                $createRoom = $this->model->create( $name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $update_at, $created_at);
-                if ($createRoom) {
-                   $this->libs->redirectPage('admin.php?controller=rooms&action=list');
-            
+            if (!empty($name) && !empty($bedroom) && !empty($bathroom) && !empty($livingroom) && !empty($type) && !empty($price)
+                && !empty($tax) && !empty($cleaning_fee) && !empty($description) && !empty($status)) {
+                $create = $this->roomModel->create($name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status);
+
+                if ($create) {
+                    if (!empty($images)) {
+                        $roomId = $this->roomModel->getLastId()->fetch_assoc();
+                        foreach ($images as $image) {
+                            $this->roomImageModel->create($roomId['id'], $image);
+                        }
+                        foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+                            move_uploaded_file($tmp_name, 'assets/uploads/rooms/'.$_FILES['images']['name'][$key]);
+                        }
+                    }
+                    $this->libs->redirectPage('admin.php?controller=rooms&action=list');
                 }
             }
         }
         include 'views/admin/rooms/create.view.php';
     }
 
-
-    private function editRoom($id) {
-
-        $roomById = $this->model->getRoomById($id);
+    private function editRoom($id)
+    {
+        $roomById = $this->roomModel->getRoomById($id);
         $oldRoom = $roomById->fetch_assoc();
-    
+
         if (isset($_POST['edit'])) {
             $id = $_POST['id'];
             $name = $_POST['name'];
@@ -86,26 +95,26 @@ class RoomController
             $type = $_POST['type'];
             $price = $_POST['price'];
             $tax = $_POST['tax'];
-            $cleaning_fee = $_POST['cleaning'];
+            $cleaning_fee = $_POST['cleaning_fee'];
             $description = $_POST['description'];
             $status = $_POST['status'];
-            $update_at = $_POST['updated_at'];
-            $created_at = $_POST['created_at'];
-        
-            if($name !== '' && $type !== ''&& $bedroom !== '' && $bathroom !== '' && $livingroom !== '' && $price !== '' && $tax !== '' && $cleaning_fee !== '' && $description !== ''  && $status !== '' && $update_at !== '' && $created_at !== '') {
-                $checkAdd = $this->model->editRoom($id, $name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $created_at,$update_at);
-                if($checkAdd === TRUE) {
-                    $this->libs->redirectPage('admin.php?controller=rooms&action=list');
-                }					
+            $update_at = date('Y-m-d H:i:s');
+            $created_at = date('Y-m-d H:i:s');
+
+            if ($id != '' && $name != '' && $bedroom != '' && $bathroom != '' && $livingroom != '' && $type != '' && $price != '' && $tax != '' && $cleaning_fee != '' && $description != '' && $status != ''&& $update_at != ''&& $created_at != '') {
+                $checkAdd = $this->roomModel->editRoom($id, $name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $update_at, $created_at);
+                if ($checkAdd === true) {
+                    $this->libs->redirectPage('admin.php?controller=users&action=list');
+                }
             }
         }
-    
+
         include 'views/admin/rooms/edit.view.php';
     }
 
     private function deleteRoom($id)
     {
-        $this->model->delete($id);
+        $this->roomModel->delete($id);
         $this->libs->redirectPage('admin.php?controller=rooms&action=list');
     }
 }
