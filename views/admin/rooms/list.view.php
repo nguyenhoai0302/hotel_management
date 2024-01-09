@@ -37,8 +37,8 @@ require 'utils/utils.php';
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Rooms</a></li>
+                                    <li class="breadcrumb-item"><a href="admin.php">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="admin.php?controller=rooms&action=list">Rooms</a></li>
                                     <li class="breadcrumb-item active">List</li>
                                 </ol>
                             </div>
@@ -51,28 +51,28 @@ require 'utils/utils.php';
                     <div class="col-lg-12">
                         <div class="card-box">
                             <p class="sub-header">
-                                <a href="admin.php?controller=users&action=create"
-                                   class="float-right font-weight-bold mb-2"><i class="mdi mdi-plus"></i>Add Room
+                                <a href="admin.php?controller=rooms&action=create"
+                                   class="float-right font-weight-bold mb-2"><i class="mdi mdi-plus"></i>Add room
                                 </a>
                             </p>
                             <table class="table table-striped mb-0 text-center">
                                 <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Price</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
-                                        <th>Created At</th>
-                                        <th>Action</th>
-                                    </tr>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Price</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                    <th>Created At</th>
+                                    <th>Action</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    $count = 0;
-                                    while ($row = $rooms->fetch_assoc()) {
-                                        $count+=1;
+                                <?php
+                                $count = 0;
+                                while ($row = $rooms->fetch_assoc()) {
+                                    $count+=1;
                                     ?>
                                     <tr>
                                         <th scope="row"><?php echo $count ?></th>
@@ -95,44 +95,44 @@ require 'utils/utils.php';
                                         </td>
                                         <td><?php echo formatDate($row['created_at']) ?></td>
                                         <td>
-                                            <a href="admin.php?controller=rooms&action=view&id=<?php echo $row['id'] ?>"
-                                            class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
-                                            </a>
+                                            <!-- <a href="admin.php?controller=rooms&action=view&id=<?php echo $row['id'] ?>"
+                                               class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
+                                            </a> -->
                                             <a href="admin.php?controller=rooms&action=edit&id=<?php echo $row['id'] ?>"
-                                            class="btn btn-success waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i>
+                                               class="btn btn-success waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i>
                                             </a>
                                             <a href="admin.php?controller=rooms&action=delete&id=<?php echo $row['id'] ?>"
-                                            class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can"></i>
+                                               class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can"></i>
                                             </a>
                                         </td>
                                     </tr>
                                     <?php
-                                    }
-                                    ?>
+                                }
+                                ?>
                                 </tbody>
                             </table>
-                            </div>
                         </div>
-
                     </div>
 
                 </div>
 
-
-
-
             </div>
 
-        </div> <!-- end content -->
 
 
-        <?php include 'views/admin/partials/footer.view.php'; ?>
 
-    </div>
+        </div>
 
-    <!-- ============================================================== -->
-    <!-- End Page content -->
-    <!-- ============================================================== -->
+    </div> <!-- end content -->
+
+
+    <?php include 'views/admin/partials/footer.view.php'; ?>
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
 
 </div>
 <!-- END wrapper -->
