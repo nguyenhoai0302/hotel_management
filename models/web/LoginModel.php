@@ -1,22 +1,11 @@
 <?php
+include_once 'config/database.php';
 
-class AuthModel
+class LoginModel extends ConnectDB 
 {
-    private $connection;
-
-    public function __construct($connection)
-    {
-        $this->connection = $connection;
-    }
-
-    public function getUserByUsernameAndPassword($username, $password)
-    {
-        $query = "SELECT * FROM users WHERE name = :username AND password = :password";
-        $stmt = $this->connection->prepare($query);
-        $stmt->bindParam(":username", $username);
-        $stmt->bindParam(":password", $password);
-        $stmt->execute();
-        return $stmt->fetch();
+    //đăng nhập
+    function login($name,$password) {
+        $sql = "SELECT * FROM users WHERE name = '$name' AND password = '$password'";
+        return mysqli_query($this->connect(),$sql);
     }
 }
-?>

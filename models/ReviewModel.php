@@ -3,14 +3,10 @@ include_once 'config/database.php';
 
 class ReviewModel extends ConnectDB
 {
-    function create($id, $user_id, $room_id,$status, $content)
+    function create($user_id, $room_id,$status, $content)
     {
-        $checkReviewExist = $this->checkReviewExist($id);
-        if($checkReviewExist->num_rows == 0) {
-            $sql = "INSERT INTO reviews(id, user_id, room_id, status, content) VALUES ('$id', '$user_id', '$room_id', '$status', '$content')";
-            return mysqli_query($this->connect(),$sql);
-        }
-        return false;
+        $sql = "INSERT INTO reviews(user_id, room_id, status, content) VALUES ('$user_id', '$room_id', '$status', '$content')";
+        return mysqli_query($this->connect(),$sql); 
     }
 
     function checkReviewExist($id) 
@@ -32,7 +28,7 @@ class ReviewModel extends ConnectDB
     }
 
     //lấy ra review 
-    function getReviewById($id) {
+    function getReview($id) {
         $sql = "SELECT users.name AS user_name, rooms.name AS room_name, reviews.id, reviews.content, reviews.status, reviews.updated_at 
         FROM reviews
         JOIN users ON reviews.user_id = users.id
@@ -41,13 +37,6 @@ class ReviewModel extends ConnectDB
         return mysqli_query($this->connect(), $sql);
     }
     
-
-    function getReview($id)
-    {
-        $sql = "SELECT * FROM reviews WHERE id = $id";
-        return mysqli_query($this->connect(), $sql);
-    }
-
     //edit review 
     function editReview($id, $content, $status, $updated_at)
     {

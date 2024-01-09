@@ -96,7 +96,7 @@ a:hover {
 
 
 
-i {
+.icon i {
     color: #ffe53f;
     font-size: 20px;
     margin-right: 20px;

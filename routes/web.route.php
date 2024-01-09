@@ -33,8 +33,6 @@ $routes = [
     'detail' => 'detailcontroller',
 
 ];
-
-
 if ($controller == "admin") {
     if (array_key_exists($controller, $routes)) {
         require 'controllers/admin/' . $routes[$controller] . '.php';
