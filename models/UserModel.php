@@ -12,6 +12,19 @@ class UserModel extends ConnectDB
         return false;
     }
 
+    //đăng nhập
+    function login($name, $password)
+    {
+        $sql = "SELECT * FROM users WHERE name = '$name' AND password = '$password'";
+        return mysqli_query($this->connect(), $sql);
+    }
+
+    function getUserID($name) {
+        $sql = "SELECT id FROM users WHERE name = '$name'";
+        return mysqli_query($this->connect(), $sql);
+    }
+
+    // lấy re email 
     function checkUserExist($email) {
         $sql = "SELECT * FROM users WHERE email = '$email'";
 
@@ -19,10 +32,10 @@ class UserModel extends ConnectDB
     }
 
     //lấy ra user
-    function getUserById($id) {
-        $sql = "SELECT * FROM users WHERE id = $id";
-        return mysqli_query($this->connect(), $sql);
-    }
+    // function getUserById($id) {
+    //     $sql = "SELECT * FROM users WHERE id = $id";
+    //     return mysqli_query($this->connect(), $sql);
+    // }
 
     //edit user
     function editUser($id,$name,$email,$phone,$role,$gender,$status,$birthday,$avatar,$password,$updated_at) {
@@ -52,6 +65,12 @@ class UserModel extends ConnectDB
     {
         $sql = "SELECT COUNT(id) AS total_users FROM users";
 
+        return mysqli_query($this->connect(),$sql);
+    }
+
+    function getOptionUser()
+    {
+        $sql = "SELECT id, `name` FROM users";
         return mysqli_query($this->connect(),$sql);
     }
 }

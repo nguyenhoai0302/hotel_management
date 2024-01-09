@@ -50,7 +50,6 @@ require 'views/admin/partials/header.view.php'
                                                 <!-- Content -->
                                                 <div class="form-group">
                                                     <label for="content">Content</label>
-                                                    <!-- <input type="textarea" name="content" parsley-trigger="change" required="" placeholder="Enter content" class="form-control" id="content" value="<?php echo $oldReview['content'];?>"> -->
                                                     <textarea class="form-control" id="exampleTextarea" rows="6" name="content" id="content"><?php echo $oldReview['content'];?></textarea>
                                                 </div>
 

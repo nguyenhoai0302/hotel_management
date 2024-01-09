@@ -1,14 +1,16 @@
-<?php include_once("../partials/header.views.php") ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal information</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <?php include_once("../../../assets/css/personal_information.css.php") ?>
+
+    <?php include_once('../../../assets/web/css/personal_information.css.php') ?>
 </head>
+
 <body>
     <form action="">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -54,7 +56,7 @@
             <div class="row content_profile-usernames">
                 <div class="col-lg-4 content_profile-usernames-about">
                     <div class="edit-avata-user">
-                        <img id="avata-user" src="../../../assets/image/avata.jpg" alt="ảnh đại diện">
+                        <img id="avata-user" src="../../../assets/web/images/avata1.jpg" alt="ảnh đại diện">
                     </div>
                     <div class="edit-avata-user">
                         <button id="profile-edit-avata">Upload a photo</button>
@@ -95,5 +97,5 @@
         <div id="pp" style="height: 114px;"> </div>
     </form>
 </body>
+
 </html>
-<?php include_once("../partials/footer.views.php") ?>

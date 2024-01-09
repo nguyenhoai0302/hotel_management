@@ -52,6 +52,7 @@ class RoomModel extends ConnectDB
 
         return mysqli_query($this->connect(),$sql);
     }
+
 }
 
 ?>

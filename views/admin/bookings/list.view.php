@@ -34,9 +34,8 @@ require 'utils/utils.php';
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Users</a></li>
-                                        <li class="breadcrumb-item active">List</li>
+                                        <li class="breadcrumb-item"><a href="admin.php">Dashboard</a></li>
+                                        <li class="breadcrumb-item active">Room</li>
                                     </ol>
                                 </div>
                                 <h4 class="page-title">List Bookings</h4>
@@ -95,7 +94,7 @@ require 'utils/utils.php';
                                                     <td><?php echo formatDate($row['created_at']) ?></td>
                                                     <!-- icon -->
                                                     <td>
-                                                        <a href="admin.php?controller=bookings&action=view&id=<?php echo $row['id'] ?>" class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
+                                                        <a href="admin.php?controller=bookings&action=detail&id=<?php echo $row['id'] ?>" class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
                                                         </a>
                                                         <a href="admin.php?controller=bookings&action=edit&id=<?php echo $row['id'] ?>" class="btn btn-success waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i>
                                                         </a>
