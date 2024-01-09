@@ -147,13 +147,7 @@ require 'views/admin/partials/header.view.php'
 
     </div>
 
-    <!-- ============================================================== -->
-    <!-- End Page content -->
-    <!-- ============================================================== -->
-
 </div>
-<!-- END wrapper -->
-
 
 <!-- Vendor js -->
 <script src="assets/admin/js/vendor.min.js"></script>

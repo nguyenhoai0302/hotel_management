@@ -121,20 +121,14 @@ require 'utils/utils.php';
 
             </div>
 
-        </div> <!-- end content -->
+        </div>
 
 
         <?php include 'views/admin/partials/footer.view.php'; ?>
 
     </div>
 
-    <!-- ============================================================== -->
-    <!-- End Page content -->
-    <!-- ============================================================== -->
-
 </div>
-<!-- END wrapper -->
-
 
 <!-- Vendor js -->
 <script src="assets/admin/js/vendor.min.js"></script>
