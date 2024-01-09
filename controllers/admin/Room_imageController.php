@@ -1,6 +1,8 @@
 <?php
  include_once 'models/ReviewModel.php';
  include_once 'utils/helpers.php';
+ include_once 'models/Room_imageModel.php';
+ 
 class Room_imageController
 {
     private $model;

@@ -80,11 +80,12 @@
                 <li>
                     <a href="javascript: void(0);">
                         <i class="mdi mdi-contact-mail"></i>
-                        <span> Contacts </span>
+                        <span> Room_images </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                    <li><a href="admin.php?controller=contact&action=list">List</a></li>
+                    <li><a href="admin.php?controller=room_images&action=create">Create</a></li>
+                    <li><a href="admin.php?controller=room_images&action=list">List</a></li>
                     </ul>
                 </li>
             </ul>
