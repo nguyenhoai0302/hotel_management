@@ -92,9 +92,9 @@ require 'utils/utils.php';
                                             ?>
                                         </td>
                                         <td>
-                                            <a href="admin.php?controller=reviews&action=view&id=<?php echo $row['id']?>"
+                                            <!-- <a href="admin.php?controller=reviews&action=view&id=<?php echo $row['id']?>"
                                                class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
-                                            </a>
+                                            </a> -->
                                             <a href="admin.php?controller=reviews&action=edit&id=<?php echo $row['id']?>"
                                                class="btn btn-success waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i>
                                             </a>
@@ -121,20 +121,14 @@ require 'utils/utils.php';
 
             </div>
 
-        </div> <!-- end content -->
+        </div>
 
 
         <?php include 'views/admin/partials/footer.view.php'; ?>
 
     </div>
 
-    <!-- ============================================================== -->
-    <!-- End Page content -->
-    <!-- ============================================================== -->
-
 </div>
-<!-- END wrapper -->
-
 
 <!-- Vendor js -->
 <script src="assets/admin/js/vendor.min.js"></script>
