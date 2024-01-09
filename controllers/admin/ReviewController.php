@@ -52,8 +52,8 @@ class ReviewController
         $rooms = $this->roomModel->getOptionRoom();
 
         if (isset($_POST['create'])) {
-            $user_id = filter_input(INPUT_POST, 'user_name', FILTER_SANITIZE_STRING);
-            $room_id = filter_input(INPUT_POST, 'room_name', FILTER_SANITIZE_EMAIL);
+            $user_id = filter_input(INPUT_POST, 'user_id', FILTER_SANITIZE_STRING);
+            $room_id = filter_input(INPUT_POST, 'room_id', FILTER_SANITIZE_EMAIL);
             $content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING);
             $status = filter_input(INPUT_POST, 'status', FILTER_SANITIZE_STRING);
             if (!empty($user_id) && !empty($room_id) && !empty($content) && !empty($status)) {

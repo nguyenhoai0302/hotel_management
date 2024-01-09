@@ -18,7 +18,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="room-item shadow rounded overflow-hidden">
                 <div class="position-relative">
-                    <a href="detail.html">
+                    <a href="detail.view.php">
                     <img id="img6" src="../../../assets/web/images/anh18.png" alt="" width="100%" height="350px">
                     </a>
                 </div>
