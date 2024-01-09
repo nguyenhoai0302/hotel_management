@@ -63,8 +63,8 @@ require 'views/admin/partials/header.view.php'
                                                 <div class="form-group">
                                                     <label for="gender">Gender<span class="text-danger">*</span></label>
                                                     <select class="form-control" id="gender" name="gender">
-                                                        <option value="1" <?php if (isset($oldUser['gender']) && $oldUser['gender'] == '1') {echo 'selected';} ?>>Male</option>
-                                                        <option value="2" <?php if (isset($oldUser['gender']) && $oldUser['gender'] == '1') {echo 'selected';} ?>>Female</option>
+                                                        <option value="Male" <?php if (isset($oldUser['gender']) && $oldUser['gender'] == '1') {echo 'selected';} ?>>Male</option>
+                                                        <option value="Female" <?php if (isset($oldUser['gender']) && $oldUser['gender'] == '1') {echo 'selected';} ?>>Female</option>
                                                     </select>
                                                 </div>
 

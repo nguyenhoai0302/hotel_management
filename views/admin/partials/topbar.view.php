@@ -2,8 +2,8 @@
     <ul class="list-unstyled topnav-menu float-right mb-0">
         <li class="dropdown notification-list">
             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <img src="assets/uploads/users/5.jpg" alt="user-image" class="rounded-circle">
-                <span class="d-none d-sm-inline-block ml-1 font-weight-medium">Nguyen Hoai</span>
+                <img src="assets/uploads/users/ddd.png" alt="user-image" class="rounded-circle">
+                <span class="d-none d-sm-inline-block ml-1 font-weight-medium">Admin</span>
                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">

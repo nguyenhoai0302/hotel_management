@@ -37,20 +37,36 @@ require 'views/admin/partials/header.view.php'
                                             <form method="POST" action="#" class="parsley-examples" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
                                                 <!-- User Name -->
                                                 <div class="form-group">
-                                                    <label for="user_name">User<span class="text-danger">*</span></label>
-                                                    <input type="text" name="user_name" parsley-trigger="change" required="" placeholder="Enter name" class="form-control" id="usen_name">
+                                                    <label for="user_id">User<span class="text-danger">*</span></label>
+                                                    <select name="user_id" id="user_id" class="form-control" required="" parsley-trigger="change">
+                                                        <?php
+                                                        while ($row = $users->fetch_assoc()) {
+                                                        ?>
+                                                            <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
                                                 </div>
 
                                                 <!-- Room Name -->
                                                 <div class="form-group">
-                                                    <label for="room_name">Room<span class="text-danger">*</span></label>
-                                                    <input type="text" name="room_name" parsley-trigger="change" required="" placeholder="Enter name" class="form-control" id="room_name">
+                                                    <label for="room_id">Room<span class="text-danger">*</span></label>
+                                                    <select name="room_id" id="room_id" class="form-control" required="" parsley-trigger="change">
+                                                        <?php
+                                                        while ($row = $rooms->fetch_assoc()) {
+                                                        ?>
+                                                            <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
                                                 </div>
-
+                                               
                                                 <!-- Content -->
                                                 <div class="form-group">
                                                     <label for="content">Content<span class="text-danger">*</span></label>
-                                                    <input type="textarea" name="content" parsley-trigger="change" required="" placeholder="Enter content" class="form-control" id="content">
+                                                    <textarea class="form-control" id="exampleTextarea" rows="6" name="content" id="content"></textarea>
                                                 </div>
 
                                                 <!-- Status -->

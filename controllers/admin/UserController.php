@@ -65,7 +65,7 @@ class UserController
     }
 
     private function editUser($id) {
-        $userById = $this->model->getUserById($id);
+        $userById = $this->model->getUser($id);
         $oldUser = $userById->fetch_assoc();
     
         if (isset($_POST['edit'])) {
