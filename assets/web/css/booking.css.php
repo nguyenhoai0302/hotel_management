@@ -1,6 +1,4 @@
 <style>
-
-    /* BODY */
     .body--content {
         margin-left: 100px;
         margin-right: 100px;
@@ -156,7 +154,7 @@
         -webkit-transition: all 0.2s ease-in;
         -moz-transition: all 0.2s ease-in;
         transition: all 0.2s ease-in;
-        background: #FFE2E9;
+        background: #fffc3f;
     }
 
     .button:hover {
@@ -183,8 +181,8 @@
         top: 7%;
         left: 0%;
         opacity: 0;
-        background: #fff;
-        box-shadow: 0 0 50px 30px #fff;
+        background: #fffc3f;
+        box-shadow: 0 0 50px 30px #fffc3fff;
         -webkit-transform: skewX(-20deg);
         -moz-transform: skewX(-20deg);
         -ms-transform: skewX(-20deg);

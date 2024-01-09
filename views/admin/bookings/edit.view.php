@@ -18,8 +18,8 @@ require 'views/admin/partials/header.view.php'
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Room</a></li>
+                                        <li class="breadcrumb-item"><a href="admin.php">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="admin.php?controller=bookings&action=list">Room</a></li>
                                         <li class="breadcrumb-item active">Edit</li>
                                     </ol>
                                 </div>
@@ -47,10 +47,8 @@ require 'views/admin/partials/header.view.php'
                                                         <option value="3" <?php if (isset($booking['status']) && $booking['status'] == 3) {
                                                                                 echo 'selected';
                                                                             } ?>>Rejected</option>
-
                                                     </select>
                                                 </div>
-
                                                 <div class="form-group text-right mb-0">
                                                     <button class="btn btn-primary waves-effect waves-light mr-1" type="submit" name="update">
                                                         Save
