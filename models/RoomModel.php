@@ -40,6 +40,12 @@ class RoomModel extends ConnectDB
         return mysqli_query($this->connect(),$sql);
     }
 
+    function getOptionRoom()
+    {
+        $sql = "SELECT id, `name` FROM rooms";
+        return mysqli_query($this->connect(),$sql);
+    }
+
 }
 
 ?>

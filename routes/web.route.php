@@ -30,7 +30,6 @@ $routes = [
     'admin' => 'DashboardController',
     'admin/user' => 'UserController',
 ];
-
     
     if($controller == "admin"){
         if (array_key_exists($controller, $routes)) {
