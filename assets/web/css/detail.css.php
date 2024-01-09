@@ -1,13 +1,7 @@
 <style>
-    .container{
+    .container {
         margin-top: 50px;
     }
-    CSS ảnh */
-    .details_room {
-
-        padding-left: 20px;
-        padding-right: 20px;
-    } 
 
     .picture {
         display: grid;
@@ -93,8 +87,6 @@
         font-size: larger;
     }
 
-
-    /* row 2 of row */
     .content-icon {
         text-align: center;
 
@@ -111,11 +103,11 @@
     }
 
     .content-description {
-        margin-top: 50px;
+        margin-top: 20px;
     }
 
     .content-review {
-        margin-top: 50px;
+        margin-top: 20px;
     }
 
     .avata__review {
@@ -140,14 +132,12 @@
         font-weight: bolder;
     }
 
-
     .button_booking:hover {
         border-radius: 10px;
         background-color: yellow;
 
     }
 
-    /* cmt customer */
     .comment-cus {
         border-radius: 12px;
         margin: 12px;

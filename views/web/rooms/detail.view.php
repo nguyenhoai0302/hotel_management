@@ -1,27 +1,28 @@
-<?php include_once("../../../views/home/partials/header.views.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details Room</title>
+    <title>Detail</title>
+    <!-- link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <?php include_once("../../../assets/css/detail.css.php") ?>
+    <?php include("../../../assets/web/css/detail.css.php") ?>
 </head>
+
 <body>
     <div class="container">
         <form action="" method="">
             <div class="row details_room">
                 <!-- picture -->
                 <div class="picture">
-                    <img class="img1 detail_img" id="img1" src="../../../assets/image/phong1.webp" alt="Hình ảnh phòng 1">
-                    <img class="img2 detail_img" id="img2" src="../../../assets/image/phong2.webp" alt="Hình ảnh phòng 2">
-                    <img class="img3 detail_img" id="img3" src="../../../assets/image/phong3.jpeg" alt="Hình ảnh phòng 3">
-                    <img class="img4 detail_img" id="img4" src="../../../assets/image/phong4.webp" alt="Hình ảnh phòng 4">
-                    <img class="img5 detail_img" id="img5" src="../../../assets/image/phong5.webp" alt="Hình ảnh phòng 5">
+                    <img class="img1 detail_img" id="img1" src="../../../assets/web/images/phong1.webp" alt="Hình ảnh phòng 1">
+                    <img class="img2 detail_img" id="img2" src="../../../assets/web/images/phong2.webp" alt="Hình ảnh phòng 2">
+                    <img class="img3 detail_img" id="img3" src="../../../assets/web/images/phong3.jpeg" alt="Hình ảnh phòng 3">
+                    <img class="img4 detail_img" id="img4" src="../../../assets/web/images/phong4.webp" alt="Hình ảnh phòng 4">
+                    <img class="img5 detail_img" id="img5" src="../../../assets/web/images/phong5.webp" alt="Hình ảnh phòng 5">
                 </div>
                 <div class="row content">
                     <!-- phía bên trái -->
@@ -50,7 +51,7 @@
                                 <p id="type2">1 Bathroom</p>
                             </div>
                             <div class="col-lg-3 my-2 mx-2 pt-2 icon__room" style="background-color:#ebe124d4;">
-                                <img src="../../../assets/image/icon sofa.png" alt="" style="width: 34px;height: 20px;">
+                                <img src="../../../assets/web/images/icon sofa.png" alt="" style="width: 34px;height: 20px;">
                                 <p id="type3">1 Livingroom</p>
                             </div>
                         </div>
@@ -86,7 +87,7 @@
                             <div class="col-lg-5 comment-cus">
                                 <div class="row">
                                     <div class="col-lg-2 col-3 ">
-                                        <img id="avata1" class="avata__review" src="../../../assets/image/avata.jpg" alt="">
+                                        <img id="avata1" class="avata__review" src="../../../assets/web/images/avata.jpg" alt="avata">
                                     </div>
                                     <div class="col-lg-4 col-6">
                                         <h5>jondoberman</h5>
@@ -100,7 +101,7 @@
                             <div class="col-lg-5 comment-cus">
                                 <div class="row">
                                     <div class="col-lg-2 col-3">
-                                        <img id="avata1" class="avata__review" src="../../../assets/image/avata.jpg" alt="">
+                                        <img id="avata1" class="avata__review" src="../../../assets/web/images/avata.jpg" alt="">
                                     </div>
                                     <div class="col-lg-4 col-6">
                                         <h5>jondoberman</h5>
@@ -114,7 +115,7 @@
                             <div class="col-lg-5 comment-cus">
                                 <div class="row">
                                     <div class="col-lg-2 col-3">
-                                        <img id="avata1" class="avata__review" src="../../../assets/image/avata.jpg" alt="">
+                                        <img id="avata1" class="avata__review" src="../../../assets/web/images/avata.jpg" alt="">
                                     </div>
                                     <div class="col-lg-4 col-6">
                                         <h5>jondoberman</h5>
@@ -128,7 +129,7 @@
                             <div class="col-lg-5 comment-cus">
                                 <div class="row">
                                     <div class="col-lg-2 col-3 ">
-                                        <img id="avata1" class="avata__review" src="../../../assets/image/avata.jpg" alt="avata">
+                                        <img id="avata1" class="avata__review" src="../../../assets/web/images/avata.jpg" alt="avata">
                                     </div>
                                     <div class="col-lg-4 col-6">
                                         <h5>jondoberman</h5>
@@ -151,5 +152,5 @@
         </form>
     </div>
 </body>
+
 </html>
-<?php include_once("../../../views/home/partials/footer.views.php") ?>

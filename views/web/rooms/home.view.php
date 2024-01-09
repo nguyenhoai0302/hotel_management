@@ -1,7 +1,8 @@
-<?php include"./views/web/partials/header.view.php"
+<?php include "./views/web/partials/header.view.php"
 ?>
+
 <body>
-    
+
   <div style="position: relative;">
     <img src="../../../assets/web/images/anh21.png" class="img-fluid" alt="..." style="width: 2000px; height: 700px;">
     <h1 class="title-welcome-hotel-yawn_yawn" style="color: yellow; font-size: 90px; width: 900px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
@@ -12,8 +13,8 @@
   <div class="container text-center">
     <div class="row about--introduce">
       <h2 id="about_us"><b>About us</b></h2>
-      <p ><b>From luxurious and comfortable rooms, to excellent restaurants, we are committed to achieving the best quality of service by applying the highest standards in room design and equipment,
-         hygiene and security. , we aim to bring you absolute comfort and satisfaction while positive customer reviews and awards have recognized our efforts. We are delighted to receive high marks for our service quality and customer experience.</b>
+      <p><b>From luxurious and comfortable rooms, to excellent restaurants, we are committed to achieving the best quality of service by applying the highest standards in room design and equipment,
+          hygiene and security. , we aim to bring you absolute comfort and satisfaction while positive customer reviews and awards have recognized our efforts. We are delighted to receive high marks for our service quality and customer experience.</b>
       </p>
     </div>
   </div>
@@ -60,9 +61,9 @@
     </div>
   </div>
   <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-      <div class="about-us__our_rooms">
-      </div>
-      <h1 class="mt-4 mb-5 title-explore_our_rooms display-3"><b>Explore Our</b> <span class="title-explore_our_rooms" style="color:#FFC300 ;"><b>Rooms</b></span></h1>
+    <div class="about-us__our_rooms">
+    </div>
+    <h1 class="mt-4 mb-5 title-explore_our_rooms display-3"><b>Explore Our</b> <span class="title-explore_our_rooms" style="color:#FFC300 ;"><b>Rooms</b></span></h1>
   </div>
   <!-- row 2-->
   <div class="row mt-3 mb-4 g-4" id="pp">
@@ -70,13 +71,13 @@
       <div class="room-item shadow rounded overflow-hidden">
         <div class="position-relative">
           <a href="detail.html">
-          <img id="img6" src="../../../assets/web/images/anh4.png" alt="" width="100%" height="350px">
+            <img id="img6" src="../../../assets/web/images/anh4.png" alt="" width="100%" height="350px">
           </a>
         </div>
         <div class="room p-4 mt-1">
           <div class="d-flex justify-content-between mb-3">
             <h5 class=" mb-0">Room 101</h5>
-            <img src="../../../assets/web/images/star.png" alt="star"width="25%" height="40px">
+            <img src="../../../assets/web/images/star.png" alt="star" width="25%" height="40px">
           </div>
           <div class="d-flex mb-3">
             <small class="border-end me-3 pe-3"><i class="fa fa-bed" aria-hidden="true"></i>
@@ -97,13 +98,13 @@
       <div class="room-item shadow rounded overflow-hidden">
         <div class="position-relative">
           <a href="detail.html">
-          <img id="img7" src="../../../assets/web/images/anh5.png" alt="" width="100%" height="350px">
+            <img id="img7" src="../../../assets/web/images/anh5.png" alt="" width="100%" height="350px">
           </a>
         </div>
         <div class=" room p-4 mt-1">
           <div class="d-flex justify-content-between mb-3">
             <h5 class="mb-0">Room 102</h5>
-            <img src="../../../assets/web/images/star.png" alt="star"width="25%" height="40px">
+            <img src="../../../assets/web/images/star.png" alt="star" width="25%" height="40px">
           </div>
           <div class="d-flex mb-3">
             <small class="border-end me-3 pe-3"><i class="fa fa-bed" aria-hidden="true"></i>
@@ -124,13 +125,13 @@
       <div class="room-item shadow rounded overflow-hidden">
         <div class="position-relative">
           <a href="detail.html">
-          <img id="img8" src="../../../assets/web/images/anh6.png" alt="" width="100%" height="350px">
+            <img id="img8" src="../../../assets/web/images/anh6.png" alt="" width="100%" height="350px">
           </a>
         </div>
         <div class="room p-4 mt-1">
           <div class="d-flex justify-content-between mb-3">
             <h5 class="mb-0">Room 103</h5>
-            <img src="../../../assets/web/images/star.png" alt="star"width="25%" height="40px">
+            <img src="../../../assets/web/images/star.png" alt="star" width="25%" height="40px">
           </div>
           <div class="d-flex mb-3">
             <small class="border-end me-3 pe-3"><i class="fa fa-bed" aria-hidden="true"></i>
@@ -147,11 +148,10 @@
         </div>
       </div>
     </div>
-  </div>       
-</body>  
+  </div>
+</body>
+
 </html>
 
-<?php include"./views/web/partials/footer.view.php"
+<?php include "./views/web/partials/footer.view.php"
 ?>
-
-  

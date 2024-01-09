@@ -5,13 +5,14 @@
 
 
 
-function handleUrl(){
+function handleUrl()
+{
     $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-    $uriArr = explode('/',$uri);
-    if($uriArr[1]==""){
+    $uriArr = explode('/', $uri);
+    if ($uriArr[1] == "") {
         return '/';
-    }else{
+    } else {
         return $uriArr[1];
     }
 }
@@ -21,38 +22,25 @@ $controller = handleUrl();
 // Kiểm tra trên URL, nếu cos param controller thì sẽ lấy giả trị của param controller, còn không thi se bang dashboard
 
 $routes = [
-    '/'=>'homecontroller',
-    'home'=>'homecontroller',
+    '/' => 'homecontroller',
+    'home' => 'homecontroller',
     'about' => 'aboutcontroller',
     'room' => 'roomcontroller',
     'login' => 'logincontroller',
     'register' => 'registercontroller',
     'admin' => 'DashboardController',
     'admin/user' => 'UserController',
+    'detail' => 'detailcontroller',
+
 ];
-    
-    if($controller == "admin"){
-        if (array_key_exists($controller, $routes)) {
-            require 'controllers/admin/'.$routes[$controller].'.php';   
-            $admin = new $routes[$controller];
-            $admin->handleRequest();
-        
-        } else {
-            http_response_code(404);
-            require 'views/errors/404.php';
-            die();
-        }
-    }else{
-        if (array_key_exists($controller, $routes)) {
-            require 'controllers/web/'.$routes[$controller].'.php';   
-            $admin = new $routes[$controller];
-            $admin->handleRequest();
-        
-        } else {
-            http_response_code(404);
-            require 'views/errors/404.php';
-            die();
-        }
+if ($controller == "admin") {
+    if (array_key_exists($controller, $routes)) {
+        require 'controllers/admin/' . $routes[$controller] . '.php';
+        $admin = new $routes[$controller];
+        $admin->handleRequest();
+    } else {
+        http_response_code(404);
+        require 'views/errors/404.php';
+        die();
     }
-
-
+}
