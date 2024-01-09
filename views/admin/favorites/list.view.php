@@ -38,7 +38,7 @@ require 'utils/utils.php';
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="admin.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="admin.php?controller=f avorites&action=list">Favorite</a></li>
+                                    <li class="breadcrumb-item"><a href="admin.php?controller=favorites&action=list">Favorite</a></li>
                                     <li class="breadcrumb-item active">List</li>
                                 </ol>
                             </div>
@@ -60,8 +60,8 @@ require 'utils/utils.php';
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>User</th>
-                                        <th>Room</th>
+                                        <th>User_id</th>
+                                        <th>Room_id</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -71,10 +71,11 @@ require 'utils/utils.php';
                                     while ($row = $favorite->fetch_assoc()) {
                                     $count += 1;
                                     ?>
-                                    <tr>
+                                    <tr>x`
                                         <th scope="row"><?php echo $count ?></th>
                                         <td><?php echo $row['user_name']?></td>
                                         <td><?php echo $row['room_name']?></td>
+                                        <td>
                                             <a href="admin.php?controller=favorites&action=view&id=<?php echo $row['id']?>"
                                                class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
                                             </a>

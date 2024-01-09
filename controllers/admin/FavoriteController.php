@@ -1,6 +1,7 @@
 <?php
  include_once 'models/ReviewModel.php';
  include_once 'utils/helpers.php';
+ include_once 'models/favoriteModel.php';
 class FavoriteController
 {
     private $model;

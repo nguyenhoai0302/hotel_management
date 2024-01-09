@@ -72,8 +72,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="admin.php?controller=favorite&action=create">Create</a></li>
-                        <li><a href="admin.php?controller=favorite&action=list">List</a></li>
+                        <li><a href="admin.php?controller=favorites&action=create">Create</a></li>
+                        <li><a href="admin.php?controller=favorites&action=list">List</a></li>
                     </ul>
                 </li>
 
