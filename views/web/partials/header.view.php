@@ -10,11 +10,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <?php include "./assets/web/css/auth.css.php" ?>
     <!-- link header and footer -->
     <?php include("./assets/web/css/header.footer.css.php") ?>
+
     <?php include("./assets/web/css/home.css.php") ?>
     <?php include("./assets/web/css/about.css.php") ?>
     <?php include("./assets/web/css/room.css.php") ?>
+
+
+
 </head>
 
 <body>
@@ -32,54 +37,15 @@
                 <i class="fa fa-search" aria-hidden="true"></i>
             </button>
         </div>
-        <!-- Trường hợp mà đăng nhập tài khoản Admin -->
-        <?php
-        if (isset($_SESSION['login']) && $_SESSION['login']['role'] == 'admin') {
-        ?>
-            <div class="nav_log nav_text">
-                <div class="nav_text">
-                    <a class="nav_text" href="admin.php"><span><i class="fas fa-user"></i></span> <?php echo $_SESSION['login']['name']; ?></a>
-                </div>
-                <div class="nav_text">
-                    <a class="nav_text" href="index.php?controller=users&action=logout">LOG OUT</a>
-                </div>
-                <div class="nav_text">
-                    <a class="nav_text" href="admin.php">ADMIN</a>
-                </div>
-            </div>
-
-            <!-- Trường hợp đăng nhập tài khoản Customer -->
-        <?php
-        } else if (isset($_SESSION['login']) && $_SESSION['login']['role'] == 'member') {
-        ?>
-            <div class="nav_log nav_text">
-                <div class="nav_text">
-                    <a class="nav_text" href="index.php?controller=front&action=home"><span><i class="fas fa-user"></i></span> <?php echo $_SESSION['login']['name']; ?></a>
-                </div>
-                <div class="nav_text">
-                    <a class="nav_text" href="index.php?controller=auths&action=logout">LOG OUT</a>
-                </div>
-            </div>
-        <?php
-        } else {
-        ?>
-            <div class="nav_log nav_text">
-                <div class="nav_text"><a class="nav_text" href="login">SIGN IN</a></div>
-                <div class="nav_text"><a class="nav_text" href="register">REGISTER</a></div>
-            </div>
-        <?php
-        }
-        ?>
-
         <!-- tại đây sửa tạp thời khi đăng nhập tạo avata -->
-        <!-- <div class="nav_log nav_text">
+        <div class="nav_log nav_text">
             <div class="nav_log_text" id="sign">
                 <button type="button" class="nav-text-signin" id="showModal" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-whatever="@mdo">SIGN IN</button>
             </div>
             <div class="nav_log_text" id="register">
                 <button type="button" class="nav-text-signin" id="register" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-whatever="@mdo">REGISTER</button>
             </div>
-        </div> -->
+        </div>
         <!-- 
         <div class="nav_log nav_text nav-item dropdown" id="avata">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -95,7 +61,6 @@
 
     </div>
 </body>
-
 
 <script>
     const login = document.getElementById('showModal');
