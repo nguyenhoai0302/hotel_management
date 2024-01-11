@@ -71,40 +71,5 @@
         }
         ?>
 
-        <!-- tại đây sửa tạp thời khi đăng nhập tạo avata -->
-        <!-- <div class="nav_log nav_text">
-            <div class="nav_log_text" id="sign">
-                <button type="button" class="nav-text-signin" id="showModal" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-whatever="@mdo">SIGN IN</button>
-            </div>
-            <div class="nav_log_text" id="register">
-                <button type="button" class="nav-text-signin" id="register" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-whatever="@mdo">REGISTER</button>
-            </div>
-        </div> -->
-        <!-- 
-        <div class="nav_log nav_text nav-item dropdown" id="avata">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img id="nav-avata" src="https://thuthuatnhanh.com/wp-content/uploads/2020/02/icon-ong-bee-phan-van.png" alt="avata">
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="Favorite.html" style="color: #f45cad;" id="Favorite">Favorite</a></li>
-                <li><a class="dropdown-item" href="profile_home_page.html" style="color: #f45cad;">Account</a></li>
-                <li><a class="dropdown-item" href="hotel_home_page.html" style="color: #f45cad;" id="logout" onclick="logout()">Log out</a></li>
-            </ul>
-        </div>    
-         -->
-
     </div>
 </body>
-
-
-<script>
-    const login = document.getElementById('showModal');
-    login.addEventListener('click', () => {
-        window.location.href = 'login';
-    })
-
-    const register = document.getElementById('register');
-    register.addEventListener('click', () => {
-        window.location.href = 'register';
-    })
-</script>
