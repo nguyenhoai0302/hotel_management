@@ -31,12 +31,7 @@
         <div class="nav_text"><a class="nav_text" href="home">HOME</a></div>
         <div class="nav_text"><a class="nav_text" href="about">ABOUTS US</a></div>
         <div class="nav_text"><a class="nav_text" href="room">ROOMS</a></div>
-        <div class="nav_text nav_text_search">
-            <input type="text" name="nav_input" id="nav_input_search" style="outline: none; padding-left:20px; " placeholder="Search">
-            <button class="material-symbols-outlined" id="search" onclick="search()">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-        </div>
+
         <!-- tại đây sửa tạp thời khi đăng nhập tạo avata -->
         <div class="nav_log nav_text">
             <div class="nav_log_text" id="sign">
