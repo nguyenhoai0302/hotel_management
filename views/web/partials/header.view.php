@@ -31,7 +31,6 @@
         <div class="nav_text"><a class="nav_text" href="home">HOME</a></div>
         <div class="nav_text"><a class="nav_text" href="about">ABOUTS US</a></div>
         <div class="nav_text"><a class="nav_text" href="room">ROOMS</a></div>
-
         <!-- tại đây sửa tạp thời khi đăng nhập tạo avata -->
         <div class="nav_log nav_text">
             <div class="nav_log_text" id="sign">
