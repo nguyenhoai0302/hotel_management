@@ -25,8 +25,6 @@
                             <!-- <span id="favorite-icon" class="favorite-icon">&#10084;</span> -->
                             <i id="icon_share_detail" class="fa-solid fa-share" onclick="shareViaEmail()"></i>
                             <div id="addbag"></div>
-                            <a href="index.php?controller=bookings&action=booking"><button>BOOKING NOW</button></a>
-
                         </div>
                     </div>
 
@@ -133,9 +131,9 @@
                 </div>
 
                 <!-- phía bên phải -->
-                <!-- <div class="col-lg-3 col-12" id="booking-btn">
+                <div class="col-lg-3 col-12" id="booking-btn">
                     <a href="index.php" id="book1"><button id="booking_now" class="button_booking">BOOKING NOW</button></a>
-                </div> -->
+                </div>
             </div>
         </div>
     </form>

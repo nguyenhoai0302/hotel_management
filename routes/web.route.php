@@ -15,7 +15,6 @@ $controller = isset($_GET['controller']) ? $_GET['controller'] : 'home';
 // Kiểm tra trên URL, nếu cos param controller thì sẽ lấy giả trị của param controller, còn không thi se bang dashboard
 
 $routes = [
-    '/' => 'homecontroller',
     'home' => 'homecontroller',
     'about' => 'aboutcontroller',
     'detail' => 'detailcontroller',
@@ -27,8 +26,8 @@ $routes = [
 ];
 
 if (array_key_exists($controller, $routes)) {
-    $web = new $routes[$controller];
-    $web->handleRequest();
+    $admin = new $routes[$controller];
+    $admin->handleRequest();
 } else {
     http_response_code(404);
     require 'views/errors/404.php';
