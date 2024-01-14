@@ -6,7 +6,7 @@ include 'controllers/web/bookingcontroller.php';
 include 'controllers/web/paymentcontroller.php';
 include 'controllers/web/roomcontroller.php';
 include 'controllers/web/logincontroller.php';
-include 'controllers/web/regiscontroller.php';
+include 'controllers/web/registercontroller.php';
 
 
 //$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
@@ -15,6 +15,7 @@ $controller = isset($_GET['controller']) ? $_GET['controller'] : 'home';
 // Kiểm tra trên URL, nếu cos param controller thì sẽ lấy giả trị của param controller, còn không thi se bang dashboard
 
 $routes = [
+    '/' => 'homecontroller',
     'home' => 'homecontroller',
     'about' => 'aboutcontroller',
     'detail' => 'detailcontroller',
@@ -22,12 +23,12 @@ $routes = [
     'payments' => 'paymentcontroller',
     'rooms' => 'roomcontroller',
     'login' => 'logincontroller',
-    'register' => 'regiscontroller',
+    'register' => 'registercontroller',
 ];
 
 if (array_key_exists($controller, $routes)) {
-    $admin = new $routes[$controller];
-    $admin->handleRequest();
+    $web = new $routes[$controller];
+    $web->handleRequest();
 } else {
     http_response_code(404);
     require 'views/errors/404.php';

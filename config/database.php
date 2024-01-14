@@ -16,6 +16,11 @@ class ConnectDB {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
         return $connect;
+
+        function checkUserExist($email) {
+            // Your check user existence logic here
+        }
     }
+    
 }
 ?>
