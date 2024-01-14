@@ -1,31 +1,20 @@
- <?php
-    class PaymentController
+<?php
+session_start();
+require("./models/PaymentModel.php");
+require("./models/BookingModel.php");
+
+class PaymentController
+{
+    public function __construct()
     {
-        private $model;
-
-        public function __construct()
-        {
-            $this->model = new PaymentModel();
+        if (isset($_GET['id'])) {
+            $booking_id = $_GET['id'];
+            echo "<script>console.log('" . $booking_id . "');</script>";
+            echo "<script>console.log('" . $_SESSION['id'] . "');</script>";
         }
 
-        public function getListPayment($bookingId, $paymentDate, $Amount, $PaymentMethod, $updatedAt, $createdAt)
-        {
-            return $this->model->getList($bookingId, $paymentDate, $Amount, $PaymentMethod, $updatedAt, $createdAt);
-        }
-
-        public function getPayment($id)
-        {
-            return $this->model->getPayment($id);
-        }
-
-        public function editPayment($id, $bookingId, $paymentDate, $Amount, $PaymentMethod, $updatedAt, $createdAt)
-        {
-            return $this->model->updatePayment($id, $bookingId, $paymentDate, $Amount, $PaymentMethod,$updatedAt, $createdAt);
-        }
-
-        public function deletePayment($id)
-        {
-            return $this->model->deletePayment($id);
-        }
+        require("app/Views/bill/bill.view.php");
     }
-    ?>
+}
+
+$paymentController = new PaymentController();
