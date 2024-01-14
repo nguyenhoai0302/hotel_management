@@ -2,7 +2,7 @@
 
 class homecontroller{
     public function handleRequest(){
-        require_once './views/web/rooms/home.view.php';
+        require_once './views/web/index.view.php';
     }
 }
  

@@ -4,6 +4,7 @@
     }
 
     .picture {
+        margin-top: 50px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(2, 1fr);
@@ -14,11 +15,11 @@
         grid-column-gap: 20px;
     }
 
-    #img1,
-    #img2,
-    #img3,
-    #img4,
-    #img5 {
+    .img1,
+    .img2,
+    .img3,
+    .img4,
+    .img5 {
         height: 100%;
         width: 100%;
         border-radius: 5px;

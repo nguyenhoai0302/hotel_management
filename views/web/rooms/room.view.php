@@ -1,4 +1,4 @@
-<?php include"./views/web/partials/header.view.php"
+<?php include "./views/web/partials/header.view.php"
 ?>
 <body>
     
@@ -18,7 +18,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="room-item shadow rounded overflow-hidden">
                 <div class="position-relative">
-                    <a href="detail.view.php">
+                    <a href="index.php?controller=detail">
                     <img id="img6" src="../../../assets/web/images/anh18.png" alt="" width="100%" height="350px">
                     </a>
                 </div>
@@ -44,7 +44,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="room-item shadow rounded overflow-hidden">
                 <div class="position-relative">
-                    <a href="detail.html">
+                    <a href="index.php?controller=detail">
                     <img id="img7" src="../../../assets/web/images/anh19.png" alt="" width="100%" height="350px">
                     </a>
                 </div>
@@ -71,7 +71,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="room-item shadow rounded overflow-hidden">
                 <div class="position-relative">
-                    <a href="detail.html">
+                    <a href="index.php?controller=detail">
                     <img id="img8" src="../../../assets/web/images/anh20.png" alt="" width="100%" height="350px">
                     </a>
                 </div>
@@ -101,7 +101,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="room-item shadow rounded overflow-hidden">
                 <div class="position-relative">
-                    <a href="detail.html">
+                    <a href="index.php?controller=detail">
                     <img id="img6" src="../../../assets/web/images/anh17.png" alt="" width="100%" height="350px">
                     </a>
                 </div>
@@ -185,7 +185,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="room-item shadow rounded overflow-hidden">
                 <div class="position-relative">
-                    <a href="detail.html">
+                    <a href="index.php?controller=detail">
                     <img id="img6" src="../../../assets/web/images/anh25.png" alt="" width="100%" height="350px">
                     </a>
                 </div>
@@ -267,7 +267,7 @@
 </body>  
 </html>
 
-<?php include"./views/web/partials/footer.view.php"
+<?php include "./views/web/partials/footer.view.php"
 ?>
 
   

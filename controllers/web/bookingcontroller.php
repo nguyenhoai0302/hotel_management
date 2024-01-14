@@ -6,6 +6,6 @@ class bookingcontroller
     {
 
 
-        require_once './views/web/rooms/booking.view.php';
+        require_once './views/web/bookings/booking.view.php';
     }
 }
