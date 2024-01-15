@@ -66,6 +66,15 @@ class UserModel extends ConnectDB
         $sql = "SELECT id, `name` FROM users";
         return mysqli_query($this->connect(),$sql);
     }
+
+
+    // WEB
+
+    function login($email, $password)
+    {
+        $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password' AND role=2";
+        return mysqli_query($this->connect(),$sql);
+    }
 }
 
 ?>
