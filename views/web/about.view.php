@@ -3,7 +3,7 @@
 <body>
     
     <div style="position: relative;">
-        <img src="../../../assets/web/images/anh21.png" class="img-fluid" alt="..." style="width: 2000px; height: 700px;">
+        <img src="/assets/web/images/anh21.png" class="img-fluid" alt="..." style="width: 2000px; height: 700px;">
         <h1 class="title-welcome-hotel-yawn_yawn" style="color: yellow; font-size: 90px; width: 900px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
         <span class="golden" style="text-shadow: 2px 2px 4px #FFFFFF;"><b>WELLCOM TO</b></span> <br>
         <span class="" style="text-shadow: 2px 2px 4px #FFC300;"><b>GOLDEN SUN HOTEL</b></span>
@@ -50,15 +50,15 @@
     <!-- row 2-->
     <div class=" icon row mt-3 mb-4 g-4" id="pp">
         <div class=" anh col-lg-4 col-md-6">      
-            <img id="img6" src="../../../assets/web/images/icon1.png" alt="" width="80%" height="350px">
+            <img id="img6" src="/assets/web/images/icon1.png" alt="" width="80%" height="350px">
             <h5 class="text">Tân Some quick example text to </br> build on the card title and make up   </h5>
         </div>
         <div class=" col-lg-4 col-md-6">
-            <img id="img6" src="../../../assets/web/images/icon2.png" alt="" width="80%" height="350px">
+            <img id="img6" src="/assets/web/images/icon2.png" alt="" width="80%" height="350px">
             <h5 class="text">Hoai Some quick example text to </br> build on the card title and make up </h5>
         </div>
         <div class=" col-lg-4 col-md-6">
-            <img id="img6" src="../../../assets/web/images/icon4.png" alt="" width="80%" height="350px">
+            <img id="img6" src="/assets/web/images/icon4.png" alt="" width="80%" height="350px">
             <h5 class="text">Xươm Some quick example text to </br> build on the card title and make up </h5>
         </div>
   </div>       

@@ -11,6 +11,9 @@
 .logo {
     margin-left: 10px;
 }
+.fa{
+    color: #ffe53f;
+}
 
 .section-title {
     color: #ffe53f !important;
