@@ -11,11 +11,11 @@ include 'controllers/web/registercontroller.php';
 
 //$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-$controller = isset($_GET['controller']) ? $_GET['controller'] : 'home';
+$controller = isset($_GET['controller']) ? $_GET['controller'] : 'index';
 // Kiểm tra trên URL, nếu cos param controller thì sẽ lấy giả trị của param controller, còn không thi se bang dashboard
 
 $routes = [
-    'home' => 'homecontroller',
+    'index' => 'homecontroller',
     'about' => 'aboutcontroller',
     'detail' => 'detailcontroller',
     'bookings' => 'bookingcontroller',

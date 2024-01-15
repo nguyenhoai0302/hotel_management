@@ -1,22 +1,9 @@
 <?php include "./views/web/partials/header.view.php" ?>
-<?php
-   ob_start();
-   if(!isset($_SESSION)) {
-   	  session_start();
-   }
-?>
+
 <div class="container d-flex  justify-content-center ml-5 p-5">
 	<div class="card bg-light">
 		<article class="card-body mx-auto" style="max-width: 400px;">
 			<h3 class="card-title mt-3 text-center" style="color: #D42D2F; font-weight: bold;" >Login</h3>
-			<?php 
-				if(isset($_SESSION['login-error'])){
-			?>
-			<div class="text-danger text-center my-2"><?php echo ($_SESSION['login-error']);?></div>
-			<?php
-				}
-			?>
-
 			<form class="p-4" method="post" action="#" enctype="multipart/form-data">
 				<div class="form-group input-group">
 					<div class="input-group-prepend">

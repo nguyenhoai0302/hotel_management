@@ -1,24 +1,11 @@
 <?php include "./views/web/partials/header.view.php" ?>
-<?php
-   ob_start();
-   if(!isset($_SESSION)) {
-   	  session_start();
-   }
-?>
 <div class="container d-flex  justify-content-center ml-5 p-5">
 	<div class="card bg-light">
 		<article class="card-body mx-auto" style="max-width: 400px;">				
 			<h4 class="card-title mt-3 text-center" style="color: #D42D2F; font-weight: bold;">Register</h4>
-			<?php
-				if(isset($_SESSION['reg-error'])) {
-			?>
-			<div class="text-danger text-center my-2"><?php echo $_SESSION['reg-error'];?></div>
-			<?php
-				}
-			?>
-			<form class="p-4" method="post" action="#" enctype="multipart/form-data">
+			<form class="p-4" method="post" action="index.php?controller=auths&action=register" enctype="multipart/form-data">
 				<div class="form-group input-group">
-					<div class="input-group-prepend">
+				<div class="input-group-prepend">
 						<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 						</div>
 					<input name="name" class="form-control" placeholder="Name" type="text">

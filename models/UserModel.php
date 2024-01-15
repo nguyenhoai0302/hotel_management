@@ -6,28 +6,22 @@ class UserModel extends ConnectDB
     function register($name,$email,$avatar,$phone,$gender,$birthday,$role,$status,$password) {
         $checkUserExist = $this->checkUserExist($email);
         if($checkUserExist->num_rows == 0) {
-            $sql = "INSERT INTO users(name,email,avatar,phone,gender,birthday,role,status,password)VALUES('$name','$email','$avatar','$phone','$gender','$birthday','$role','$status','$password')";
+            $sql = "INSERT INTO users (name,email,avatar,phone,gender,birthday,role,status,password) VALUES ('$name','$email','$avatar','$phone','$gender','$birthday','$role','$status','$password')";
             return mysqli_query($this->connect(),$sql);
         }
         return false;
     }
 
-    //đăng nhập
-    function login($name, $password)
-    {
-        $sql = "SELECT * FROM users WHERE name = '$name' AND password = '$password'";
-        return mysqli_query($this->connect(), $sql);
-    }
-
-    function getUserID($name) {
-        $sql = "SELECT id FROM users WHERE name = '$name'";
-        return mysqli_query($this->connect(), $sql);
-    }
+    // Đăng xuất
+    // function logout()
+    // {
+    //     session_start();
+    //     session_destroy();
+    // }
 
     // lấy re email 
     function checkUserExist($email) {
         $sql = "SELECT * FROM users WHERE email = '$email'";
-
         return mysqli_query($this->connect(),$sql);
     }
 
@@ -64,7 +58,6 @@ class UserModel extends ConnectDB
     function totalUser()
     {
         $sql = "SELECT COUNT(id) AS total_users FROM users";
-
         return mysqli_query($this->connect(),$sql);
     }
 
