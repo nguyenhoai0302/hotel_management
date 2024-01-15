@@ -1,40 +1,37 @@
 <?php
-session_start();
-
-class BookingController
+require_once "./models/RoomImageModel";
+require_once "./models/RoomModel.php";
+require_once "./models/BookingModel.php";
+class bookingController
 {
+    private $RoomModel;
+    private $RoomImageModel;
+    private $libs;
+
+    public function __construct()
+    {
+        $this->RoomModel = new RoomModel();
+        $this->RoomImageModel = new RoomImageModel();
+        $this->libs = new LibCommon();
+    }
+
+
     public function handleRequest()
     {
-        require_once "./models/PaymentModel.php";
-        require_once "./models/BookingModel.php";
-        require_once "../../views/web/bookings/history_booking.view.php";
+        $action = isset($_GET['action']) ? $_GET['action'] : 'booking';
 
-        if (isset($_GET['rooms_id'])) {
-            $rooms_id = $_GET['rooms_id'];
+        switch ($action) {
+            case 'booking':
+                $this->handleBooking($_GET['roomId']);
+                break;
+            default:
+                break;
         }
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['checkin_date']) && !empty($_POST['checkout_date']) && isset($_POST['note'])) {
-            $checkin_date = $_POST['checkin_date'];
-            $checkout_date = $_POST['checkout_date'];
-            $note = $_POST['note'];
-            $users_id = $_SESSION['users_id'];
-            $date = date('Y-m-d H:i:s');
-            $total_price = $_POST['total_price'];
-            $booking = bookings($rooms_id, $users_id, $checkin_date, $checkout_date, $note);
-            echo "<script>console.log(" . $booking . ");</script>";
-            if ($booking) {
-                $payment = payments($booking, $date, $total_price);
-                header("Location: /payment?id=$booking");
-                echo "<script>alert('" . "Booking successful" . "');</script>";
-                exit;
-            } else {
-                echo "<script>alert('" . "Booking Unsuccessful" . "');</script>";
-            }
-        }
-
-        require_once '../../views/web/bookings/payment.view.php';
+    }
+    private function handleBooking($roomId)
+    {
+        var_dump($roomId);
+        die();
+        require_once './views/web/bookings/booking.view.php';
     }
 }
-
-$bookingcontroller = new BookingController();
-$bookingcontroller->handleRequest();

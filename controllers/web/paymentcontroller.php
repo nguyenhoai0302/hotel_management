@@ -1,5 +1,4 @@
 <?php
-session_start();
 require("./models/PaymentModel.php");
 require("./models/BookingModel.php");
 
@@ -13,8 +12,6 @@ class PaymentController
             echo "<script>console.log('" . $_SESSION['id'] . "');</script>";
         }
 
-        require("app/Views/bill/bill.view.php");
+        require("./views/web/bookings/payment.view.php");
     }
 }
-
-$paymentController = new PaymentController();

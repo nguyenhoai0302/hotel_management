@@ -1,4 +1,4 @@
-<?php include"./views/web/partials/header.view.php"
+<?php include "./views/web/partials/header.view.php"
 ?>
 <body>
     
@@ -64,7 +64,7 @@
   </div>       
 </body>  
 </html>
-<?php include"./views/web/partials/footer.view.php"
+<?php include "./views/web/partials/footer.view.php"
 ?>
 
   

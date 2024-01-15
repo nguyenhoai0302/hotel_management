@@ -47,6 +47,7 @@
     .left-content {
         margin: 0;
         padding: 0;
+        display: flex;
     }
 
     .input--group {

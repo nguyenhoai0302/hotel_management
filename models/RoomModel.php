@@ -3,7 +3,8 @@ include_once 'config/database.php';
 
 class RoomModel extends ConnectDB
 {
-    function create($name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status) {
+    function create($name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status)
+    {
         $sql = "INSERT INTO rooms(`name`,bedroom,bathroom,livingroom,`type`,price,tax,cleaning_fee,description,status)
             VALUES('$name','$bedroom','$bathroom','$livingroom','$type','$price','$tax','$cleaning_fee','$description','$status')";
 
@@ -12,52 +13,65 @@ class RoomModel extends ConnectDB
 
 
     //lấy ra user
-    function getRoomById($id) {
+    function getRoomById($id)
+    {
         $sql = "SELECT * FROM rooms WHERE id = $id";
         return mysqli_query($this->connect(), $sql);
     }
 
     //edit user
-    function editRoom($id, $name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $update_at, $created_at) {
+    function editRoom($id, $name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status, $update_at, $created_at)
+    {
         $sql = "UPDATE rooms SET id = '$id', name = '$name', bedroom = '$bedroom', bathroom = '$bathroom', livingroom ='$livingroom', type = '$type', price = '$price', tax = '$tax', cleaning_fee = '$cleaning_fee',description = '$description',status = '$status',update_at = '$update_at',created_at = '$created_at' WHERE id = $id";
-        return mysqli_query($this->connect(),$sql);
+        return mysqli_query($this->connect(), $sql);
     }
 
-    function getList() {
+    function getList()
+    {
         $sql = "SELECT * FROM rooms";
-        return mysqli_query($this->connect(),$sql);
+        return mysqli_query($this->connect(), $sql);
     }
 
-    function getRoom($id) {
+    function getRoom($id)
+    {
         $sql = "SELECT * FROM rooms WHERE id = $id";
-        return mysqli_query($this->connect(),$sql);
+        return mysqli_query($this->connect(), $sql);
     }
 
     //deleta user
-    function delete($id) {
+    function delete($id)
+    {
         $del = "DELETE FROM bookings WHERE room_id = $id";
         $sql = "DELETE FROM rooms WHERE id = $id";
-        return mysqli_query($this->connect(),$sql);
+        return mysqli_query($this->connect(), $sql);
     }
 
     function totalRoom()
     {
         $sql = "SELECT COUNT(id) AS total_room FROM rooms";
 
-        return mysqli_query($this->connect(),$sql);
+        return mysqli_query($this->connect(), $sql);
     }
 
     function getLastId()
     {
         $sql = "SELECT id FROM rooms ORDER BY created_at DESC";
-        return mysqli_query($this->connect(),$sql);
+        return mysqli_query($this->connect(), $sql);
     }
     function getOptionRoom()
     {
         $sql = "SELECT id, `name` FROM rooms";
-        return mysqli_query($this->connect(),$sql);
+        return mysqli_query($this->connect(), $sql);
     }
 
-}
+    //   //////
 
-?>
+    function getDetailById($id)
+    {
+        $sql = "SELECT rooms.id, rooms.name, rooms.bedroom, rooms.bathroom,rooms.livingroom,rooms.price,rooms.descroption,room_images.image FROM rooms
+        LEFT JOIN room_images
+        ON rooms.id = room_images.room_id
+        WHERE rooms.id = $id";
+        return mysqli_query($this->connect(), $sql);
+    }
+}
