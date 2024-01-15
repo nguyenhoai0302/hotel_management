@@ -1,28 +1,26 @@
 <?php
-include 'controllers/web/homecontroller.php';
+include 'controllers/web/HomeController.php';
 include 'controllers/web/aboutcontroller.php';
 include 'controllers/web/detailcontroller.php';
 include 'controllers/web/bookingcontroller.php';
 include 'controllers/web/paymentcontroller.php';
 include 'controllers/web/roomcontroller.php';
-include 'controllers/web/logincontroller.php';
-include 'controllers/web/registercontroller.php';
+include 'controllers/web/AuthController.php';
 
 
 //$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-$controller = isset($_GET['controller']) ? $_GET['controller'] : 'home';
+$controller = isset($_GET['controller']) ? $_GET['controller'] : 'index';
 // Kiểm tra trên URL, nếu cos param controller thì sẽ lấy giả trị của param controller, còn không thi se bang dashboard
 
 $routes = [
-    'home' => 'homecontroller',
+    'home' => 'HomeController',
     'about' => 'aboutcontroller',
     // 'detail' => 'detailcontroller',
     // 'bookings' => 'bookingcontroller',
     'payments' => 'paymentcontroller',
     'rooms' => 'roomcontroller',
-    'login' => 'logincontroller',
-    'register' => 'registercontroller',
+    'auth' => 'AuthController'
 ];
 
 if (array_key_exists($controller, $routes)) {

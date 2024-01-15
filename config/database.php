@@ -17,9 +17,6 @@ class ConnectDB {
         }
         return $connect;
 
-        function checkUserExist($email) {
-            // Your check user existence logic here
-        }
     }
     
 }
