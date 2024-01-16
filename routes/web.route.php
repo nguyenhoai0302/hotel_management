@@ -4,13 +4,13 @@ include 'controllers/web/aboutcontroller.php';
 include 'controllers/web/detailcontroller.php';
 include 'controllers/web/bookingcontroller.php';
 include 'controllers/web/paymentcontroller.php';
-include 'controllers/web/roomcontroller.php';
+include 'controllers/web/RoomController.php';
 include 'controllers/web/AuthController.php';
 
 
 //$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-$controller = isset($_GET['controller']) ? $_GET['controller'] : 'index';
+$controller = isset($_GET['controller']) ? $_GET['controller'] : 'home';
 // Kiểm tra trên URL, nếu cos param controller thì sẽ lấy giả trị của param controller, còn không thi se bang dashboard
 
 $routes = [
@@ -19,7 +19,7 @@ $routes = [
     'detail' => 'detailcontroller',
     'bookings' => 'bookingcontroller',
     'payments' => 'paymentcontroller',
-    'rooms' => 'roomcontroller',
+    'rooms' => 'RoomController',
     'auth' => 'AuthController'
 ];
 

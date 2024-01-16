@@ -163,10 +163,15 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `name`, `bedroom`, `bathroom`, `livingroom`, `type`, `price`, `tax`, `cleaning_fee`, `description`, `status`, `updated_at`, `created_at`) VALUES
-(1, 'Room A', 2, 1, 1, 'Standard', 100.00, 5.00, 10.00, 'A cozy standard room.', 1, '2023-12-31 20:19:02', '2023-12-31 20:19:02'),
-(2, 'Room B', 3, 2, 1, 'Deluxe', 150.00, 7.50, 15.00, 'A luxurious deluxe room with a view.', 1, '2023-12-31 20:19:02', '2023-12-31 20:19:02'),
-(3, 'Room C', 1, 1, 1, 'Economy', 75.00, 3.75, 7.50, 'An affordable economy room.', 1, '2023-12-31 20:19:02', '2023-12-31 20:19:02');
-
+(1, 'Room Taki', 2, 1, 1, 'Standard', 100.00, 5.00, 10.00, 'A cozy standard room.', 1, '2023-12-31 20:19:02', '2023-12-31 20:19:02'),
+(2, 'Room Figo', 3, 2, 1, 'Deluxe', 150.00, 7.50, 15.00, 'A luxurious deluxe room with a view.', 1, '2023-12-31 20:19:02', '2023-12-31 20:19:02'),
+(3, 'Room DIno', 1, 1, 1, 'Economy', 75.00, 3.75, 7.50, 'An affordable economy room.', 1, '2023-12-31 20:19:02', '2023-12-31 20:19:02');
+(4, 'Room Gife', 2, 1, 1, 'Standard', 120.00, 6.00, 12.00, 'A comfortable standard room.', 2, '2024-01-01 10:00:00', '2024-01-01 10:00:00'),
+(5, 'Room Vina', 3, 2, 1, 'Deluxe', 150.00, 7.50, 15.00, 'A luxurious deluxe room with a view.', 2, '2024-01-01 10:00:00', '2024-01-01 10:00:00'),
+(6, 'Room Jika', 1, 1, 1, 'Economy', 75.00, 3.75, 7.50, 'A cost-effective economy room.', 2, '2024-01-01 10:00:00', '2024-01-01 10:00:00'),
+(7, 'Room Golden', 2, 1, 1, 'Standard', 110.00, 5.50, 11.00, 'A cozy standard room with a city view.', 2, '2024-01-01 10:00:00', '2024-01-01 10:00:00'),
+(8, 'Room Hajo', 3, 2, 1, 'Deluxe', 150.00, 7.50, 15.00, 'A modern superior room with extra amenities.', 2, '2024-01-01 10:00:00', '2024-01-01 10:00:00'),
+(9, 'Room Iasa', 3, 2, 1, 'Deluxe', 150.00, 7.50, 15.00, 'A modern superior room with extra amenities.', 2, '2024-01-01 10:00:00', '2024-01-01 10:00:00'),
 -- --------------------------------------------------------
 
 --
