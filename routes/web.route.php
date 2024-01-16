@@ -10,14 +10,14 @@ include 'controllers/web/AuthController.php';
 
 //$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-$controller = isset($_GET['controller']) ? $_GET['controller'] : 'index';
+$controller = isset($_GET['controller']) ? $_GET['controller'] : 'home';
 // Kiểm tra trên URL, nếu cos param controller thì sẽ lấy giả trị của param controller, còn không thi se bang dashboard
 
 $routes = [
     'home' => 'HomeController',
     'about' => 'aboutcontroller',
-    // 'detail' => 'detailcontroller',
-    // 'bookings' => 'bookingcontroller',
+    'detail' => 'detailcontroller',
+    'bookings' => 'bookingcontroller',
     'payments' => 'paymentcontroller',
     'rooms' => 'roomcontroller',
     'auth' => 'AuthController'
