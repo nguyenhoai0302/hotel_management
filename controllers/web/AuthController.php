@@ -22,11 +22,11 @@ class AuthController
                 $this->getLogin();
                 break;
             case 'register':
-               
+
                 break;
             case 'logout':
                 $this->logout();
-                
+
                 break;
             default:
                 # code...
@@ -50,24 +50,23 @@ class AuthController
 
             $checkLogin = $this->model->login($email, $password);
 
-            if($checkLogin->num_rows) {
+            if ($checkLogin->num_rows) {
                 $user = $checkLogin->fetch_assoc();
                 $login['name']     = $user['name'];
                 $login['role']     = $user['role'];
                 $login['id']       = $user['id'];
-           
+
                 $_SESSION['login'] = $login;
-                if(isset($_SESSION['login-error'])) {
-                   unset($_SESSION['login-error']);
+                if (isset($_SESSION['login-error'])) {
+                    unset($_SESSION['login-error']);
                 }
 
 
-                $this->libs->redirectPage('index.php?controller=home&action=home');
+                $this->libs->redirectPage('index.php');
             } else {
                 $_SESSION['login-error'] = 'Login unsuccessful';
                 $this->libs->redirectPage('index.php?controller=auth&action=login');
-           }
-
+            }
         }
 
         include 'views/web/auths/login.view.php';
