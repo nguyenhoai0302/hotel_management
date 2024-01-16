@@ -1,7 +1,21 @@
 <?php
+include_once 'models/RoomModel.php';
+include_once 'models/RoomImageModel.php';
+include_once 'utils/helpers.php';
 
-class roomcontroller
+class RoomController
 {
+    private $roomModel;
+    private $roomImageModel;
+    private $libs;
+
+    public function __construct()
+    {
+        $this->roomModel = new RoomModel();
+        $this->roomImageModel = new RoomImageModel();
+        $this->libs = new LibCommon();
+    }
+
     public function handleRequest()
     {
         $action = isset($_GET['action']) ? $_GET['action'] : 'list';
@@ -10,26 +24,27 @@ class roomcontroller
             case 'list':
                 $this->getListRoom();
                 break;
-            case 'Detail':
+            case 'detail':
                 $this->getDetailRoom($_GET['id']);
                 break;
             default:
+                // Handle unknown action
                 break;
         }
     }
-    ///////
+
     private function getListRoom()
     {
-        require_once './views/web/rooms/room.view.php';
+        $rooms = $this->roomModel->getList();
+        include 'views/web/rooms/room.view.php';
     }
-    private function getDetailRoom()
+
+    private function getDetailRoom($id)
     {
-
         $query = $this->roomModel->getDetailById($id);
-        $room = $query->fetch_assoc();
-        //    var_dump($room);
-        //    die();
 
-        require_once './views/web/rooms/detail.view.php';
+        $room = $query->fetch_assoc();
+
+        include 'views/web/rooms/detail.view.php';
     }
 }

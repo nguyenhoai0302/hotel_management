@@ -4,7 +4,7 @@ include 'controllers/web/aboutcontroller.php';
 include 'controllers/web/detailcontroller.php';
 include 'controllers/web/bookingcontroller.php';
 include 'controllers/web/paymentcontroller.php';
-include 'controllers/web/roomcontroller.php';
+include 'controllers/web/RoomController.php';
 include 'controllers/web/AuthController.php';
 
 
@@ -19,7 +19,7 @@ $routes = [
     'detail' => 'detailcontroller',
     'bookings' => 'bookingcontroller',
     'payments' => 'paymentcontroller',
-    'rooms' => 'roomcontroller',
+    'rooms' => 'RoomController',
     'auth' => 'AuthController'
 ];
 

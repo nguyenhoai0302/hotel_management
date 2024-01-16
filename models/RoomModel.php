@@ -64,14 +64,19 @@ class RoomModel extends ConnectDB
         return mysqli_query($this->connect(), $sql);
     }
 
-    //   //////
+    //WEB
+
+    function getListRoomHomePage()
+    {
+        $sql = "SELECT * FROM rooms ORDER BY rooms.created_at DESC LIMIT 3";
+
+        return mysqli_query($this->connect(), $sql);
+    }
+
 
     function getDetailById($id)
     {
-        $sql = "SELECT rooms.id, rooms.name, rooms.bedroom, rooms.bathroom,rooms.livingroom,rooms.price,rooms.descroption,room_images.image FROM rooms
-        LEFT JOIN room_images
-        ON rooms.id = room_images.room_id
-        WHERE rooms.id = $id";
+        $sql = "SELECT * FROM rooms WHERE id = $id";
         return mysqli_query($this->connect(), $sql);
     }
 }
