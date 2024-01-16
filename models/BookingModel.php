@@ -52,6 +52,20 @@ class BookingModel extends ConnectDB
     {
         $sql = "SELECT COUNT(id) AS total_booking FROM bookings";
 
-        return mysqli_query($this->connect(),$sql);
+        return mysqli_query($this->connect(), $sql);
+    }
+
+    function storeBooking($userId, $roomId, $checkinDate, $checkoutDate, $totalPrice, $status, $note)
+    {
+        $sql = "INSERT INTO bookings(user_id, room_id, checkin_date, checkout_date, total_price, `status`, note) VALUES ('$userId', '$roomId', '$checkinDate', '$checkoutDate', '$totalPrice','$status','$note')";
+
+        return mysqli_query($this->connect(), $sql);
+    }
+
+    function getLastBookingId()
+    {
+        $sql = "SELECT id FROM bookings ORDER BY created_at DESC LIMIT 1";
+
+        return mysqli_query($this->connect(), $sql);
     }
 }

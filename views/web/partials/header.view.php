@@ -52,7 +52,7 @@ if (!isset($_SESSION)) {
         ?>
             <div class="nav_log nav_text">
                 <div class="nav_text">
-                    <a class="nav_text" href="index.php?controller=front&action=home"><span><i class="fas fa-user"></i></span> <?php echo $_SESSION['login']['name']; ?></a>
+                    <a class="nav_text" href="index.php?controller=users&action=profile"><span><i class="fas fa-user"></i></span> <?php echo $_SESSION['login']['name']; ?></a>
                 </div>
                 <div class="nav_text">
                     <a class="nav_text" href="index.php?controller=auth&action=logout">LOG OUT</a>

@@ -3,7 +3,7 @@ include 'controllers/web/HomeController.php';
 include 'controllers/web/aboutcontroller.php';
 include 'controllers/web/detailcontroller.php';
 include 'controllers/web/bookingcontroller.php';
-include 'controllers/web/paymentcontroller.php';
+include 'controllers/web/paymentController.php';
 include 'controllers/web/RoomController.php';
 include 'controllers/web/AuthController.php';
 
@@ -18,7 +18,7 @@ $routes = [
     'about' => 'aboutcontroller',
     'detail' => 'detailcontroller',
     'bookings' => 'bookingcontroller',
-    'payments' => 'paymentcontroller',
+    'payments' => 'paymentController',
     'rooms' => 'RoomController',
     'auth' => 'AuthController'
 ];

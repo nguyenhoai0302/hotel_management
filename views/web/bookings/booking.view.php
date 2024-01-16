@@ -11,34 +11,33 @@
 
         <div class="content__text row">
             <div class="left-content col-lg-6 col-12">
-                <div class="infor">
-                    <div class="input--group row">
-                        <label for="" class="label">Name</label>
-                        <input type="text" id="name" name="name" placeholder="name" class="name_booking" value="<?php echo isset($_SESSION['name']) ? $_SESSION['name'] : ''; ?>" disabled>
-                    </div>
-                    <div class="input--group row">
-                        <div class="check-date col-6">
-                            <label for="" class="label">Check in</label>
-                            <?php
-                            ?>
-                            <input type="datetime-local" value="<?php echo $checkin_date ?>" name="checkin_date" class="input__check-date" id="check_in">
+                <form method="POST" action="#">
+                    <div class="infor">
+                        <div class="input--group row">
+                            <label for="" class="label">Name</label>
+                            <input type="text" id="name" name="name" class="name_booking" value="<?php echo $userName ?>" disabled>
                         </div>
-                        <div class="check-date col-6">
-                            <label for="" class="label">Check out</label>
-                            <input min="" type="datetime-local" value="<?php echo $checkout_date ?>" name="checkout_date" class="input__check-date" id="check_out">
+                        <div class="input--group row">
+                            <div class="check-date col-6">
+                                <label for="" class="label">Check in</label>
+                                <input type="datetime-local" name="checkin_date" class="input__check-date" id="check_in">
+                            </div>
+                            <div class="check-date col-6">
+                                <label for="" class="label">Check out</label>
+                                <input min="" type="datetime-local" name="checkout_date" class="input__check-date" id="check_out">
+                            </div>
                         </div>
+                        <div class="input--group">
+                            <label for="" class="label">note</label>
+                            <input type="text" name="note" class="input-request" id="SpecialR_Request" placeholder="Special Request">
+                        </div>
+                        <div>
+                            <button type="submit" class="button" id="update_money" name="booking">SAVE</button>
+                        </div>
+                        <hr>
                     </div>
-                    <div class="input--group">
-                        <label for="" class="label">note</label>
-                        <input type="text" name="note" class="input-request" value="<?php echo $notte ?>" id="SpecialR_Request" placeholder="Special Request">
-                    </div>
-                    <div>
-                        <button type="submit" class="button" id="update_money" name="booking">SAVE</button>
-                    </div>
-                    <hr>
-                </div>
-
-                <div class="col"></div>
+                    <div class="col"></div>
+                </form>
             </div>
 
             <!-- total price -->

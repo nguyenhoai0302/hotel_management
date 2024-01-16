@@ -3,7 +3,7 @@
 
 <body>
 
-    <form action="" method="">
+    <form action="" method="post">
         <div class="container">
             <div class="payment">
                 <div class="title">

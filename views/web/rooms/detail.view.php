@@ -24,6 +24,8 @@
                             <a href="đường_dẫn_của_bạn">
                                 <i id="icon_heart_detail" class="fa-regular fa-heart " style="color: yellow;"></i>
                             </a>
+
+                            <!-- <span id="favorite-icon" class="favorite-icon">&#10084;</span> -->
                             <i id="icon_share_detail" class="fa-solid fa-share" onclick="shareViaEmail()"></i>
                             <div id="addbag"></div>
                         </div>
@@ -131,8 +133,8 @@
                 </div>
 
                 <!-- phía bên phải -->
-                <div class="col-lg-3 col-12" id="booking-btn">
-                    <a href="index.php?controller=booking$action=booking$roomId=<?php $room['id']; ?>"><button>BOOKING NOW</button></a>
+                <div class="col-lg-3 col-12">
+                    <a href="index.php?controller=bookings&action=booking&roomId=<?php echo $room['id']; ?>">booking now </a>
                 </div>
             </div>
         </div>
