@@ -1,8 +1,8 @@
 <?php
-    ob_start();
-   if(!isset($_SESSION)) {
-   	  session_start();
-   }
+ob_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +24,8 @@
     <?php include("./assets/web/css/about.css.php") ?>
     <?php include("./assets/web/css/room.css.php") ?>
     <?php include("./assets/web/css/detail.css.php") ?>
+    <?php include("./assets/web/css/booking.css.php") ?>
+    <?php include("./assets/web/css/payment.css.php") ?>
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/admin/images/logo.png">
 </head>
@@ -43,8 +45,8 @@
                 <i class="fa fa-search" aria-hidden="true"></i>
             </button>
         </div>
-    
-            <!-- Trường hợp đăng nhập tài khoản Customer -->
+
+        <!-- Trường hợp đăng nhập tài khoản Customer -->
         <?php
         if (isset($_SESSION['login']) && $_SESSION['login']['role'] == '2') {
         ?>

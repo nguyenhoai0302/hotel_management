@@ -17,15 +17,13 @@
 
                     <div class="row content-text">
                         <div class="col-lg-4 col-6 content__text">
-                            <p id="name_room_detail"><?php echo $room['name'];?></p>
-                            <p id="price_room_detail" style="color: yellow;">$<?php echo $room['price'];?>/night</p>
+                            <p id="name_room_detail"><?php echo $room['name']; ?></p>
+                            <p id="price_room_detail" style="color: yellow;">$<?php echo $room['price']; ?>/night</p>
                         </div>
                         <div class="col-lg-4 col-6 context__icon">
-                        <a href="đường_dẫn_của_bạn">
-                            <i id="icon_heart_detail" class="fa-regular fa-heart " style="color: yellow;"></i>
-                        </a>
-
-                            <!-- <span id="favorite-icon" class="favorite-icon">&#10084;</span> -->
+                            <a href="đường_dẫn_của_bạn">
+                                <i id="icon_heart_detail" class="fa-regular fa-heart " style="color: yellow;"></i>
+                            </a>
                             <i id="icon_share_detail" class="fa-solid fa-share" onclick="shareViaEmail()"></i>
                             <div id="addbag"></div>
                         </div>
@@ -34,22 +32,22 @@
                     <div class="row content-icon">
                         <div class="col-lg-3 my-2 mx-2 pt-2 icon__room" style="background-color:#ebe124d4;">
                             <i class="fa-solid fa-bed"></i>
-                            <p id="type1"><?php echo $room['bedroom'];?> Bedroom</p>
+                            <p id="type1"><?php echo $room['bedroom']; ?> Bedroom</p>
                         </div>
                         <div class="col-lg-3 my-2 mx-2 pt-2 icon__room" style="background-color: #ebe124d4;">
                             <i class="fa fa-bath" aria-hidden="true"></i>
-                            <p id="type2"><?php echo $room['bathroom'];?> Bathroom</p>
+                            <p id="type2"><?php echo $room['bathroom']; ?> Bathroom</p>
                         </div>
                         <div class="col-lg-3 my-2 mx-2 pt-2 icon__room" style="background-color:#ebe124d4;">
                             <img src="assets/web/images/icon sofa.png" alt="" style="width: 34px;height: 20px;">
-                            <p id="type3"><?php echo $room['livingroom'];?> Livingroom</p>
+                            <p id="type3"><?php echo $room['livingroom']; ?> Livingroom</p>
                         </div>
                     </div>
                     <div class="row content-description">
 
                         <div class="col-lg-9">
                             <h4>Room Description</h4>
-                            <p><?php echo $room['description'];?></p>
+                            <p><?php echo $room['description']; ?></p>
                         </div>
                     </div>
                     <div class="row content-review">
@@ -134,7 +132,7 @@
 
                 <!-- phía bên phải -->
                 <div class="col-lg-3 col-12" id="booking-btn">
-                    <a href="index.php" id="book1"><button id="booking_now" class="button_booking">BOOKING NOW</button></a>
+                    <a href="index.php?controller=booking$action=booking$roomId=<?php $room['id']; ?>"><button>BOOKING NOW</button></a>
                 </div>
             </div>
         </div>
