@@ -67,88 +67,51 @@
   </div>
   <!-- row 2-->
   <div class="row mt-3 mb-4 g-4 p-5" id="pp">
+    <?php
+    while ($row = $rooms->fetch_assoc()) {
+
+    ?>
     <div class="col-lg-4 col-md-6">
       <div class="room-item shadow rounded overflow-hidden">
         <div class="position-relative">
           <a href="index.php?controller=rooms&action=detail&id=<?php echo $row['id']?>">
-            <img id="img6" src="/assets/web/images/anh4.png" alt="" width="100%" height="350px">
+            <img id="img6" src="/assets/web/images/anh5.png" alt="" width="100%" height="350px">
           </a>
         </div>
         <div class="room p-4 mt-1">
           <div class="d-flex justify-content-between mb-3">
-            <h5 class=" mb-0">Room 101</h5>
+            <h5 class=" mb-0"><?php echo $row['name'] ?></h5>
             <img src="/assets/web/images/star.png" alt="star" width="25%" height="40px">
           </div>
           <div class="d-flex mb-3">
             <small class="border-end me-3 pe-3"><i class="fa fa-bed" aria-hidden="true"></i>
-              </i>2 Bed</small>
+              </i><?php echo $row['bedroom'] ?> Bed</small>
             <small class="border-end me-3 pe-3"><i class="fa fa-bath" aria-hidden="true"></i>
-              </i>2 Bath</small>
+              </i><?php echo $row['bathroom'] ?> Bath</small>
             <small><i class="fa fa-wifi" aria-hidden="true"></i>
               </i>Wifi</small>
           </div>
 
           <div class="d-flex justify-content-between">
-            <h4>$50/night</h4>
+            <h4>$<?php echo $row['price'] ?>/night</h4>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6">
-      <div class="room-item shadow rounded overflow-hidden">
-        <div class="position-relative">
-          <a href="index.php?controller=rooms&action=detail&id=<?php echo $row['id']?>">
-            <img id="img7" src="/assets/web/images/anh5.png" alt="" width="100%" height="350px">
-          </a>
-        </div>
-        <div class=" room p-4 mt-1">
-          <div class="d-flex justify-content-between mb-3">
-            <h5 class="mb-0">Room 102</h5>
-            <img src="/assets/web/images/star.png" alt="star" width="25%" height="40px">
-          </div>
-          <div class="d-flex mb-3">
-            <small class="border-end me-3 pe-3"><i class="fa fa-bed" aria-hidden="true"></i>
-              </i>2 Bed</small>
-            <small class="border-end me-3 pe-3"><i class="fa fa-bath" aria-hidden="true"></i>
-              </i>2 Bath</small>
-            <small><i class="fa fa-wifi" aria-hidden="true"></i>
-              </i>Wifi</small>
-          </div>
+    <!-- 2 -->
+    
+    
+  
+<?php
 
-          <div class="d-flex justify-content-between">
-            <h4>$100/night</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6">
-      <div class="room-item shadow rounded overflow-hidden">
-        <div class="position-relative">
-          <a href="index.php?controller=rooms&action=detail&id=<?php echo $row['id']?>">
-            <img id="img8" src="/assets/web/images/anh6.png" alt="" width="100%" height="350px">
-          </a>
-        </div>
-        <div class="room p-4 mt-1">
-          <div class="d-flex justify-content-between mb-3">
-            <h5 class="mb-0">Room 103</h5>
-            <img src="/assets/web/images/star.png" alt="star" width="25%" height="40px">
-          </div>
-          <div class="d-flex mb-3">
-            <small class="border-end me-3 pe-3"><i class="fa fa-bed" aria-hidden="true"></i>
-              </i> Bed</small>
-            <small class="border-end me-3 pe-3"><i class="fa fa-bath" aria-hidden="true"></i>
-              </i>2 Bath</small>
-            <small><i class="fa fa-wifi" aria-hidden="true"></i>
-              </i>Wifi</small>
-          </div>
+}
+    ?>
 
-          <div class="d-flex justify-content-between">
-            <h4>$70/night</h4>
-          </div>
-        </div>
-      </div>
-    </div>
+    
+
   </div>
+  
+  
 </body>
 
 </html>

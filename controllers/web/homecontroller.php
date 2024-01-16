@@ -1,13 +1,13 @@
 <?php
-include_once 'models/UserModel.php';
+include_once 'models/RoomModel.php';
 
 class HomeController
 {
-    private $model;
+    private $roomModel;
 
     public function __construct()
     {
-        $this->model = new UserModel();
+        $this->roomModel = new RoomModel();
     }
     function handleRequest()
     {
@@ -26,6 +26,8 @@ class HomeController
 
     private function getHomePage()
     {
+        $rooms = $this->roomModel->getListRoomHomePage();
+
 
         include 'views/web/index.view.php';
         
