@@ -1,31 +1,66 @@
  <?php
-    class PaymentController
+    include_once 'models/RoomModel.php';
+    include_once 'models/RoomImageModel.php';
+    include_once 'utils/helpers.php';
+
+    class paymentController
     {
-        private $model;
+        private $roomModel;
+        private $libs;
 
         public function __construct()
         {
-            $this->model = new PaymentModel();
+            $this->roomModel = new RoomModel();
+            $this->libs = new LibCommon();
         }
 
-        public function getListPayment($bookingId, $paymentDate, $Amount, $PaymentMethod, $updatedAt, $createdAt)
+        public function handleRequest()
         {
-            return $this->model->getList($bookingId, $paymentDate, $Amount, $PaymentMethod, $updatedAt, $createdAt);
+            $action = isset($_GET['action']) ? $_GET['action'] : 'payment';
+
+            switch ($action) {
+                case 'payment':
+                    $this->processPayment($_GET['bookingId']);
+                    break;
+                default:
+                    // Handle unknown action
+                    break;
+            }
         }
 
-        public function getPayment($id)
+        private function processPayment($bookingId)
         {
-            return $this->model->getPayment($id);
-        }
+            if (isset($_SESSION['login'])) {
+                $userName = $_SESSION['login']['name'];
+                $userId = $_SESSION['login']['id'];
+            } else {
+                $userName = $userId = null;
+            }
+            if (isset($_POST['payment'])) {
+                $paymentDate = filter_input(INPUT_POST, 'payment_date', FILTER_SANITIZE_STRING);
+                $Amount = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_STRING);
+                $paymentMethod = filter_input(INPUT_POST, 'payment_method', FILTER_SANITIZE_STRING);
+                $status = 1;
 
-        public function editPayment($id, $bookingId, $paymentDate, $Amount, $PaymentMethod, $updatedAt, $createdAt)
-        {
-            return $this->model->updatePayment($id, $bookingId, $paymentDate, $Amount, $PaymentMethod,$updatedAt, $createdAt);
-        }
+                $checkInDateObj = new DateTime($checkIn);
+                $checkOutDateObj = new DateTime($checkOut);
 
-        public function deletePayment($id)
-        {
-            return $this->model->deletePayment($id);
+                $countDays = $this->calDays($checkIn, $checkOut);
+
+
+                $query = $this->RoomModel->getRoomById($roomId);
+                $room = $query->fetch_assoc();
+                $totalPrice = $room['price'] * $countDays;
+
+                $result = $this->bookingModel->storeBooking($bookingId, $Amount, $paymentMethod, $paymentDate, $status);
+                if ($result) {
+                    $query = $this->paymentModel->getLastPaymentId();
+                    $booking = $query->fetch_assoc();
+                    $bookingId = $payment['id'];
+                    $this->libs->redirectPage('index.php?controller=payments&action=payment&bookingId=' . $paymentId);
+                }
+            }
+
+            require_once './views/web/bookings/payment.view.php';
         }
     }
-    ?>

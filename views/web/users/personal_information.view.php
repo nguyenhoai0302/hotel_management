@@ -87,4 +87,4 @@
         <div id="pp" style="height: 114px;"> </div>
     </form>
 </body>
-<?php include "./views/web/partials/footer.view.php" ?>
+<!-- <?php include "./views/web/partials/footer.view.php" ?> -->
