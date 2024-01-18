@@ -35,7 +35,7 @@ require 'utils/utils.php';
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="admin.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Room</li>
+                                        <li class="breadcrumb-item active">Bookings</li>
                                     </ol>
                                 </div>
                                 <h4 class="page-title">List Bookings</h4>

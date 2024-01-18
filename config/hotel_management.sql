@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hotel_management`
+--  Database: `hotel_management`
 --
 
 -- --------------------------------------------------------
@@ -98,6 +98,15 @@ CREATE TABLE `payments` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `booking_id`, `payment_date`, `amount`, `payment_method`, `status`, `updated_at`, `created_at`)
+VALUES
+(1, 1, '2023-12-10 12:30:00', 250.00, 1, 1, current_timestamp(), current_timestamp()),
+(2, 2, '2024-01-18 12:30:00', 375.00, 1, 1, current_timestamp(), current_timestamp());
+
 -- --------------------------------------------------------
 
 --
@@ -118,12 +127,12 @@ CREATE TABLE `ratings` (
 --
 
 CREATE TABLE `reviews` (
-  `user_id` int(11) NOT NULL,
   `id` bigint(20) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `room_id` int(11) NOT NULL,
   `content` text NOT NULL,
   `status` int(11) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -131,10 +140,12 @@ CREATE TABLE `reviews` (
 -- Dumping data for table `reviews`
 --
 
-INSERT INTO `reviews` (`user_id`, `id`, `room_id`, `content`, `status`, `updated_at`, `created_at`) VALUES
-(1, 1, 1, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 ...', 1, '2024-01-06 11:23:59', '2024-01-06 11:23:59'),
-(2, 2, 2, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 ...Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 ...', 2, '2024-01-06 11:23:59', '2024-01-06 11:23:59'),
-(3, 4, 2, 'This page allows you to generate random text strings using true randomness, which for many purposes is better than the pseudo-random number algorithms ...', 2, '2024-01-06 11:39:22', '2024-01-06 11:39:22');
+INSERT INTO `reviews` (`id`, `user_id`, `room_id`, `content`, `status`, `updated_at`, `created_at`) VALUES
+(1, 1, 1, 'The living room is designed with elegance and sophistication. I am highly impressed with the attention to detail, from the decorative walls to the work desk and stylish lighting. The furniture is carefully selected, creating a cozy yet modern atmosphere.', 1, '2024-01-06 11:23:59', '2024-01-06 11:23:59'),
+(2, 2, 2, 'From the moment you step into the lobby, the Golden Sun Hotel captivates with its gilded elegance. Opulent decor, bathed in golden hues, sets the tone for a stay that blends luxury with a touch of Vietnamese charm.', 2, '2024-01-06 11:23:59', '2024-01-06 11:23:59'),
+(3, 3, 3, 'The living room is kept impeccably clean and tidy. The staff works diligently to maintain cleanliness and comfort for the guests.', 2, '2024-01-06 11:39:22', '2024-01-06 11:39:22'),
+(4, 4, 5, 'A special highlight is the view from the living room window. I could overlook the cityscape with its sparkling lights, creating a relaxing and romantic atmosphere.', 2, '2024-01-06 11:39:22', '2024-01-06 11:39:22'),
+(5, 5, 6, 'The room space is airy and clean. Perfect service', 2, '2024-01-06 11:39:22', '2024-01-06 11:39:22');
 
 -- --------------------------------------------------------
 
@@ -143,7 +154,7 @@ INSERT INTO `reviews` (`user_id`, `id`, `room_id`, `content`, `status`, `updated
 --
 
 CREATE TABLE `rooms` (
-  `id` int(11) NOT NULL,
+  `id` bigint(20) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `bedroom` int(50) DEFAULT NULL,
   `bathroom` int(50) DEFAULT NULL,
@@ -165,13 +176,13 @@ CREATE TABLE `rooms` (
 INSERT INTO `rooms` (`id`, `name`, `bedroom`, `bathroom`, `livingroom`, `type`, `price`, `tax`, `cleaning_fee`, `description`, `status`, `updated_at`, `created_at`) VALUES
 (1, 'Room Taki', 2, 1, 1, 'Standard', 100.00, 5.00, 10.00, 'A cozy standard room.', 1, '2023-12-31 20:19:02', '2023-12-31 20:19:02'),
 (2, 'Room Figo', 3, 2, 1, 'Deluxe', 150.00, 7.50, 15.00, 'A luxurious deluxe room with a view.', 1, '2023-12-31 20:19:02', '2023-12-31 20:19:02'),
-(3, 'Room DIno', 1, 1, 1, 'Economy', 75.00, 3.75, 7.50, 'An affordable economy room.', 1, '2023-12-31 20:19:02', '2023-12-31 20:19:02');
+(3, 'Room DIno', 1, 1, 1, 'Economy', 75.00, 3.75, 7.50, 'An affordable economy room.', 1, '2023-12-31 20:19:02', '2023-12-31 20:19:02'),
 (4, 'Room Gife', 2, 1, 1, 'Standard', 120.00, 6.00, 12.00, 'A comfortable standard room.', 2, '2024-01-01 10:00:00', '2024-01-01 10:00:00'),
 (5, 'Room Vina', 3, 2, 1, 'Deluxe', 150.00, 7.50, 15.00, 'A luxurious deluxe room with a view.', 2, '2024-01-01 10:00:00', '2024-01-01 10:00:00'),
 (6, 'Room Jika', 1, 1, 1, 'Economy', 75.00, 3.75, 7.50, 'A cost-effective economy room.', 2, '2024-01-01 10:00:00', '2024-01-01 10:00:00'),
 (7, 'Room Golden', 2, 1, 1, 'Standard', 110.00, 5.50, 11.00, 'A cozy standard room with a city view.', 2, '2024-01-01 10:00:00', '2024-01-01 10:00:00'),
 (8, 'Room Hajo', 3, 2, 1, 'Deluxe', 150.00, 7.50, 15.00, 'A modern superior room with extra amenities.', 2, '2024-01-01 10:00:00', '2024-01-01 10:00:00'),
-(9, 'Room Iasa', 3, 2, 1, 'Deluxe', 150.00, 7.50, 15.00, 'A modern superior room with extra amenities.', 2, '2024-01-01 10:00:00', '2024-01-01 10:00:00'),
+(9, 'Room Iasa', 3, 2, 1, 'Deluxe', 150.00, 7.50, 15.00, 'A modern superior room with extra amenities.', 2, '2024-01-01 10:00:00', '2024-01-01 10:00:00');
 -- --------------------------------------------------------
 
 --
@@ -212,11 +223,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `avatar`, `email`, `birthday`, `phone`, `password`, `role`, `status`, `gender`, `updated_at`, `created_at`) VALUES
-(1, 'A Tan', 'https://vcdn-vnexpress.vnecdn.net/2023/02/01/327930130-1584629158642723-553-6981-4746-1675237738.jpg', 'tan@gmail.com', '2001-01-05', '123456789', '12345', 0, 1, 'Male', '2024-01-03 02:46:45', '2023-12-31 20:19:02'),
-(2, 'Nguyen Hoai', 'https://lmhoptacxatthue.com.vn/wp-content/uploads/2023/05/anh-con-cho-ngao-17.jpg', 'hoai@gmail.com', '2004-02-03', '987654321', '11111', 1, 1, 'Female', '2024-01-03 02:47:13', '2023-12-31 20:19:02'),
-(3, 'Ho Xuom', 'admin2.png', 'xuom@gmail.com', '2004-04-01', '555555555', '22222', 0, 1, 'male', '2024-01-04 19:29:29', '2023-12-31 20:19:02'),
-(10, 'Duyen', '5.jpg', 'duyen@gmail.com', '2011-08-19', '0987654321', '123123', 2, 1, '1', '2024-01-06 10:25:17', '0000-00-00 00:00:00'),
-(12, 'Nhan ', '4.jpg', 'eunwoo565@gmail.com', '2024-01-01', '0378233910', '0987654321', 2, 2, '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(1, 'A Tan', 'icon1.png', 'tan.a25@student.passerellesnumeriques.org', '2001-01-05', '0382912591', '11111', 2, 1, 'Male', '2024-01-03 02:46:45', '2023-12-31 20:19:02'),
+(2, 'Nguyen Hoai', 'icon2.png', 'hoai.nguyen25@student.passerellesnumeriques.org', '2004-02-03', '0899671326', '22222', 2, 1, 'Female', '2024-01-03 02:47:13', '2023-12-31 20:19:02'),
+(3, 'Ho Xuom', 'icon4.png', 'xuom.ho25@student.passerellesnumeriques.org', '2004-04-01', '0862526888', '33333', 2, 1, 'Female', '2024-01-04 19:29:29', '2023-12-31 20:19:02'),
+(4, 'Admin', 'admin.gif', 'admin@gmail.com', '2011-08-19', '0987654321', 'admin', 1, 1, 'Male', '2024-01-06 10:25:17', '2024-01-05 10:00:00'),
+(5, 'Member', 'member.gif', 'eunwoo565@gmail.com', '2024-01-01', '0378233910', 'member', 2, 2, 'Female', '2024-01-17 10:25:17', '2024-01-05 10:00:00');
 
 --
 -- Indexes for dumped tables
