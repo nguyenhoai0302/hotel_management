@@ -36,7 +36,7 @@ if (!isset($_SESSION)) {
         <div class="logo nav_text">
             <a href="hotel_home_page.html"><img src="assets/web/images/logo.png" id="logo_nav" alt="logo"></a>
         </div>
-        <div class="nav_text"><a class="nav_text" href="index.php?controller=home">HOME</a></div>
+        <div class="nav_text"><a class="nav_text" href="index.php?controller=index">HOME</a></div>
         <div class="nav_text"><a class="nav_text" href="index.php?controller=about">ABOUTS US</a></div>
         <div class="nav_text"><a class="nav_text" href="index.php?controller=rooms&action=list">ROOMS</a></div>
         <div class="nav_text nav_text_search">
