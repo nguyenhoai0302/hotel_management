@@ -3,10 +3,10 @@ include 'controllers/web/HomeController.php';
 include 'controllers/web/aboutcontroller.php';
 include 'controllers/web/detailcontroller.php';
 include 'controllers/web/bookingcontroller.php';
-include 'controllers/web/paymentController.php';
+include 'controllers/web/PaymentController.php';
 include 'controllers/web/RoomController.php';
 include 'controllers/web/AuthController.php';
-
+include 'controllers/web/UserController.php';
 
 //$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
@@ -18,9 +18,10 @@ $routes = [
     'about' => 'aboutcontroller',
     'detail' => 'detailcontroller',
     'bookings' => 'bookingcontroller',
-    'payments' => 'paymentController',
+    'payments' => 'PaymentController',
     'rooms' => 'RoomController',
-    'auth' => 'AuthController'
+    'auth' => 'AuthController',
+    'users' => 'UserController',
 ];
 
 if (array_key_exists($controller, $routes)) {

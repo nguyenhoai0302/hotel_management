@@ -20,10 +20,10 @@ class PaymentModel extends ConnectDB
         $sql = "DELETE FROM payments WHERE id = $id";
         return mysqli_query($this->connect(), $sql);
     }
-    /////
-    function storePayment($bookingId, $paymentDate, $paymentMethod, $status, $Amount)
+    // WEB
+    function storePayment($bookingId, $paymentDate, $amount, $paymentMethod, $status)
     {
-        $sql = "INSERT INTO payments(booking_id, payment_date ,payment_method, amount, `status`, note) VALUES ('$bookingId', '$paymentDate', '$paymentMethod', '$status','$Amount')";
+        $sql = "INSERT INTO payments (booking_id, payment_date, amount, payment_method,  `status`) VALUES ('$bookingId', '$paymentDate', '$amount', '$paymentMethod', '$status')";
 
         return mysqli_query($this->connect(), $sql);
     }
@@ -32,6 +32,13 @@ class PaymentModel extends ConnectDB
     {
         $sql = "SELECT id FROM payments ORDER BY created_at DESC LIMIT 1";
 
-        return mysqli_query($this->connect(), $sql);
+        $result = mysqli_query($this->connect(), $sql);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            return $row['id'];
+        }
+
+        return null;
     }
 }

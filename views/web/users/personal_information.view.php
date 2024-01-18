@@ -2,7 +2,7 @@
 <?php include_once('./assets/web/css/personal_information.css.php') ?>
 
 <body>
-    <form action="">
+    <form action="" method="POST">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -11,27 +11,27 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="" method="POST">
                             <div class="mb-3">
                                 <label for="name">UserName:</label>
-                                <input type="text" class="form-control" id="name" value="A Tân" style="background-color: white;">
+                                <input type="text" class="form-control" id="name" value="<?php echo $user['name'] ?>" style="background-color: white;" name="name">
                             </div>
                             <div class="mb-3">
                                 <label for="email">Email:</label>
-                                <input type="email" class="form-control" id="email" placeholder="Email" value="atan123@gmail.com" style="background-color: white;">
+                                <input type="email" class="form-control" id="email" placeholder="Email" value="<?php echo $user['email'] ?>" style="background-color: white;" name="email">
                             </div>
                             <div class="mb-3">
                                 <label for="phone">PhoneNumber:</label>
-                                <input type="tel" class="form-control" id="phone" value="0987654321" style="background-color: white;">
+                                <input type="tel" class="form-control" id="phone" value="<?php echo $user['phone'] ?>" style="background-color: white;" name="phone">
                             </div>
                             <div class="mb-3">
                                 <label for="password">Password:</label>
-                                <input type="password" class="form-control" id="password" value="xinchaotanne" style="background-color: white;">
+                                <input type="password" class="form-control" id="password" value="<?php echo $user['password'] ?>" style="background-color: white;" name="password">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn modal-save" onclick="change()">Save</button>
+                        <button type="button" class="btn modal-save" name="save">Save</button>
                     </div>
                 </div>
             </div>
@@ -41,12 +41,11 @@
         <!-- body -->
         <div class="contents" style="margin-bottom: 20px;">
             <!-- tên name -->
-            <h1>Hi, <span id="content_profile-username">A Tân</span>!</h1>
-            <p id="profile-date">July 2024</p>
+            <h1>Hi, <span id="content_profile-username"><?php echo $user['name'] ?></span>!</h1>
             <div class="row content_profile-usernames">
                 <div class="col-lg-4 content_profile-usernames-about">
                     <div class="edit-avata-user">
-                        <img id="avata-user" src="../../../assets/web/images/avata1.jpg" alt="ảnh đại diện">
+                        <img id="avata-user" src="assets/uploads/users/<?php echo $user['avatar'] ?>" alt="ảnh đại diện">
                     </div>
                     <div class="edit-avata-user">
                         <button id="profile-edit-avata">Upload a photo</button>
@@ -68,13 +67,13 @@
                 <div class="col-lg-1"></div>
                 <div class="col-lg-5 content_profile-username-email-password" style="margin-top: 30px;">
                     <label for="">Name</label>
-                    <input type="text" class="form-input-profile" name="user-name" id="user_name" style="padding-left: 20px;" placeholder="User name" value="A Tân" readonly>
+                    <input type="text" class="form-input-profile" name="user-name" id="user_name" style="padding-left: 20px;" placeholder="User name" value="<?php echo $user['name'] ?>" readonly>
                     <label for="">Email</label>
-                    <input type="text" class="form-input-profile" name="email" id="email11" style="padding-left: 20px;" placeholder="Email" value="atan@gmail.com" readonly>
+                    <input type="text" class="form-input-profile" name="email" id="email11" style="padding-left: 20px;" placeholder="Email" value="<?php echo $user['email'] ?>" readonly>
                     <label for="">Phone</label>
-                    <input type="tel" class="form-input-profile" name="phonenumber" id="user_phonenumber" style="padding-left: 20px;" placeholder="Phonenumber" value="0987654321" readonly>
+                    <input type="tel" class="form-input-profile" name="phonenumber" id="user_phonenumber" style="padding-left: 20px;" placeholder="Phonenumber" value="<?php echo $user['phone'] ?>" readonly>
                     <label for="">Password</label>
-                    <input type="password" class="form-input-profile" name="password" id="user_password" style="padding-left: 20px;" placeholder="**********" value="xinchaotanne" readonly>
+                    <input type="password" class="form-input-profile" name="password" id="user_password" style="padding-left: 20px;" placeholder="**********" value="<?php echo $user['password'] ?>" readonly>
                     <p>All required user information can be save here.</p>
                     <div class="profile-back-edit">
                         <a href="#"><button id="profile-back">Back</button></a>
