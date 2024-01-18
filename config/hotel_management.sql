@@ -98,6 +98,15 @@ CREATE TABLE `payments` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `booking_id`, `payment_date`, `amount`, `payment_method`, `status`, `updated_at`, `created_at`)
+VALUES
+(1, 1, '2023-12-10 12:30:00', 250.00, 1, 1, current_timestamp(), current_timestamp()),
+(2, 2, '2024-01-18 12:30:00', 375.00, 1, 1, current_timestamp(), current_timestamp());
+
 -- --------------------------------------------------------
 
 --
