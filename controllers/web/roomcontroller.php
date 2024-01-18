@@ -27,6 +27,9 @@ class RoomController
             case 'detail':
                 $this->getDetailRoom($_GET['id']);
                 break;
+            case 'search':
+                $this->getSearchRoom($_GET['room_id']);
+                break;
             default:
                 // Handle unknown action
                 break;
@@ -47,6 +50,18 @@ class RoomController
 
         include 'views/web/rooms/detail.view.php';
     }
+    ////
+    private function getSearchRoom($roomId)
+    {
 
-    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn'])) {
+            $nav_input = $_POST['nav_input'];
+        } else {
+            echo $nav_input = false;
+        }
+
+        $rooms = $this->roomModel->getSearchRoom($roomId);
+
+        include 'views/web/rooms/room.view.php';
+    }
 }

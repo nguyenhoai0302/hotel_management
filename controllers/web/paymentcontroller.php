@@ -27,7 +27,7 @@
                     break;
             }
         }
-
+        /////
         private function processPayment($bookingId)
         {
             if (isset($_SESSION['login'])) {
@@ -42,23 +42,17 @@
                 $paymentMethod = filter_input(INPUT_POST, 'payment_method', FILTER_SANITIZE_STRING);
                 $status = 1;
 
-                $checkInDateObj = new DateTime($checkIn);
-                $checkOutDateObj = new DateTime($checkOut);
+                // $query = $this->RoomModel->getRoomById($roomId);
+                // $room = $query->fetch_assoc();
+                // $Amount = $room['price'] * $countDays;
 
-                $countDays = $this->calDays($checkIn, $checkOut);
-
-
-                $query = $this->RoomModel->getRoomById($roomId);
-                $room = $query->fetch_assoc();
-                $totalPrice = $room['price'] * $countDays;
-
-                $result = $this->bookingModel->storeBooking($bookingId, $Amount, $paymentMethod, $paymentDate, $status);
-                if ($result) {
-                    $query = $this->paymentModel->getLastPaymentId();
-                    $booking = $query->fetch_assoc();
-                    $bookingId = $payment['id'];
-                    $this->libs->redirectPage('index.php?controller=payments&action=payment&bookingId=' . $paymentId);
-                }
+                // $result = $this->paymentModel->storePayment($bookingId, $Amount, $paymentMethod, $paymentDate, $status);
+                // if ($result) {
+                //     $query = $this->paymentModel->getLastPaymentId();
+                //     $booking = $query->fetch_assoc();
+                //     $bookingId = $payment['id'];
+                //     $this->libs->redirectPage('index.php?controller=payments&action=payment&bookingId=' . $paymentId);
+                // }
             }
 
             require_once './views/web/bookings/payment.view.php';

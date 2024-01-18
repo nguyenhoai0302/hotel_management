@@ -36,14 +36,17 @@ if (!isset($_SESSION)) {
         <div class="logo nav_text">
             <a href="hotel_home_page.html"><img src="assets/web/images/logo.png" id="logo_nav" alt="logo"></a>
         </div>
-        <div class="nav_text"><a class="nav_text" href="index.php?controller=home">HOME</a></div>
+        <div class="nav_text"><a class="nav_text" href="index.php?controller=index">HOME</a></div>
         <div class="nav_text"><a class="nav_text" href="index.php?controller=about">ABOUTS US</a></div>
         <div class="nav_text"><a class="nav_text" href="index.php?controller=rooms&action=list">ROOMS</a></div>
         <div class="nav_text nav_text_search">
-            <input type="text" name="nav_input" id="nav_input_search" style="outline: none; padding-left:20px; " placeholder="Search">
-            <button class="material-symbols-outlined" id="search" onclick="search()">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
+            <form action="index.php?controller=rooms&action=list" method=" post">
+                <input type="text" name="nav_input" id="nav_input_search" style="outline: none; padding-left:20px; " placeholder="Search">
+                <button class="material-symbols-outlined" id="search" type="submit" name="btn">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </form>
+            <!-- end tìm kiếm phòng -->
         </div>
 
         <!-- Trường hợp đăng nhập tài khoản Customer -->

@@ -79,12 +79,6 @@
         padding: 0 15px;
     }
 
-    /* EDIT PAYMENT BY */
-    .payment {
-        margin: 0 12px;
-        padding: 0;
-    }
-
     .title-small {
         font-size: 28px;
         font-weight: 500;
@@ -94,34 +88,6 @@
         padding: 10px 12px;
         width: 100%;
         margin-bottom: 15px;
-    }
-
-    /* edit phần mã thẻ & CVV */
-    .form-number--card {
-        border: 0.7px solid rgb(112, 111, 111);
-        height: auto;
-        margin-bottom: 15px;
-    }
-
-    .form-number--card>hr {
-        margin: 0;
-        color: 0.6 solid;
-    }
-
-    .input-number-card {
-        margin: 0;
-        width: 100%;
-        border: none;
-        padding: 10px 12px;
-    }
-
-    .div-expiration {
-        padding-right: 0;
-        border-right: 0.7px solid gray;
-    }
-
-    .div-CVV {
-        padding-left: 0;
     }
 
     .general-standard {
@@ -213,24 +179,11 @@
         transition: box-shadow 0.2s ease-in;
     }
 
-    /* RIGHT CONTENT */
-    .div-right {
-        height: auto !important;
-        border: 1px solid #000000;
-        border-radius: 20px;
-        padding: 20px;
-    }
-
-    .img--infor {
-        height: 172px;
-        border-radius: 15px;
-    }
-
-    .price {
-        font-size: 24px;
-        font-weight: bold;
-        color: #fee905;
-        letter-spacing: 2px;
+    .name_booking,
+    .input__check-date,
+    .input-request {
+        background-color: #ffeeba;
+        /* Màu vàng nhạt */
     }
 
     /* css cho input// ô input date */

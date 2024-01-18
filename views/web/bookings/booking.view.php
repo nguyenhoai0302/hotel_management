@@ -9,7 +9,7 @@
             <p class="title-booking-room" style="user-select: none;">BOOKING ROOM</p>
         </div>
 
-        <div class="content__text row">
+        <div class="content__text row justify-content-center">
             <div class="left-content col-lg-6 col-12">
                 <form method="POST" action="#">
                     <div class="infor">
@@ -40,7 +40,7 @@
                 </form>
             </div>
 
-            <!-- total price -->
+            <!-- total price
             <div class="right-content col-lg-6 col-12">
                 <div class="div-right">
                     <div class="div-infor--room row d-flex justify-content-center align-items-center">
@@ -52,7 +52,7 @@
                         <div class="row d-flex justify-content-center align-items-center">
                             <div class="col-7">
                                 <div class="d-flex">
-                                    <p><?php echo "$" . $room['price'] ?></p><span>&nbsp; X &nbsp;</span>
+                                    <p> echo "$" . $room['price']</p><span>&nbsp; X &nbsp;</span>
                                     <p id="nights"></p>
                                     <p id="nights">/nights</p>
                                 </div>
@@ -72,11 +72,9 @@
                         <input type="text" name="total_price" id="sum" readonly>USD
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div id="pp"></div>
     </div>
 
 </body>
-<?php include "./views/web/partials/footer.view.php"
-?>
