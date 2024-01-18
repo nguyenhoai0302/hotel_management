@@ -214,11 +214,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `avatar`, `email`, `birthday`, `phone`, `password`, `role`, `status`, `gender`, `updated_at`, `created_at`) VALUES
-(1, 'A Tan', 'icon1.png', 'tan.a25@student.passerellesnumeriques.org', '2001-01-05', '0382912591', '12345', 2, 1, 'Male', '2024-01-03 02:46:45', '2023-12-31 20:19:02'),
-(2, 'Nguyen Hoai', 'icon2.png', 'hoai.nguyen25@student.passerellesnumeriques.org', '2004-02-03', '0899671326', '11111', 2, 1, 'Female', '2024-01-03 02:47:13', '2023-12-31 20:19:02'),
-(3, 'Ho Xuom', 'icon4.png', 'xuom.ho25@student.passerellesnumeriques.org', '2004-04-01', '0862526888', '22222', 2, 1, 'Female', '2024-01-04 19:29:29', '2023-12-31 20:19:02'),
-(4, 'Admin', 'admin.gif', 'admin@gmail.com', '2011-08-19', '0987654321', '123123', 1, 1, 'Male', '2024-01-06 10:25:17', '2024-01-05 10:00:00'),
-(5, 'Member', 'member.gif', 'eunwoo565@gmail.com', '2024-01-01', '0378233910', '0987654321', 2, 2, 'Female', '2024-01-17 10:25:17', '2024-01-05 10:00:00');
+(1, 'A Tan', 'icon1.png', 'tan.a25@student.passerellesnumeriques.org', '2001-01-05', '0382912591', '11111', 2, 1, 'Male', '2024-01-03 02:46:45', '2023-12-31 20:19:02'),
+(2, 'Nguyen Hoai', 'icon2.png', 'hoai.nguyen25@student.passerellesnumeriques.org', '2004-02-03', '0899671326', '22222', 2, 1, 'Female', '2024-01-03 02:47:13', '2023-12-31 20:19:02'),
+(3, 'Ho Xuom', 'icon4.png', 'xuom.ho25@student.passerellesnumeriques.org', '2004-04-01', '0862526888', '33333', 2, 1, 'Female', '2024-01-04 19:29:29', '2023-12-31 20:19:02'),
+(4, 'Admin', 'admin.gif', 'admin@gmail.com', '2011-08-19', '0987654321', 'admin', 1, 1, 'Male', '2024-01-06 10:25:17', '2024-01-05 10:00:00'),
+(5, 'Member', 'member.gif', 'eunwoo565@gmail.com', '2024-01-01', '0378233910', 'member', 2, 2, 'Female', '2024-01-17 10:25:17', '2024-01-05 10:00:00');
 
 --
 -- Indexes for dumped tables
