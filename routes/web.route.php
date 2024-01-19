@@ -6,6 +6,7 @@ include 'controllers/web/bookingcontroller.php';
 include 'controllers/web/paymentController.php';
 include 'controllers/web/RoomController.php';
 include 'controllers/web/AuthController.php';
+include 'controllers/web/SearchController.php';
 
 
 //$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
@@ -20,7 +21,9 @@ $routes = [
     'bookings' => 'bookingcontroller',
     'payments' => 'paymentController',
     'rooms' => 'RoomController',
-    'auth' => 'AuthController'
+    'auth' => 'AuthController',
+    'search' => 'SearchController'
+
 ];
 
 if (array_key_exists($controller, $routes)) {
