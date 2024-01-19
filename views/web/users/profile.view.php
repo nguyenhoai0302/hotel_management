@@ -25,8 +25,8 @@
                     </a>
                 </div>
                 <div class="list--profile col-lg-3 col-12">
-                    <a href="views/web/rooms/security.view.php">
-                        <span class="material-symbols-outlined">admin_panel_settings</span>
+                    <a href="index.php?controller=users&action=security">
+                        <span class=" material-symbols-outlined">admin_panel_settings</span>
                         <h5> Sign in and secure</h5>
                         <p>Updates your password and secure your account</p>
                     </a>
