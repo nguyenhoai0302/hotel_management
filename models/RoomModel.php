@@ -90,7 +90,7 @@ class RoomModel extends ConnectDB
         FROM rooms
         LEFT JOIN room_images ON rooms.id = room_images.room_id
         GROUP BY rooms.id
-        ORDER BY rooms.created_at DESC LIMIT 3";
+        ORDER BY rooms.created_at DESC LIMIT 9 ";
 
         return mysqli_query($this->connect(),$sql);
     }
