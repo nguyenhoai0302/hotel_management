@@ -50,11 +50,11 @@ require 'utils/utils.php';
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card-box">
-                            <p class="sub-header">
+                            <!-- <p class="sub-header">
                                 <a href="admin.php?controller=favorites&action=create"
                                    class="float-right font-weight-bold mb-2"><i class="mdi mdi-plus"></i>
                                 </a>
-                            </p>
+                            </p> -->
                             <div class="table-responsive">
                                 <table class="table table-striped mb-0 text-center">
                                     <thead>
