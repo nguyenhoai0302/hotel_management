@@ -54,7 +54,7 @@ require 'utils/utils.php';
                                                 <th>#</th>
                                                 <th>Booking ID</th>
                                                 <th>Payment Date</th>
-                                                <th>Amount</th>
+                                                <th>Amount (USD)</th>
                                                 <th>Payment Method</th>
                                                 <th>Status</th>
                                                 <th>Created At</th>
@@ -72,12 +72,24 @@ require 'utils/utils.php';
                                                     <td><?php echo $row['booking_id'] ?></td>
                                                     <td><?php echo $row['payment_date'] ?></td>
                                                     <td><?php echo $row['amount'] ?></td>
-                                                    <td><?php echo $row['payment_method'] ?></td>
+                                                    <td>
+                                                        <?php
+                                                        if ($row['payment_method'] == 1) {
+                                                        ?>
+                                                            <span class="badge badge-danger mr-1">Credit</span>
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <span class="badge badge-primary mr-1">Debit card</span>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </td>
                                                     <td>
                                                         <?php
                                                         if ($row['status'] == 1) {
                                                         ?>
-                                                            <span class="badge badge-warning mr-1">success</span>
+                                                            <span class="badge badge-success mr-1">Success</span>
                                                         <?php
                                                         } else {
                                                         ?>
