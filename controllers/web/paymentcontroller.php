@@ -1,16 +1,18 @@
  <?php
-    include_once 'models/RoomModel.php';
-    include_once 'models/RoomImageModel.php';
+    include_once 'models/BookingModel.php';
+    include_once 'models/PaymentModel.php';
     include_once 'utils/helpers.php';
 
-    class paymentController
+    class PaymentController
     {
-        private $roomModel;
+        private $bookingModel;
+        private $paymentModel;
         private $libs;
 
         public function __construct()
         {
-            $this->roomModel = new RoomModel();
+            $this->bookingModel = new BookingModel();
+            $this->paymentModel = new PaymentModel();
             $this->libs = new LibCommon();
         }
 
@@ -23,44 +25,38 @@
                     $this->processPayment($_GET['bookingId']);
                     break;
                 default:
-                    // Handle unknown action
                     break;
             }
         }
 
         private function processPayment($bookingId)
         {
-            if (isset($_SESSION['login'])) {
-                $userName = $_SESSION['login']['name'];
-                $userId = $_SESSION['login']['id'];
-            } else {
-                $userName = $userId = null;
-            }
+            $query = $this->bookingModel->getBookingById($bookingId);
+            $booking = $query->fetch_assoc();
+
+            $days = $this->calDays($booking['checkin_date'], $booking['checkout_date']);
+
+            $amount = $booking['total_price'] + $booking['room_tax'] + $booking['cleaning_fee'];
+
             if (isset($_POST['payment'])) {
                 $paymentDate = filter_input(INPUT_POST, 'payment_date', FILTER_SANITIZE_STRING);
-                $Amount = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_STRING);
+                $amount = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_STRING);
                 $paymentMethod = filter_input(INPUT_POST, 'payment_method', FILTER_SANITIZE_STRING);
-                $status = 1;
+                $status = 1; //Success;
 
-                $checkInDateObj = new DateTime($checkIn);
-                $checkOutDateObj = new DateTime($checkOut);
-
-                $countDays = $this->calDays($checkIn, $checkOut);
-
-
-                $query = $this->RoomModel->getRoomById($roomId);
-                $room = $query->fetch_assoc();
-                $totalPrice = $room['price'] * $countDays;
-
-                $result = $this->bookingModel->storeBooking($bookingId, $Amount, $paymentMethod, $paymentDate, $status);
-                if ($result) {
-                    $query = $this->paymentModel->getLastPaymentId();
-                    $booking = $query->fetch_assoc();
-                    $bookingId = $payment['id'];
-                    $this->libs->redirectPage('index.php?controller=payments&action=payment&bookingId=' . $paymentId);
+                $payment = $this->paymentModel->storePayment($bookingId, $paymentDate, $amount, $paymentMethod, $status);
+                if ($payment) {
+                    $this->libs->redirectPage('index.php');
                 }
             }
-
             require_once './views/web/bookings/payment.view.php';
+        }
+
+        private function calDays($start, $end)
+        {
+            $startDate = new DateTime($start);
+            $endDate = new DateTime($end);
+
+            return $startDate->diff($endDate)->days;
         }
     }

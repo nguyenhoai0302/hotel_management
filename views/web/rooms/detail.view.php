@@ -134,7 +134,7 @@
 
                 <!-- phía bên phải -->
                 <div class="col-lg-3 col-12">
-                    <a href="index.php?controller=bookings&action=booking&roomId=<?php echo $room['id']; ?>">booking now </a>
+                    <a href="index.php?controller=bookings&action=booking&roomId=<?php echo $room['id']; ?>" class="btn btn-warning">Booking Now</a>
                 </div>
             </div>
         </div>

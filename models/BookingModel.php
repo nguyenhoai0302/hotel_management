@@ -17,7 +17,7 @@ class BookingModel extends ConnectDB
 
     function getBookingById($id)
     {
-        $sql = "SELECT users.name AS user_name, rooms.name AS room_name, bookings.id, bookings.checkin_date, bookings.checkout_date, bookings.total_price, bookings.status, bookings.created_at 
+        $sql = "SELECT users.name AS user_name, rooms.name AS room_name, rooms.tax AS room_tax, rooms.cleaning_fee AS cleaning_fee, rooms.price AS room_price, bookings.id, bookings.checkin_date, bookings.checkout_date, bookings.total_price, bookings.status, bookings.created_at 
         FROM bookings
         JOIN users
         ON bookings.user_id = users.id
