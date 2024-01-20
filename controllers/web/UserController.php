@@ -29,6 +29,9 @@ class UserController
             case 'personal_information':
                 $this->getPersonalInformation($userId);
                 break;
+            case 'security':
+                $this->getSecurity($userId);
+                break;
             default:
                 # code...
                 break;
@@ -55,6 +58,17 @@ class UserController
             $user = $query->fetch_assoc();
 
             include 'views/web/users/personal_information.view.php';
+        } else {
+            $this->libs->redirectPage('index.php?controller=auth&action=login');
+        }
+    }
+    private function getSecurity($userId)
+    {
+        // Kiểm tra nếu user chưa đăng nhập mà truy cập vào trang này thì sẽ đá sang trang login
+        if ($userId) {
+            $query = $this->model->getUser($userId);
+            $user = $query->fetch_assoc();
+            include 'views/web/users/security.view.php';
         } else {
             $this->libs->redirectPage('index.php?controller=auth&action=login');
         }
