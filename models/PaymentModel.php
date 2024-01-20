@@ -31,7 +31,6 @@ class PaymentModel extends ConnectDB
     function getLastPaymentId()
     {
         $sql = "SELECT id FROM payments ORDER BY created_at DESC LIMIT 1";
-
         $result = mysqli_query($this->connect(), $sql);
 
         if ($result && mysqli_num_rows($result) > 0) {

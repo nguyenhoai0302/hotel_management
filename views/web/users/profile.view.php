@@ -11,24 +11,26 @@
 
             <div class="row row-list d-flex justify-content-around align-content-between ">
                 <div class="list--profile col-lg-3 col-12">
-                    <a href="index.php?controller=users&action=personal_information">
-                        <span class="material-symbols-outlined ">account_circle</span>
-                        <h5>Personal information</h5>
-                        <p>Provide personal information and how we can contact you</p>
+                    <a href="index.php?controller=users&action=personal_information" class="text-decoration-none">
+                        <span class="material-symbols-outlined" style="color: black;
+                         font-weight: bold;"><i class="fa fa-user-circle" aria-hidden="true"></i>Personal informationa</span>
+                        <p> Provide personal information and how we can contact you</p>
                     </a>
                 </div>
                 <div class="list--profile col-lg-3 col-12">
-                    <a href="./views/web/rooms/history_booking.view.php">
-                        <span class="material-symbols-outlined">production_quantity_limits</span>
-                        <h5>History Booking</h5>
+                    <a href="./views/web/rooms/history_booking.view.php" class="text-decoration-none">
+                        <span class="material-symbols-outlined" style="color: black; font-weight: bold;">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            History Booking
+                        </span>
                         <p>View booking information and their history</p>
                     </a>
                 </div>
                 <div class="list--profile col-lg-3 col-12">
-                    <a href="index.php?controller=users&action=security">
-                        <span class=" material-symbols-outlined">admin_panel_settings</span>
-                        <h5> Sign in and secure</h5>
-                        <p>Updates your password and secure your account</p>
+                    <a href="index.php?controller=users&action=security" class="text-decoration-none">
+                        <span class=" material-symbols-outlined" style="color: black;
+                         font-weight: bold;"><i class="fa fa-shield" aria-hidden="true"></i>Sign in and secure</span>
+                        <p> Updates your password and secure your account</p>
                     </a>
                 </div>
             </div>
