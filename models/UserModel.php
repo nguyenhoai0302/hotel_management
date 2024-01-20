@@ -12,24 +12,11 @@ class UserModel extends ConnectDB
         return false;
     }
 
-    // Đăng xuất
-    // function logout()
-    // {
-    //     session_start();
-    //     session_destroy();
-    // }
-
     // lấy re email 
     function checkUserExist($email) {
         $sql = "SELECT * FROM users WHERE email = '$email'";
         return mysqli_query($this->connect(),$sql);
     }
-
-    //lấy ra user
-    // function getUserById($id) {
-    //     $sql = "SELECT * FROM users WHERE id = $id";
-    //     return mysqli_query($this->connect(), $sql);
-    // }
 
     //edit user
     function editUser($id,$name,$email,$phone,$role,$gender,$status,$birthday,$avatar,$password,$updated_at) {
@@ -67,14 +54,11 @@ class UserModel extends ConnectDB
         return mysqli_query($this->connect(),$sql);
     }
 
-
     // WEB
-
     function login($email, $password)
     {
         $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password' AND role=2";
         return mysqli_query($this->connect(),$sql);
     }
 }
-
 ?>

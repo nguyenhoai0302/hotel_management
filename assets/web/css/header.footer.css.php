@@ -90,6 +90,23 @@ a:hover {
     border-radius: 50%;
 }
 
+.nav_dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown_content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.nav_dropdown:hover .dropdown_content {
+    display: block;
+}
+
 #search {
     outline: none;
     background-color: black;
