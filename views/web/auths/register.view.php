@@ -3,11 +3,11 @@
 	<div class="card bg-light">
 		<article class="card-body mx-auto" style="max-width: 400px;">
 			<h4 class="card-title mt-3 text-center" style="color: #D42D2F; font-weight: bold;">Register</h4>
-			<form class="p-4" method="post" action="#" enctype="multipart/form-data">
+			<form class="p-4" method="post" action="index.php?controller=auth&action=register&name=register" enctype="multipart/form-data">
 				<div class="form-group input-group">
-					<div class="input-group-prepend">
+					<div class="input-group-prepend">	
 						<span class="input-group-text"> <i class="fa fa-user"></i> </span>
-					</div>
+					</div> 	
 					<input name="name" class="form-control" placeholder="Name" type="text">
 				</div>
 				<!-- Email -->
@@ -30,9 +30,9 @@
 						<span class="input-group-text"> <i class="fa fa-building"></i> </span>
 					</div>
 					<select class="form-control" name="role">
-						<option selected="">Role</option>
-						<option value="admin">Admin</option>
-						<option value="member">Member</option>
+						<!-- <option selected="">Role</option>
+						<option value="admin">Admin</option> -->
+						<option value="2">Member</option>
 					</select>
 				</div>
 				<!-- Gender -->
@@ -42,8 +42,19 @@
 					</div>
 					<select class="form-control" name="gender">
 						<option selected="">Gender</option>
-						<option value="male">Male</option>
-						<option value="female">Female</option>
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+					</select>
+				</div>
+				<!-- Status -->
+				<div class="form-group input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-mars-and-venus"></i></span>
+					</div>
+					<select class="form-control" name="status">
+						<option selected="">Status</option>
+						<option value="1">Active</option>
+						<option value="2">Disable</option>
 					</select>
 				</div>
 				<!-- Birthday  -->
