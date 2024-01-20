@@ -75,7 +75,7 @@
       <div class="room-item shadow rounded overflow-hidden">
         <div class="position-relative">
           <a href="index.php?controller=rooms&action=detail&id=<?php echo $row['id']?>">
-            <img id="img6" src="/assets/web/images/anh5.png" alt="" width="100%" height="350px">
+            <img id="img6" src="assets/uploads/rooms/<?php echo $row['image']?>" alt="" width="100%" height="350px">
           </a>
         </div>
         <div class="room p-4 mt-1">
@@ -100,14 +100,11 @@
     </div>
     <!-- 2 -->
     
-    
-  
 <?php
 
 }
     ?>
 
-    
 
   </div>
   

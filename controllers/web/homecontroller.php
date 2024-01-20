@@ -17,6 +17,9 @@ class HomeController
             case 'home':
                 $this->getHomePage();
                 break;
+            case 'room':
+                $this->getRoom();
+                break;    
             default:
                 # code...
                 break;
@@ -28,9 +31,15 @@ class HomeController
     {
         $rooms = $this->roomModel->getListRoomHomePage();
 
-
         include 'views/web/index.view.php';
-        
+    
+    }
+    private function getRoom()
+    {
+        $rooms = $this->roomModel->getListRoom();
+
+        include 'views/web/rooms/room.view.php';
+    
     }
 
 }

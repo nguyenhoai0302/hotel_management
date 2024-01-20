@@ -10,27 +10,39 @@ class RoomModel extends ConnectDB
         return mysqli_query($this->connect(), $sql);
     }
 
-
-    //lấy ra user
     function getRoomById($id) {
-        $sql = "SELECT * FROM rooms WHERE id = $id";
+        $sql = "SELECT rooms.id, rooms.name, rooms.bedroom, rooms.bathroom, rooms.livingroom,
+        rooms.type, rooms.price, rooms.tax, rooms.cleaning_fee,
+        rooms.description, rooms.status, rooms.updated_at, rooms.created_at,
+        room_images.image
+        FROM rooms
+        LEFT JOIN room_images ON rooms.id = room_images.room_id
+        WHERE rooms.id = $id";
+
         return mysqli_query($this->connect(), $sql);
     }
 
-    //edit user
+
     function editRoom($id, $name, $bedroom, $bathroom, $livingroom, $type, $price, $tax, $cleaning_fee, $description, $status) {
-        $sql = "UPDATE rooms SET id = '$id', name = '$name', bedroom = '$bedroom', bathroom = '$bathroom', livingroom ='$livingroom', type = '$type', price = '$price', tax = '$tax', cleaning_fee = '$cleaning_fee',description = '$description',status = '$status' WHERE id = $id";
+        $sql = "UPDATE rooms SET name = '$name', bedroom = '$bedroom', bathroom = '$bathroom', livingroom ='$livingroom', type = '$type', price = '$price', tax = '$tax', cleaning_fee = '$cleaning_fee',description = '$description',status = '$status' WHERE id = $id";
+        
         return mysqli_query($this->connect(),$sql);
     }
 
     function getList() {
-        $sql = "SELECT * FROM rooms";
+        $sql = "SELECT * FROM rooms ORDER BY created_at DESC";
+
         return mysqli_query($this->connect(),$sql);
     }
 
     function getRoom($id) {
-        $sql = "SELECT * FROM rooms WHERE id = $id";
-        return mysqli_query($this->connect(),$sql);
+        $sql = "SELECT rooms.id, rooms.name, rooms.bedroom, rooms.bathroom, rooms.livingroom,
+        rooms.type, rooms.price, rooms.tax, rooms.cleaning_fee,
+        rooms.description, rooms.status, rooms.updated_at, rooms.created_at,
+        room_images.image
+        FROM rooms
+        LEFT JOIN room_images ON rooms.id = room_images.room_id
+        WHERE rooms.id =$id ";
     }
 
     //deleta user
@@ -62,17 +74,31 @@ class RoomModel extends ConnectDB
 
     function getListRoomHomePage()
     {
-        $sql = "SELECT * FROM rooms ORDER BY rooms.created_at DESC LIMIT 3";
+        $sql = "SELECT rooms.id, rooms.name, rooms.bedroom, rooms.bathroom, rooms.livingroom,
+        rooms.price,room_images.image AS `image`
+        FROM rooms
+        LEFT JOIN room_images ON rooms.id = room_images.room_id
+        GROUP BY rooms.id
+        ORDER BY rooms.created_at DESC LIMIT 3";
 
         return mysqli_query($this->connect(),$sql);
     }
+    function getListRoom()
+    {
+        $sql = "SELECT rooms.id, rooms.name, rooms.bedroom, rooms.bathroom, rooms.livingroom,
+        rooms.price,room_images.image AS `image`
+        FROM rooms
+        LEFT JOIN room_images ON rooms.id = room_images.room_id
+        GROUP BY rooms.id
+        ORDER BY rooms.created_at DESC LIMIT 3";
 
+        return mysqli_query($this->connect(),$sql);
+    }
     
     function getDetailById($id) {
         $sql = "SELECT * FROM rooms WHERE id = $id";
         return mysqli_query($this->connect(),$sql);
     }
-
 }
 
 ?>
