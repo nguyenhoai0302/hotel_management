@@ -28,10 +28,10 @@ class HomeController
     {
         $rooms = $this->roomModel->getListRoomHomePage();
 
-
         include 'views/web/index.view.php';
-        
+    
     }
+    
 
 }
 
