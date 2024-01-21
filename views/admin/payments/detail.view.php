@@ -65,13 +65,13 @@ require 'utils/utils.php';
                                         <div class="col-12">
                                             <div class="float-sm-left mt-4">
                                                 <address>
-                                                    <strong>Ten User</strong><br>
+                                                    <strong><?php echo $row['name'] ?></strong><br>
                                                     So tien<br>
                                                     <abbr title="Phone"></abbr> Phuong thuc thanh toan
                                                 </address>
                                             </div>
                                             <div class="mt-4 text-sm-right">
-                                                <p><strong>Payment Date: </strong> Jan 17, 2016</p>
+                                                <p><strong>Payment Date: </strong> <?php echo $row['checkin_date'] ?></p>
                                                 <p><strong>Payment Status: </strong> <span class="badge badge-danger">Pending</span></p>
                                             </div>
                                         </div><!-- end col -->
@@ -86,11 +86,7 @@ require 'utils/utils.php';
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="text-right mt-4">
-                                                <p><b>Sub-total:</b> 2930.00</p>
-                                                <p>Discout: 12.9%</p>
-                                                <p>VAT: 12.9%</p>
-                                                <hr>
-                                                <h3>$ 2930.00 USD</h3>
+                                                <h3><?php echo $amount ?> USD</h3>
                                             </div>
                                         </div>
                                     </div>

@@ -101,8 +101,9 @@ require 'utils/utils.php';
                                                     <td><?php echo formatDate($row['created_at']) ?></td>
                                                     <!-- icon -->
                                                     <td>
-                                                        <a href="admin.php?controller=payments&action=view&id=<?php echo $row['id'] ?>" class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
-                                                        </a>
+                                                        <!-- <a href="admin.php?controller=payments&action=view&id=<?php //echo $row['id'] 
+                                                                                                                    ?>" class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-eye"></i>
+                                                        </a> -->
                                                         <a href="admin.php?controller=payments&action=delete&id=<?php echo $row['id'] ?>" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can"></i>
                                                         </a>
                                                     </td>
