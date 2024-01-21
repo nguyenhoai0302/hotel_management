@@ -8,6 +8,12 @@ class RoomImageModel extends ConnectDB
 
         return mysqli_query($this->connect(), $sql);
     }
+
+    function deleteImagesByRoomId($roomId) {
+        $sql = "DELETE FROM room_images WHERE room_id = $roomId";
+
+        return mysqli_query($this->connect(), $sql);
+    }
 }
 
 ?>
