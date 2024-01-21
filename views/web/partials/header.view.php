@@ -39,11 +39,13 @@ if (!isset($_SESSION)) {
         <div class="nav_text"><a class="nav_text" href="index.php?controller=index">HOME</a></div>
         <div class="nav_text"><a class="nav_text" href="index.php?controller=about">ABOUTS US</a></div>
         <div class="nav_text"><a class="nav_text" href="index.php?controller=rooms&action=list">ROOMS</a></div>
-        <div class="nav_text nav_text_search">
-            <input type="text" name="nav_input" id="nav_input_search" style="outline: none; padding-left:20px; " placeholder="Search">
+        <div action="searchController" medthod="GET" class="nav_text nav_text_search">
+        <form action="searchController" medthod="GET" >
+            <input type="text" name="search" id="nav_input_search" style="outline: none; padding-left:20px; " placeholder="Search">
             <button class="material-symbols-outlined" id="search" onclick="search()">
                 <i class="fa fa-search" aria-hidden="true"></i>
             </button>
+        </form>
         </div>
 
         <!-- Trường hợp đăng nhập tài khoản Customer -->
