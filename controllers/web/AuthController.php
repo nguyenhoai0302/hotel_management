@@ -69,9 +69,7 @@ class AuthController
 
     private function getRegister()
     {
-
         if(isset($_POST['register'])) {
-
             $name          = $_POST['name'];
             $email         = $_POST['email'];
             $phone         = $_POST['phone'];
@@ -79,23 +77,11 @@ class AuthController
             $gender        = $_POST['gender'];
             $status        = $_POST['status'];
             $birthday      = $_POST['birthday'];
-            // $avatar        = $_POST['avatar'];
             $password      = $_POST['password'];
             $passwordAgain = $_POST['passwordAgain'];
             $avatar = $_FILES['avatar']['name'];
             
-            if( !empty($name) 
-                && !empty($email)  
-                && !empty($phone) 
-                && !empty($gender) 
-                && !empty($birthday) 
-                && !empty($role) 
-                && !empty($status) 
-                && !empty($password)
-                &&  $password == $passwordAgain
-            ) {
-                // echo "<script>console.log('Debug Objects: " . "haha" . "' );</script>";  
-                // $avatar = $_FILES['avatar']['name'];
+            if( !empty($name) && !empty($email)  && !empty($phone) && !empty($gender) && !empty($birthday) && !empty($role) && !empty($status) && !empty($password) &&  $password == $passwordAgain) {
                 move_uploaded_file($_FILES['avatar']['tmp_name'], 'assets/uploads/users/'.$avatar);
                 $checkRegister = $this->model->register($name,$email,$avatar,$phone,$gender,$birthday,$role,$status,$password);
                 if($checkRegister === TRUE) {
@@ -104,7 +90,7 @@ class AuthController
                     }
                     $this->libs->redirectPage('index.php?controller=auth&action=login');
                 } else {
-                    $_SESSION['reg-error'] = 'Đăng ký không thành công!';
+                    $_SESSION['reg-error'] = 'Register unsuccessful!';
                     // $this->libs->redirectPage('index.php?controller=auth&action=register');
                 }					
             }
