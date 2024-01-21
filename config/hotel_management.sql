@@ -56,6 +56,7 @@ INSERT INTO `bookings` (`id`, `user_id`, `room_id`, `checkin_date`, `checkout_da
 --
 
 CREATE TABLE `favorites` (
+  `id` int(11) NOT NULL,
   `user_id` int(10) NOT NULL,
   `room_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -259,6 +260,12 @@ ALTER TABLE `payments`
 -- Indexes for table `ratings`
 --
 ALTER TABLE `ratings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `favorites`
+--
+ALTER TABLE `favorites`
   ADD PRIMARY KEY (`id`);
 
 --

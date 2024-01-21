@@ -22,8 +22,8 @@ class RoomController
 
         switch ($action) {
             case 'list':
-                $this->getListRoom();
-                break;
+                $this->getRoom();
+                break;   
             case 'detail':
                 $this->getDetailRoom($_GET['id']);
                 break;
@@ -33,11 +33,7 @@ class RoomController
         }
     }
 
-    private function getListRoom()
-    {
-        $rooms = $this->roomModel->getList();
-        include 'views/web/rooms/room.view.php';
-    }
+
 
     private function getDetailRoom($id)
     {
@@ -46,6 +42,13 @@ class RoomController
         $room = $query->fetch_assoc();
 
         include 'views/web/rooms/detail.view.php';
+    }
+    private function getRoom()
+    {
+        $rooms = $this->roomModel->getListRoom();
+
+        include 'views/web/rooms/room.view.php';
+    
     }
 
     

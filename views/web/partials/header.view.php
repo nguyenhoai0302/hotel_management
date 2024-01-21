@@ -28,8 +28,7 @@ if (!isset($_SESSION)) {
     <?php include("./assets/web/css/payment.css.php") ?>
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/admin/images/logo.png">
-</head>
-
+    
 <body>
     <div class="nav">
         <!-- tạo reponsive cho navbar -->
@@ -47,17 +46,19 @@ if (!isset($_SESSION)) {
             </button>
         </form>
         </div>
-
-        <!-- Trường hợp đăng nhập tài khoản Customer -->
+        <!-- Trường hợp đăng nhập tài khoản Member -->
         <?php
         if (isset($_SESSION['login']) && $_SESSION['login']['role'] == '2') {
         ?>
             <div class="nav_log nav_text">
-                <div class="nav_text">
-                    <a class="nav_text" href="index.php?controller=users&action=profile"><span><i class="fas fa-user"></i></span> <?php echo $_SESSION['login']['name']; ?></a>
-                </div>
-                <div class="nav_text">
-                    <a class="nav_text" href="index.php?controller=auth&action=logout">LOG OUT</a>
+                <div class="nav_dropdown">
+                    <a class="nav_text" href="#">
+                        <span><i class="fa fa-user"></i></span> <?php echo $_SESSION['login']['name']; ?>
+                    </a>
+                    <div class="dropdown_content">
+                        <a href="index.php?controller=users&action=profile">Profile</a>
+                        <a href="index.php?controller=auth&action=logout">Logout</a>
+                    </div>
                 </div>
             </div>
         <?php
@@ -65,7 +66,7 @@ if (!isset($_SESSION)) {
         ?>
             <div class="nav_log nav_text">
                 <div class="nav_text"><a class="nav_text" href="index.php?controller=auth&action=login">SIGN IN</a></div>
-                <div class="nav_text"><a class="nav_text" href="index.php?controller=register">REGISTER</a></div>
+                <div class="nav_text"><a class="nav_text" href="index.php?controller=auth&action=register">REGISTER</a></div>
             </div>
         <?php
         }
