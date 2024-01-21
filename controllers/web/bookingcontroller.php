@@ -34,7 +34,7 @@ class bookingController
             $userId = $_SESSION['login']['id'];
         } else {
             $userName = $userId = null;
-            $this->libs->redirectPage('index.php?controller=auths&action=login');
+            $this->libs->redirectPage('index.php?controller=auth&action=register');
             return;
         }
         if (isset($_POST['booking'])) {

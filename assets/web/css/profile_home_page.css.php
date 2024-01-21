@@ -3,15 +3,22 @@
         margin: 0;
         padding: 0;
         font-family: "Roboto";
+        margin-top: 100px;
+
+
+
+
     }
 
     .profile-home-page {
         margin: 0 200px;
         margin-bottom: 100px;
+
+
     }
 
     .row-name {
-        margin-top: 120px;
+        margin-top: 200px;
         /* margin: 0px 100px; */
         text-align: center;
         margin-bottom: 50px;
@@ -37,17 +44,15 @@
         align-items: center;
     }
 
-    .list--profile>p {
-        margin: 0;
+    .list--profile p {
+        margin: 10px;
     }
 
-    .list--profile>a {
+    .list--profile a {
         color: black !important;
     }
 
     .text-white {
         padding: 0px;
     }
-
-
 </style>
