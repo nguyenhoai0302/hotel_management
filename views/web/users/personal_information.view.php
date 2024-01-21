@@ -76,7 +76,7 @@
                     <input type="password" class="form-input-profile" name="password" id="user_password" style="padding-left: 20px;" placeholder="**********" value="<?php echo $user['password'] ?>" readonly>
                     <p>All required user information can be save here.</p>
                     <div class="profile-back-edit">
-                        <a href="#"><button id="profile-back">Back</button></a>
+                        <a href="index.php?controller=users&action=profile"><button id="profile-back">Back</button></a>
                         <button id="profile-edit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Edit</button>
                     </div>
                 </div>
