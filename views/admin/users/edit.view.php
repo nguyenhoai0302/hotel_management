@@ -37,13 +37,13 @@ require 'views/admin/partials/header.view.php'
                                             <form method="POST" action="#" class="parsley-examples" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
                                                 <!-- Username -->
                                                 <div class="form-group">
-                                                    <label for="name">Name<span class="text-danger">*</span></label>
+                                                    <label for="name">Name<span class="text-danger"></span></label>
                                                     <input type="text" name="name" parsley-trigger="change" required="" placeholder="Enter name" class="form-control" id="name" value="<?php echo $oldUser['name']; ?>">
                                                 </div>
 
                                                 <!-- Email -->
                                                 <div class="form-group">
-                                                    <label for="email">Email<span class="text-danger">*</span></label>
+                                                    <label for="email">Email<span class="text-danger"></span></label>
                                                     <input type="email" name="email" parsley-trigger="change" required="" placeholder="Enter email" class="form-control" id="email" value="<?php echo $oldUser['email']; ?>">
                                                 </div>
 
@@ -61,7 +61,7 @@ require 'views/admin/partials/header.view.php'
 
                                                 <!-- Gender -->
                                                 <div class="form-group">
-                                                    <label for="gender">Gender<span class="text-danger">*</span></label>
+                                                    <label for="gender">Gender<span class="text-danger"></span></label>
                                                     <select class="form-control" id="gender" name="gender">
                                                         <option value="Male" <?php if (isset($oldUser['gender']) && $oldUser['gender'] == '1') {echo 'selected';} ?>>Male</option>
                                                         <option value="Female" <?php if (isset($oldUser['gender']) && $oldUser['gender'] == '1') {echo 'selected';} ?>>Female</option>
@@ -70,19 +70,19 @@ require 'views/admin/partials/header.view.php'
 
                                                 <!-- Phone -->
                                                 <div class="form-group">
-                                                    <label for="phone">Phone<span class="text-danger">*</span></label>
+                                                    <label for="phone">Phone<span class="text-danger"></span></label>
                                                     <input type="text" name="phone" parsley-trigger="change" required="" placeholder="Enter email" class="form-control" id="phone" value="<?php echo $oldUser['phone']; ?>">
                                                 </div>
 
                                                 <!-- Birthday -->
                                                 <div class="form-group">
-                                                    <label for="example-date-input">BirthDay<span class="text-danger">*</span></label>
+                                                    <label for="example-date-input">BirthDay<span class="text-danger"></span></label>
                                                     <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="birthday" value="<?php echo $oldUser['birthday']; ?>">
                                                 </div>
 
                                                 <!-- Role -->
                                                 <div class="form-group">
-                                                    <label for="role">Role<span class="text-danger">*</span></label>
+                                                    <label for="role">Role<span class="text-danger"></span></label>
                                                     <select class="form-control" id="role" name="role">
                                                         <option value="1" <?php if (isset($oldUser['role']) && $oldUser['role'] == '1') {echo 'selected';} ?>>Admin</option>
                                                         <option value="2" <?php if (isset($oldUser['role']) && $oldUser['role'] == '2') {echo 'selected';} ?>>Member</option>
@@ -91,7 +91,7 @@ require 'views/admin/partials/header.view.php'
 
                                                 <!-- Status -->
                                                 <div class="form-group">
-                                                    <label for="exampleSelect1">Status<span class="text-danger">*</span></label>
+                                                    <label for="exampleSelect1">Status<span class="text-danger"></span></label>
                                                     <select class="form-control" id="status" name="status">
                                                         <option value="1" <?php if (isset($oldUser['status']) && $oldUser['status'] == '1') {echo 'selected';} ?>>Active</option>
                                                         <option value="2" <?php if (isset($oldUser['status']) && $oldUser['status'] == '2') {echo 'selected';} ?>>Disable</option>
@@ -100,8 +100,15 @@ require 'views/admin/partials/header.view.php'
 
                                                 <!-- Password -->
                                                 <div class="form-group">
-                                                    <label for="pass1">Password<span class="text-danger">*</span></label>
-                                                    <input id="pass1" type="password" placeholder="Password" required="" class="form-control" name="password" value="<?php echo $oldUser['password']; ?>">
+                                                    <label for="pass1">Password<span class="text-danger"></span></label>
+                                                    <div class="input-group">
+                                                        <input id="pass1" type="password" placeholder="Password" required="" class="form-control" name="password" value="<?php echo $oldUser['password']; ?>">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text">
+                                                                <i class="fas fa-eye" id="togglePassword1"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <!-- Save/Cancel Button -->
@@ -124,6 +131,8 @@ require 'views/admin/partials/header.view.php'
         </div>
     </div>
 
+    <?php include 'assets/admin/js/users/user.js.php'; ?>
+
     <!-- Vendor js -->
     <script src="assets/admin/js/vendor.min.js"></script>
     <!-- App js -->
@@ -133,3 +142,6 @@ require 'views/admin/partials/header.view.php'
     <script src="assets/admin/libs/dropify/dropify.min.js"></script>
     <!-- Init js-->
     <script src="assets/admin/js/pages/form-fileuploads.init.js"></script>
+    <!-- Include Parsley.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

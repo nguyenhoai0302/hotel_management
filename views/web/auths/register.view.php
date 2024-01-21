@@ -3,7 +3,7 @@
 	<div class="card bg-light">
 		<article class="card-body mx-auto" style="max-width: 400px;">
 			<h4 class="card-title mt-3 text-center" style="color: #D42D2F; font-weight: bold;">Register</h4>
-			<form class="p-4" method="post" action="index.php?controller=auth&action=register&name=register" enctype="multipart/form-data">
+			<form class="p-4" method="post" action="index.php?controller=auth&action=register&name=register" onsubmit="return validateForm();">
 				<div class="form-group input-group">
 					<div class="input-group-prepend">	
 						<span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -52,9 +52,9 @@
 						<span class="input-group-text"> <i class="fa fa-mars-and-venus"></i></span>
 					</div>
 					<select class="form-control" name="status">
-						<option selected="">Status</option>
+						<!-- <option selected="">Status</option> -->
 						<option value="1">Active</option>
-						<option value="2">Disable</option>
+						<!-- <option value="2">Disable</option> -->
 					</select>
 				</div>
 				<!-- Birthday  -->
@@ -97,3 +97,73 @@
 
 <?php include "./views/web/partials/footer.view.php"
 ?>
+<script>
+                    function validateForm() {
+                        var name = document.forms["registrationForm"]["name"].value;
+                        var email = document.forms["registrationForm"]["email"].value;
+                        var phone = document.forms["registrationForm"]["phone"].value;
+                        var password = document.forms["registrationForm"]["password"].value;
+                        var passwordAgain = document.forms["registrationForm"]["passwordAgain"].value;
+
+                        // Clear previous error messages
+                        clearErrorMessages();
+
+                        var isValid = true;
+
+                        if (name == "") {
+                            displayErrorMessage("name", "Name must be filled out");
+                            isValid = false;
+                        }
+
+                        if (!isValidEmail(email)) {
+                            displayErrorMessage("email", "Invalid email address");
+                            isValid = false;
+                        }
+
+                        if (!isValidPhone(phone)) {
+                            displayErrorMessage("phone", "Invalid phone number");
+                            isValid = false;
+                        }
+
+                        // Add more validation rules for other fields as needed
+
+                        if (password == "") {
+                            displayErrorMessage("password", "Password must be filled out");
+                            isValid = false;
+                        } else if (password.length < 6) {
+                            displayErrorMessage("password", "Password must be at least 6 characters");
+                            isValid = false;
+                        }
+
+                        if (passwordAgain == "" || passwordAgain !== password) {
+                            displayErrorMessage("passwordAgain", "Passwords do not match");
+                            isValid = false;
+                        }
+
+                        return isValid;
+                    }
+
+                    function isValidEmail(email) {
+                        // Basic email validation
+                        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        return emailRegex.test(email);
+                    }
+
+                    function isValidPhone(phone) {
+                        // Basic phone number validation (digits only, at least 10 digits)
+                        var phoneRegex = /^\d{10,}$/;
+                        return phoneRegex.test(phone);
+                    }
+
+                    function displayErrorMessage(fieldId, message) {
+                        var errorMessageElement = document.getElementById(fieldId + "-error");
+                        errorMessageElement.textContent = message;
+                    }
+
+                    function clearErrorMessages() {
+                        var errorMessages = document.getElementsByClassName("error-message");
+                        for (var i = 0; i < errorMessages.length; i++) {
+                            errorMessages[i].textContent = "";
+                        }
+                    }
+                </script>

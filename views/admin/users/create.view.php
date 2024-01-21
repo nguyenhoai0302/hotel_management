@@ -38,13 +38,13 @@ require 'views/admin/partials/header.view.php'
                                                 <!-- User Name -->
                                                 <div class="form-group">
                                                     <label for="name">Name<span class="text-danger">*</span></label>
-                                                    <input type="text" name="name" parsley-trigger="change" required="" placeholder="Enter name" class="form-control" id="name">
+                                                    <input type="text" name="name" parsley-trigger="change" required="" placeholder="Enter name" class="form-control" id="name" data-parsley-required="true" data-parsley-trigger="change" data-parsley-error-message="Please enter your name">
                                                 </div>
 
                                                 <!-- Email -->
                                                 <div class="form-group">
                                                     <label for="email">Email<span class="text-danger">*</span></label>
-                                                    <input type="email" name="email" parsley-trigger="change" required="" placeholder="Enter email" class="form-control" id="email">
+                                                    <input type="email" name="email" parsley-trigger="change" required="" placeholder="Enter email" class="form-control" id="email" data-parsley-required="true" data-parsley-trigger="change" data-parsley-type="email" data-parsley-pattern="/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i" data-parsley-error-message="Please enter a valid email address">
                                                 </div>
 
                                                 <!-- Avatar -->
@@ -72,7 +72,7 @@ require 'views/admin/partials/header.view.php'
                                                 <!-- Phone -->
                                                 <div class="form-group">
                                                     <label for="phone">Phone<span class="text-danger">*</span></label>
-                                                    <input type="text" name="phone" parsley-trigger="change" required="" placeholder="Enter email" class="form-control" id="phone">
+                                                    <input type="tel" name="phone" parsley-trigger="change" required="" placeholder="Enter phone number" class="form-control" id="phone" data-parsley-required="true" data-parsley-trigger="change" data-parsley-pattern="^0[0-9]{9,14}$" data-parsley-error-message="Please enter a valid phone number starting with 0 and with a length between 10 and 15 digits">
                                                 </div>
 
                                                 <!-- Birthday -->
@@ -104,13 +104,27 @@ require 'views/admin/partials/header.view.php'
                                                 <!-- Password -->
                                                 <div class="form-group">
                                                     <label for="pass1">Password<span class="text-danger">*</span></label>
-                                                    <input id="pass1" type="password" placeholder="Password" required="" class="form-control" name="password">
+                                                    <div class="input-group">
+                                                        <input id="pass1" type="password" placeholder="Password" required="" class="form-control" name="password" data-parsley-required="true" data-parsley-trigger="change" data-parsley-pattern="^(?=.*[a-zA-Z0-9!@#$%^&*])[\w!@#$%^&*]{6,}$" data-parsley-error-message="Password must be at least 6 characters long and contain at least one alphanumeric character and one special character (!@#$%^&*)">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text">
+                                                                <i class="fas fa-eye" id="togglePassword1"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <!-- Confirm Password -->
                                                 <div class="form-group">
                                                     <label for="passWord2">Confirm Password<span class="text-danger">*</span></label>
-                                                    <input data-parsley-equalto="#pass1" type="password" required="" placeholder="Password" class="form-control" id="passWord2" name="passwordAgain">
+                                                    <div class="input-group">
+                                                        <input data-parsley-equalto="#pass1" type="password" required="" placeholder="Password" class="form-control" id="passWord2" name="passwordAgain">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text">
+                                                                <i class="fas fa-eye" id="togglePassword2"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <div class="form-group text-right mb-0">
@@ -131,6 +145,9 @@ require 'views/admin/partials/header.view.php'
 
         </div>
     </div>
+
+    <?php include 'assets/admin/js/users/user.js.php';?>
+
     <!-- Vendor js -->
     <script src="assets/admin/js/vendor.min.js"></script>
     <!-- App js -->
@@ -140,5 +157,9 @@ require 'views/admin/partials/header.view.php'
     <script src="assets/admin/libs/dropify/dropify.min.js"></script>
     <!-- Init js-->
     <script src="assets/admin/js/pages/form-fileuploads.init.js"></script>
+    <!-- Include Parsley.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 </body>
 

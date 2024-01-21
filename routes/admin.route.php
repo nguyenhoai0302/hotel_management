@@ -2,7 +2,7 @@
 include 'controllers/admin/DashboardController.php';
 include 'controllers/admin/UserController.php';
 include 'controllers/admin/RoomController.php';
-include 'controllers/admin/AuthController.php';
+include 'controllers/web/AuthController.php';
 include 'controllers/admin/ReviewController.php';
 include 'controllers/admin/BookingController.php';
 include 'controllers/admin/PaymentController.php';
