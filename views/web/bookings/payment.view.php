@@ -33,8 +33,6 @@
                 <button type="submit" class="btn btn-warning btn-block" name="payment">Pay Now</button>
 
             </div>
-            </form>
-
             <div class="col-lg-6">
                 <div class="right-content col-lg-6 col-12">
                     <div class="div-right" style="margin-top: 40px;width:600px;">
@@ -69,6 +67,9 @@
                     </div>
                 </div>
             </div>
+            </form>
+
+            
         </div>
     </div>
 </body>

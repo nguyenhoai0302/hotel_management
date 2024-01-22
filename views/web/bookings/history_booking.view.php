@@ -2,7 +2,7 @@
 ?>
 
 <body>
-    <h1 class="into" style="margin-top: 180px;" class="text-center">History Booking</h1>
+    <h1 class="into" style="margin-top: 180px; color: yellow; font-weight: bold; text-align:center;" class="text-center">History Booking</h1>
     <div class="row">
         <div class="col-md-12">
             <table class="table table-bordered ">
