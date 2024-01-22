@@ -18,7 +18,7 @@
                     </a>
                 </div>
                 <div class="list--profile col-lg-3 col-12">
-                    <a href="./views/web/rooms/history_booking.view.php" class="text-decoration-none">
+                    <a href="index.php?controller=users&action=history-booking" class="text-decoration-none">
                         <span class="material-symbols-outlined" style="color: black; font-weight: bold;">
                             <i class="fa fa-shopping-cart" aria-hidden="true" style="padding:5px;"></i>
                             History Booking

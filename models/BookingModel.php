@@ -68,4 +68,11 @@ class BookingModel extends ConnectDB
 
         return mysqli_query($this->connect(), $sql);
     }
+
+    function getHistoryBooking($userId)
+    {
+        $sql = "SELECT * FROM bookings WHERE user_id = $userId ORDER BY created_at DESC";
+
+        return mysqli_query($this->connect(), $sql);
+    }
 }

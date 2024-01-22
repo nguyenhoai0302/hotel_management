@@ -4,6 +4,7 @@
 <body>
     <div class="container">
         <div class="row justify-content-center">
+            <form action="" method="POST">
             <div class="col-lg-6" style=" margin-top: 40px;">
                 <h1 class="text-center mb-4" style="color: yellow;font-weight: bold;">Room Payment</h1>
                 <div class="form-group">
@@ -33,6 +34,7 @@
                 <button type="submit" class="btn btn-warning btn-block" name="payment">Pay Now</button>
 
             </div>
+            </form>
 
             <div class="col-lg-6">
                 <div class="right-content col-lg-6 col-12">

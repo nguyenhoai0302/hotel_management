@@ -7,7 +7,6 @@ include 'controllers/web/PaymentController.php';
 include 'controllers/web/RoomController.php';
 include 'controllers/web/AuthController.php';
 include 'controllers/web/UserController.php';
-include 'controllers/web/SearchController.php';
 
 //$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
@@ -22,8 +21,7 @@ $routes = [
     'payments' => 'PaymentController',
     'rooms' => 'RoomController',
     'auth' => 'AuthController',
-    'users' => 'UserController',
-    'Search' => 'SearchController',
+    'users' => 'UserController'
 
 ];
 

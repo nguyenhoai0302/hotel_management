@@ -1,15 +1,18 @@
 <?php
 include_once 'models/UserModel.php';
+include_once 'models/BookingModel.php';
 include_once 'utils/helpers.php';
 
 class UserController
 {
     private $model;
+    private $bookingModel;
     private $libs;
 
     public function __construct()
     {
         $this->model = new UserModel();
+        $this->bookingModel = new BookingModel();
         $this->libs = new LibCommon();
     }
     function handleRequest()
@@ -28,6 +31,9 @@ class UserController
                 break;
             case 'personal_information':
                 $this->getPersonalInformation($userId);
+                break;
+            case 'history-booking':
+                $this->getHistoryBooking($userId);
                 break;
             case 'security':
                 $this->getSecurity($userId);
@@ -72,5 +78,12 @@ class UserController
         } else {
             $this->libs->redirectPage('index.php?controller=auth&action=login');
         }
+    }
+
+    private function getHistoryBooking($userId)
+    {
+        $historyBookings = $this->bookingModel->getHistoryBooking($userId);
+        
+        include 'views/web/bookings/history_booking.view.php';
     }
 }

@@ -44,10 +44,8 @@
                 $paymentMethod = filter_input(INPUT_POST, 'payment_method', FILTER_SANITIZE_STRING);
                 $status = 1; //Success;
 
-                $payment = $this->paymentModel->storePayment($bookingId, $paymentDate, $amount, $paymentMethod, $status);
-                if ($payment) {
-                    $this->libs->redirectPage('index.php');
-                }
+                $this->paymentModel->storePayment($bookingId, $paymentDate, $amount, $paymentMethod, $status);
+                $this->libs->redirectPage('index.php');
             }
             require_once './views/web/bookings/payment.view.php';
         }
