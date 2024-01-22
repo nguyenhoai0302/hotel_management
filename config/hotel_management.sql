@@ -60,6 +60,13 @@ CREATE TABLE `favorites` (
   `user_id` int(10) NOT NULL,
   `room_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+--
+-- Dumping data for table `favorites`
+--
+INSERT INTO favorites (id, user_id, room_id) VALUES
+(1, 1, 1),
+(2, 2, 2),
+(3, 3, 3);
 
 -- --------------------------------------------------------
 

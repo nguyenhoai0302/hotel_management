@@ -14,8 +14,6 @@ require 'utils/utils.php';
     require 'views/admin/partials/topbar.view.php'
     ?>
     <!-- end Topbar -->
-
-
     <!-- ========== Left Sidebar Start ========== -->
     <?php
     include 'views/admin/partials/sidebar.view.php';
@@ -98,10 +96,6 @@ require 'utils/utils.php';
                     </div>
 
                 </div>
-
-
-
-
             </div>
 
         </div> <!-- end content -->
