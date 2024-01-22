@@ -33,7 +33,7 @@ if (!isset($_SESSION)) {
     <div class="nav">
         <!-- tạo reponsive cho navbar -->
         <div class="logo nav_text">
-            <a href="hotel_home_page.html"><img src="assets/web/images/logo.png" id="logo_nav" alt="logo"></a>
+            <a href="index.php"><img src="assets/web/images/logo.png" id="logo_nav" alt="logo"></a>
         </div>
         <div class="nav_text"><a class="nav_text" href="index.php?controller=index">HOME</a></div>
         <div class="nav_text"><a class="nav_text" href="index.php?controller=about">ABOUTS US</a></div>

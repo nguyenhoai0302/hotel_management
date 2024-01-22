@@ -4,13 +4,22 @@
     <form action="" method="">
         <div class="row details_room">
             <!-- picture -->
-            <div class="picture">
-                <img class="img1 detail_img" id="img1" src="assets/web/images/phong1.webp" alt="Hình ảnh phòng 1">
-                <img class="img2 detail_img" id="img2" src="assets/web/images/phong2.webp" alt="Hình ảnh phòng 2">
-                <img class="img3 detail_img" id="img3" src="assets/web/images/phong3.jpeg" alt="Hình ảnh phòng 3">
-                <img class="img4 detail_img" id="img4" src="assets/web/images/phong4.webp" alt="Hình ảnh phòng 4">
-                <img class="img5 detail_img" id="img5" src="assets/web/images/phong5.webp" alt="Hình ảnh phòng 5">
-            </div>
+            <?php
+                if(count($room['images']) > 1) {
+                    ?>
+                    <div class="picture">
+                    <?php
+                    foreach ($room['images'] as $key => $image) {
+            ?>
+                <img class="img<?php echo $key+1;?> detail_img"  src="assets/uploads/rooms/<?php echo $image?>" alt="Hình ảnh phòng 1">
+            <?php
+                    }
+                    ?>
+                     </div>
+                    <?php
+                
+                }
+            ?>
             <div class="row content">
                 <!-- phía bên trái -->
                 <div class="col-lg-9 col-12">

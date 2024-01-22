@@ -22,10 +22,10 @@ class RoomController
 
         switch ($action) {
             case 'list':
-                $this->getRoom();
+                $this->getList();
                 break;   
             case 'detail':
-                $this->getDetailRoom($_GET['id']);
+                $this->getDetail($_GET['id']);
                 break;
             default:
                 // Handle unknown action
@@ -33,17 +33,7 @@ class RoomController
         }
     }
 
-
-
-    private function getDetailRoom($id)
-    {
-        $query = $this->roomModel->getDetailById($id);
-
-        $room = $query->fetch_assoc();
-
-        include 'views/web/rooms/detail.view.php';
-    }
-    private function getRoom()
+    private function getList()
     {
         $rooms = $this->roomModel->getListRoom();
 
@@ -51,5 +41,28 @@ class RoomController
     
     }
 
-    
+    private function getDetail($id)
+    {
+        $query = $this->roomModel->getRoomById($id);
+        $room = [];
+        while($row = $query->fetch_assoc()) {
+            if(empty($room)) {
+                $room['id'] = $row['id'];
+                $room['name'] = $row['name'];
+                $room['bedroom'] = $row['bedroom'];
+                $room['bathroom'] = $row['bathroom'];
+                $room['livingroom'] = $row['livingroom'];
+                $room['type'] = $row['type'];
+                $room['price'] = $row['price'];
+                $room['tax'] = $row['tax'];
+                $room['cleaning_fee'] = $row['cleaning_fee'];
+                $room['description'] = $row['description'];
+                $room['status'] = $row['status'];
+            }
+            $room['images'][] = $row['image'];
+        }
+       
+        include 'views/web/rooms/detail.view.php';
+    }
+
 }
