@@ -39,13 +39,14 @@
             $amount = $booking['total_price'] + $booking['room_tax'] + $booking['cleaning_fee'];
 
             if (isset($_POST['payment'])) {
-                $paymentDate = filter_input(INPUT_POST, 'payment_date', FILTER_SANITIZE_STRING);
-                $amount = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_STRING);
                 $paymentMethod = filter_input(INPUT_POST, 'payment_method', FILTER_SANITIZE_STRING);
                 $status = 1; //Success;
 
-                $this->paymentModel->storePayment($bookingId, $paymentDate, $amount, $paymentMethod, $status);
-                $this->libs->redirectPage('index.php');
+                $payment = $this->paymentModel->storePayment($bookingId, $amount, $paymentMethod, $status);
+                if ($payment) {
+                    $paymentSuccess = true;
+                }
+          
             }
             require_once './views/web/bookings/payment.view.php';
         }

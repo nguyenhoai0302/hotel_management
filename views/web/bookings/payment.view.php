@@ -11,8 +11,7 @@
                     <label for="phone" style="  color: black;
                             font-weight: bold;">Method</label>
                     <select id=" payment_method" class="select-option" name="payment_method" style="border-radius: 5px;background-color: #FDF5E6;">
-                        <option disabled selected value>Credit or Debit card</option>
-                        <option value="1">Credit</option>
+                        <option value="1" selected>Credit</option>
                         <option value="2">Debit card</option>
                     </select>
                 </div>
@@ -65,7 +64,7 @@
                         <hr>
                         <div class="div-total-price d-flex justify-content-between align-content-center">
                             <p class="title-small" style="font-size: smaller;">Total (USD)</p>
-                            <input type="text" name="amount" id="sum" value="<?php echo $amount ?>" readonly>
+                            <input type="text" id="sum" value="<?php echo $amount ?>" readonly>
                         </div>
                     </div>
                 </div>
@@ -75,3 +74,9 @@
 </body>
 <?php include "./views/web/partials/footer.view.php"
 ?>
+<script>
+    <?php if (isset($paymentSuccess) && $paymentSuccess) : ?>
+        alert('Payment successfully!');
+        window.location.href = 'index.php';
+    <?php endif; ?>
+</script>

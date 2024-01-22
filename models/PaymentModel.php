@@ -21,10 +21,10 @@ class PaymentModel extends ConnectDB
         return mysqli_query($this->connect(), $sql);
     }
     // WEB
-    function storePayment($bookingId, $paymentDate, $amount, $paymentMethod, $status)
+    function storePayment($bookingId, $amount, $paymentMethod, $status)
     {
-        $sql = "INSERT INTO payments (booking_id, payment_date, amount, payment_method,  `status`) 
-        VALUES('$bookingId', '$paymentDate', '$amount', '$paymentMethod', '$status')";
+        $sql = "INSERT INTO payments(booking_id, amount, payment_method, `status`) VALUES('$bookingId', '$amount', '$paymentMethod', '$status')";
+       
         return mysqli_query($this->connect(), $sql);
     }
 
