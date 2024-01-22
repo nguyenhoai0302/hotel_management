@@ -97,5 +97,19 @@ class RoomModel extends ConnectDB
         $sql = "SELECT * FROM rooms WHERE id = $id";
         return mysqli_query($this->connect(), $sql);
     }
+
+    function searchRoomByKeyword($keyword)
+    {
+        $sql = "SELECT rooms.id, rooms.name, rooms.bedroom, rooms.bathroom, rooms.livingroom,
+        rooms.price, room_images.image AS `image`
+        FROM rooms
+        LEFT JOIN room_images ON rooms.id = room_images.room_id
+        WHERE rooms.name LIKE '%$keyword%'
+        GROUP BY rooms.id
+        ORDER BY rooms.created_at ";
+
+        return mysqli_query($this->connect(), $sql);
+    }
+
 }
 ?>

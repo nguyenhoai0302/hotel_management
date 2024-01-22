@@ -17,6 +17,9 @@ class HomeController
             case 'home':
                 $this->getHomePage();
                 break;
+            case 'search':
+                $this->searchRoom($_GET['keyword']);
+                break;
             default:
                 # code...
                 break;
@@ -29,6 +32,14 @@ class HomeController
         $rooms = $this->roomModel->getListRoomHomePage();
 
         include 'views/web/index.view.php';
+    
+    }
+
+    private function searchRoom($keyword)
+    {
+        $rooms = $this->roomModel->searchRoomByKeyword($keyword);
+
+        include 'views/web/rooms/search.view.php';
     
     }
     

@@ -39,10 +39,17 @@ if (!isset($_SESSION)) {
         <div class="nav_text"><a class="nav_text" href="index.php?controller=about">ABOUTS US</a></div>
         <div class="nav_text"><a class="nav_text" href="index.php?controller=rooms&action=list">ROOMS</a></div>
         <div class="nav_text nav_text_search">
-            <input type="text" name="nav_input" id="nav_input_search" style="outline: none; padding-left:20px; " placeholder="Search">
-            <button class="material-symbols-outlined" id="search" onclick="search()">
+        <form action="index.php" method="GET">
+            <input type="hidden" name="controller" value="index">
+            <input type="hidden" name="action" value="search">
+            <input type="text" name="keyword" id="nav_input_search" 
+            style="outline: none; padding-left:20px;" 
+            placeholder="Search"
+            value="<?php echo isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '';?>">
+            <button class="material-symbols-outlined" id="search">
                 <i class="fa fa-search" aria-hidden="true"></i>
             </button>
+        </form>
         </div>
         <!-- Trường hợp đăng nhập tài khoản Member -->
         <?php
