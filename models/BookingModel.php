@@ -71,7 +71,12 @@ class BookingModel extends ConnectDB
 
     function getHistoryBooking($userId)
     {
-        $sql = "SELECT * FROM bookings WHERE user_id = $userId ORDER BY created_at DESC";
+        $sql = "SELECT rooms.name AS room_name, bookings.id, bookings.checkin_date, bookings.checkout_date, bookings.total_price, bookings.status, bookings.created_at, bookings.note
+        FROM bookings
+        JOIN rooms
+        ON bookings.room_id = rooms.id
+        WHERE user_id = $userId
+        ORDER BY created_at DESC";
 
         return mysqli_query($this->connect(), $sql);
     }

@@ -8,7 +8,7 @@
             <table class="table table-bordered ">
                 <thead class="table-dark">
                     <tr class="text-center">
-                        <th>Room ID</th>
+                        <th>Room</th>
                         <th>Checkin Date</th>
                         <th>Checkout Date</th>
                         <th>Status</th>
@@ -23,7 +23,7 @@
                         
                     ?>
                     <tr>
-                      <th><?php echo $row['room_id'] ?></th>
+                      <th><?php echo $row['room_name'] ?></th>
                       <td><?php echo $row['checkin_date'] ?></td>
                       <td><?php echo $row['checkout_date'] ?></td>
                       <td>
